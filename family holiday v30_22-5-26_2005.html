@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>טיול משפחתי — בולגריה ומקדוניה 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f3ef;--bg2:#fff;--bg3:#edeae4;--border:rgba(0,0,0,.09);--text:#1e1c18;--muted:#6b6860;--gold:#9a6f1e;--green:#2e7a20;--blue:#1a6a9a;--coral:#b03a1e;--amber:#9a6010;--purple:#4a3ea0;--teal:#1a7060;--r:12px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;font-weight:400;min-height:100vh;}
+
+/* ── HERO WITH PHOTO SLIDESHOW ── */
+.hero{position:relative;overflow:hidden;min-height:320px;}
+.hero-slides{position:absolute;inset:0;z-index:0;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;}
+.hero-slide.active{opacity:1;}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,30,15,.72) 0%,rgba(15,30,50,.6) 50%,rgba(30,15,5,.65) 100%);}
+.hero-content{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+}
+.hero-left{position:absolute;bottom:28px;left:24px;pointer-events:auto;}
+.hero-right{position:absolute;top:18px;right:18px;pointer-events:auto;}
+.hero-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3;}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:background .3s;}
+.hero-dot.active{background:#e8c96a;}
+.he{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e8c96a;margin-bottom:10px;}
+.ht{font-family:'Frank Ruhl Libre',serif;font-size:clamp(26px,5vw,46px);font-weight:900;line-height:1.15;margin-bottom:6px;color:#f5f0e8;}
+.ht span{color:#e8c96a;}
+.hs{font-size:14px;color:rgba(255,255,255,.78);margin-bottom:18px;line-height:1.6;}
+.hstats{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;direction:ltr;}
+.stat{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 14px;text-align:center;backdrop-filter:blur(4px);}
+.stat-n{font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;color:#e8c96a;display:block;}
+.stat-l{font-size:10px;color:rgba(255,255,255,.65);}
+.stat.budget-stat{background:rgba(232,201,106,.18);border-color:rgba(232,201,106,.5);}
+.stat.budget-stat .stat-n{font-size:16px;}
+.nav{display:flex;gap:2px;padding:10px 16px 0;background:var(--bg2);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+.nav::-webkit-scrollbar{display:none;}
+.tb{background:none;border:none;color:var(--muted);font-family:'Heebo',sans-serif;font-size:13px;padding:8px 12px 12px;cursor:pointer;white-space:nowrap;position:relative;transition:color .2s;}
+.tb:hover{color:var(--text);}
+.tb.active{color:var(--gold);font-weight:500;}
+.tb.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);border-radius:2px 2px 0 0;}
+.tab{display:none;padding:18px 14px;}
+.tab.active{display:block;}
+.sec{font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:700;margin-bottom:14px;color:var(--text);}
+.ibox{background:#eef4fb;border:1px solid #a8c8e8;border-radius:8px;padding:11px 14px;font-size:13px;color:#1a4a6a;line-height:1.7;margin-bottom:14px;}
+.sbox{background:#f0faf0;border:1px solid #90c878;border-radius:8px;padding:11px 14px;font-size:13px;color:#1a5010;line-height:1.7;margin-bottom:14px;}
+.wbox{background:#fff8e1;border:1px solid #ffc107;border-radius:8px;padding:11px 14px;font-size:13px;color:#6d4c00;line-height:1.7;margin-bottom:14px;}
+
+/* MAP BUTTON */
+.map-btn-wrap{background:linear-gradient(135deg,#1a3040,#2d4a28);border-radius:var(--r);padding:28px 18px;text-align:center;margin-bottom:14px;}
+.map-btn-title{font-family:'Frank Ruhl Libre',serif;font-size:19px;font-weight:700;color:#f5f0e8;margin-bottom:5px;}
+.map-btn-sub{font-size:12px;color:rgba(255,255,255,.65);margin-bottom:18px;line-height:1.6;}
+.map-open-btn{display:inline-flex;align-items:center;gap:8px;background:#e8c96a;color:#2d1a00;font-family:'Heebo',sans-serif;font-size:15px;font-weight:700;padding:13px 26px;border-radius:10px;text-decoration:none;transition:all .2s;box-shadow:0 3px 12px rgba(0,0,0,.25);}
+.map-open-btn:hover{background:#f0d87a;transform:translateY(-1px);}
+.map-stops{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:16px;}
+.map-stop{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 10px;font-size:11px;color:rgba(255,255,255,.85);}
+.map-note{font-size:12px;color:var(--muted);margin-top:8px;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;line-height:1.7;}
+
+/* STOP PHOTOS */
+.sphoto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;}
+@media(min-width:600px){.sphoto-grid{grid-template-columns:repeat(4,1fr);}}
+.spc{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--bg2);box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:transform 0.2s,box-shadow 0.2s;}
+.spc:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.15);}
+.spc-ph{width:100%;height:110px;display:flex;align-items:center;justify-content:center;font-size:30px;}
+.spc-f{padding:7px 10px;}
+.spc-n{font-size:10px;font-weight:600;color:var(--gold);margin-bottom:1px;}
+.spc-t{font-size:11px;font-weight:500;line-height:1.3;}
+.spc-d{font-size:10px;color:var(--muted);}
+
+/* TIMELINE */
+.rv{display:flex;flex-direction:column;}
+.rv-row{display:flex;gap:10px;}
+.rv-l{display:flex;flex-direction:column;align-items:center;width:20px;}
+.rv-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.rv-ln{width:2px;flex:1;margin-top:3px;opacity:.25;}
+.rv-b{padding-bottom:12px;flex:1;}
+.rv-d{font-size:11px;font-weight:600;margin-bottom:1px;}
+.rv-n{font-size:13px;font-weight:500;}
+.rv-s{font-size:11px;color:var(--muted);line-height:1.5;}
+
+/* DAYS */
+.country-sep{display:flex;align-items:center;gap:10px;margin:18px 0 10px;padding-bottom:8px;border-bottom:2px solid var(--border);}
+.csep-name{font-family:'Frank Ruhl Libre',serif;font-size:17px;font-weight:700;}
+.csep-d{font-size:11px;color:var(--muted);}
+.day-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden;}
+.day-card.shabbat{border-color:#c8a940;border-width:2px;}
+.day-hd{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;}
+.day-icon-wrap{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.day-meta{flex:1;}
+.day-badge{font-size:11px;font-weight:600;color:var(--gold);margin-bottom:2px;display:block;}
+.day-weekday{font-size:11px;color:var(--muted);display:inline-block;margin-right:6px;}
+.day-weekday.shabbat-label{color:#c8a940;font-weight:700;}
+.day-title{font-size:16px;font-weight:700;line-height:1.25;color:var(--text);}
+.day-chev{font-size:14px;color:var(--muted);transition:transform .25s;flex-shrink:0;}
+.day-chev.open{transform:rotate(90deg);}
+.day-body{display:none;border-top:1px solid var(--border);}
+.day-body.open{display:block;}
+.day-emoji-wrap{width:100%;height:120px;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:.35;}
+.day-photo-overlay{background:var(--bg3);padding:8px 16px 10px;display:flex;align-items:center;justify-content:space-between;}
+.day-photo-cap{font-size:11px;color:var(--muted);}
+.day-mapbtn{font-size:11px;color:var(--blue);text-decoration:none;padding:3px 10px;border:1px solid var(--blue);border-radius:5px;white-space:nowrap;}
+.sched-rows{padding:10px 16px 14px;}
+.srow{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--bg3);}
+.srow:last-child{border-bottom:none;}
+.stime{font-size:11px;font-weight:700;color:var(--gold);width:46px;flex-shrink:0;padding-top:2px;}
+.scontent{font-size:13px;line-height:1.6;flex:1;}
+.stip{font-size:11px;color:var(--muted);margin-top:2px;}
+.snite{display:inline-block;font-size:11px;padding:3px 9px;border-radius:6px;background:var(--bg3);border:1px solid var(--border);color:var(--muted);margin-top:8px;}
+/* restaurants */
+.rest-block{margin:10px 16px 14px;background:#fff8f0;border:1px solid #e8c090;border-radius:10px;padding:12px 14px;}
+.rest-title{font-size:12px;font-weight:700;color:var(--amber);margin-bottom:8px;}
+.rest-item{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid #f0d8a0;}
+.rest-item:last-child{border-bottom:none;}
+.rest-emoji{font-size:16px;flex-shrink:0;}
+.rest-name{font-size:13px;font-weight:600;color:var(--text);}
+.rest-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px;}
+.rtag{font-size:10px;padding:1px 6px;border-radius:10px;border:1px solid var(--border);}
+.rtag-gf{background:#eef7e8;color:#286018;border-color:#90c878;}
+.rtag-fish{background:#eef4fb;color:#1a4a6a;border-color:#a8c8e8;}
+.rtag-veg{background:#f0faf0;color:#1a5010;border-color:#90c878;}
+.rtag-ko{background:#fdf5e0;color:#7a5010;border-color:#e0c070;}
+.rest-note{font-size:11px;color:var(--muted);margin-top:2px;}
+/* shabbat banner */
+.shabbat-banner{background:linear-gradient(135deg,#7a5010,#c8a940);border-radius:8px;padding:10px 14px;margin:0 0 10px;color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;}
+
+/* STAYS */
+.sc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px;}
+.sc.feat{border-color:#d4a830;background:#fffdf5;}
+.sc.airport{border-color:#1a6a9a;background:#f0f6fc;}
+.sc-city{font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+.sc-name{font-size:14px;font-weight:600;margin-bottom:5px;}
+.sc-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px;}
+.sc-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.sc-links{display:flex;gap:6px;flex-wrap:wrap;}
+.sl{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;padding:6px 12px;border-radius:7px;text-decoration:none;transition:opacity .2s;}
+.sl:hover{opacity:.85;}
+.sl-b{background:#003580;color:#fff;}
+.sl-a{background:#ff5a5f;color:#fff;}
+.nbg{font-size:10px;padding:2px 8px;border-radius:20px;background:#fdf5e0;color:#7a5010;border:1px solid #e0c070;}
+.pbg{font-size:10px;padding:2px 8px;border-radius:20px;background:#eef7e8;color:#286018;border:1px solid #90c878;}
+.starbadge{font-size:10px;padding:2px 8px;border-radius:20px;background:#fff3cd;color:#856404;border:1px solid #ffc107;}
+.ohrid-opt{background:#fff;border-radius:8px;padding:12px;border:1px solid #e0c070;margin-bottom:8px;}
+.ohrid-opt:last-child{margin-bottom:0;}
+
+/* PHRASEBOOK */
+.phrase-lang-tabs{display:flex;gap:8px;margin-bottom:14px;}
+.pl-tab{padding:6px 16px;border-radius:20px;border:1px solid var(--border);background:none;font-family:'Heebo',sans-serif;font-size:13px;cursor:pointer;color:var(--muted);transition:all .15s;}
+.pl-tab.on{background:var(--text);color:#fff;border-color:var(--text);}
+.phrase-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:16px 0 7px;padding-bottom:5px;border-bottom:1px solid var(--border);}
+.phrase-row{display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:5px;overflow:hidden;}
+.phrase-row:hover{background:#fafaf8;}
+.ph-he{padding:9px 10px;font-size:12px;font-weight:500;border-left:1px solid var(--border);}
+.ph-local{padding:9px 10px;font-size:12px;color:var(--blue);font-weight:600;}
+.ph-pron{padding:9px 10px;font-size:11px;color:var(--muted);font-style:italic;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.phrase-header{display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:7px;overflow:hidden;}
+.ph-head{padding:6px 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.ph-head:not(:last-child){border-left:1px solid var(--border);}
+.audio-btn{background:none;border:1px solid var(--border);border-radius:5px;padding:2px 6px;cursor:pointer;font-size:12px;color:var(--muted);transition:all .15s;flex-shrink:0;}
+.audio-btn:hover{background:var(--bg3);color:var(--blue);}
+.audio-btn.playing{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+/* TIPS */
+.tg{display:grid;grid-template-columns:1fr;gap:8px;}
+@media(min-width:540px){.tg{grid-template-columns:1fr 1fr;}}
+.tip{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px;display:flex;gap:10px;}
+.tico{font-size:20px;flex-shrink:0;}
+.ttl{font-size:12px;font-weight:600;margin-bottom:2px;}
+.ttxt{font-size:11px;color:var(--muted);line-height:1.6;}
+
+/* GEAR */
+.gear-section{margin-bottom:20px;}
+.gear-title{font-family:'Frank Ruhl Libre',serif;font-size:15px;font-weight:700;margin-bottom:10px;padding:10px 14px;border-radius:10px;display:flex;align-items:center;gap:8px;}
+.gear-grid{display:grid;grid-template-columns:1fr;gap:5px;}
+@media(min-width:480px){.gear-grid{grid-template-columns:1fr 1fr;}}
+.gear-item{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:9px 12px;display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
+.gear-item:hover{background:#fafaf7;}
+.gear-cb{width:17px;height:17px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;background:var(--bg3);transition:all .2s;}
+.gear-cb.chk{background:var(--green);border-color:var(--green);}
+.gear-cb.chk::after{content:'✓';color:#fff;font-size:10px;}
+.gear-name{font-size:12px;font-weight:500;flex:1;}
+.gear-note{font-size:10px;color:var(--muted);margin-top:1px;}
+.gear-progress{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:14px;}
+.gear-progress-fill{height:100%;background:var(--green);border-radius:3px;transition:width .3s;}
+
+/* ===== UNIFIED BUDGET ===== */
+.budget-overview{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:16px;}
+@media(min-width:500px){.budget-overview{grid-template-columns:repeat(4,1fr);}}
+.bov{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:11px;text-align:center;}
+.bov-val{font-size:17px;font-weight:700;color:var(--gold);display:block;margin-bottom:2px;}
+.bov-lbl{font-size:10px;color:var(--muted);}
+.diff-pos{color:var(--green)!important;}
+.diff-neg{color:var(--coral)!important;}
+
+/* Category accordion */
+.bcat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);margin-bottom:8px;overflow:hidden;}
+.bcat-hd{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none;}
+.bcat-icon{font-size:22px;flex-shrink:0;}
+.bcat-info{flex:1;}
+.bcat-name{font-size:14px;font-weight:700;}
+.bcat-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.bcat-amounts{text-align:left;flex-shrink:0;}
+.bcat-plan{font-size:12px;color:var(--muted);}
+.bcat-act{font-size:14px;font-weight:700;color:var(--green);}
+.bcat-chev{font-size:13px;color:var(--muted);transition:transform .25s;flex-shrink:0;}
+.bcat-chev.open{transform:rotate(90deg);}
+.bcat-body{display:none;border-top:1px solid var(--border);}
+.bcat-body.open{display:block;}
+
+/* Budget table inside category */
+.bcat-table{width:100%;border-collapse:collapse;font-size:12px;}
+.bcat-table th{text-align:right;padding:7px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--bg3);border-bottom:1px solid var(--border);}
+.bcat-table td{padding:8px 12px;border-bottom:1px solid var(--bg3);vertical-align:middle;}
+.bcat-table tr:last-child td{border-bottom:none;}
+.bcat-table tr:hover td{background:#fafaf7;}
+.td-day{font-weight:600;font-size:12px;white-space:nowrap;}
+.td-dow{font-size:10px;color:var(--muted);display:block;font-weight:400;}
+.td-dow.shab{color:#c8a940;font-weight:700;}
+.td-plan{color:var(--muted);font-size:12px;}
+.td-inp input{width:72px;border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-family:'Heebo',sans-serif;font-size:12px;text-align:center;background:#fff;color:var(--text);}
+.td-inp input:focus{outline:none;border-color:var(--gold);}
+.td-note{font-size:11px;color:var(--muted);}
+.bcat-foot td{background:#fdf5e0;font-weight:700;font-size:12px;padding:9px 12px;border-top:2px solid var(--border);}
+/* fixed cost section */
+.fixed-costs{padding:14px 16px;}
+.fixed-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bg3);}
+.fixed-row:last-child{border-bottom:none;}
+.fixed-label{flex:1;font-size:13px;}
+.fixed-sub{font-size:11px;color:var(--muted);display:block;}
+.fixed-plan{font-size:13px;color:var(--muted);width:80px;text-align:center;flex-shrink:0;}
+.fixed-inp{width:80px;flex-shrink:0;}
+.fixed-inp input{width:100%;border:1px solid var(--border);border-radius:5px;padding:5px 6px;font-family:'Heebo',sans-serif;font-size:13px;text-align:center;background:#fff;}
+.fixed-inp input:focus{outline:none;border-color:var(--gold);}
+.fixed-status{font-size:11px;width:70px;text-align:center;flex-shrink:0;}
+
+/* ── BUDGET SUB-TABS ── */
+.stab-nav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;background:var(--bg3);padding:6px;border-radius:10px;}
+.stab-btn{flex:1;min-width:80px;padding:8px 10px;border-radius:8px;border:none;background:transparent;font-family:'Heebo',sans-serif;font-size:12px;font-weight:500;cursor:pointer;color:var(--muted);transition:all .15s;text-align:center;}
+.stab-btn.on{background:var(--bg2);color:var(--text);font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+.stab-btn.on.flights-btn{color:var(--blue);}
+.stab-btn.on.hotel-btn{color:var(--gold);}
+.stab-btn.on.car-btn{color:var(--teal);}
+.stab-btn.on.daily-btn{color:var(--green);}
+.stab-pane{display:none;}
+.stab-pane.on{display:block;}
+
+
+@media(max-width:600px){
+  .hero-right{top:10px;right:10px;}
+  .hero-left{bottom:16px;left:12px;}
+  .stat{padding:6px 10px;}
+}
+
+/* Station rows — image left, content right */
+.station-row{display:flex;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--bg2);margin-bottom:14px;transition:box-shadow 0.2s;}
+.station-row:hover{box-shadow:0 4px 18px rgba(0,0,0,0.13);}
+.station-img{width:220px;min-width:220px;position:relative;flex-shrink:0;}
+.station-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.station-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:140px;}
+.station-img-btn{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.6);color:white;border:none;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:Heebo,sans-serif;}
+.station-body{flex:1;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;direction:rtl;}
+.station-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.station-flag{font-size:1.1rem;}
+.station-num{font-size:11px;font-weight:700;color:var(--gold);background:rgba(232,201,106,0.12);border-radius:20px;padding:2px 8px;}
+.station-name{font-size:1.15rem;font-weight:800;color:var(--text);}
+.station-days{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.station-highlights{font-size:13px;color:var(--text);line-height:1.7;margin-bottom:12px;flex:1;}
+.station-highlights span{display:inline-block;margin-left:6px;}
+.station-maps-btn{display:inline-flex;align-items:center;gap:6px;background:#1a73e8;color:white;text-decoration:none;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:600;font-family:Heebo,sans-serif;width:fit-content;}
+.station-maps-btn:hover{background:#1557b0;}
+.station-border{border-right:4px solid var(--gold);}
+@media(max-width:580px){
+  .station-row{flex-direction:column;}
+  .station-img{width:100%;min-width:unset;height:180px;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <!-- Photo slideshow — Unsplash photos of Bulgaria & Macedonia -->
+  <div class="hero-slides" id="hero-slides">
+    <!-- אוהריד, מקדוניה — האגם והעיר העתיקה -->
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=85&fit=crop'),linear-gradient(160deg,#1a3040,#2d4a28)" data-cap="🌊 אגם אוהריד, מקדוניה"></div>
+    <!-- ריאלה, בולגריה — המנזר בהרים -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1555861496-0666c8981751?w=1400&q=85&fit=crop'),linear-gradient(160deg,#2d3a1a,#1a3040)" data-cap="⛪ מנזר ריאלה, בולגריה"></div>
+    <!-- פלובדיב, בולגריה -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1400&q=85&fit=crop'),linear-gradient(160deg,#2d1a10,#1a3040)" data-cap="🏺 פלובדיב, בולגריה"></div>
+    <!-- הרי פירין -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=85&fit=crop'),linear-gradient(160deg,#1a2a40,#2d4028)" data-cap="🏔️ הרי פירין ושבעת האגמים, בולגריה"></div>
+    <!-- סקופיה -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1592492152545-9695d3f473f4?w=1400&q=85&fit=crop'),linear-gradient(160deg,#1a3040,#2d1a30)" data-cap="🎭 סקופיה, מקדוניה הצפונית"></div>
+  </div>
+  <div style="position:absolute;bottom:32px;right:18px;z-index:3;font-size:10px;color:rgba(255,255,255,.55);font-style:italic;" id="photo-cap">🌊 אגם אוהריד, מקדוניה</div>
+  <div class="hero-dots" id="hero-dots"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="he">🗺 מסלול מעגלי · 1–14 יולי 2026</div>
+      <h1 class="ht">בולגריה <span>&</span> מקדוניה</h1>
+      <p class="hs">יובל · אסתי · אופק · שוהם · נופר · 14 ימים · שש"ת בפלובדיב ואוהריד!</p>
+    </div>
+    <div class="hero-right">
+      <div class="hstats">
+        <div class="stat"><span class="stat-n">14</span><span class="stat-l">ימים</span></div>
+        <div class="stat"><span class="stat-n">~1,000</span><span class="stat-l">ק"מ מעגל</span></div>
+        <div class="stat"><span class="stat-n">2</span><span class="stat-l">מעברי גבול</span></div>
+        <div class="stat budget-stat"><span class="stat-n" id="hero-budget-disp">💰 ~23,000₪</span><span class="stat-l" id="hero-budget-lbl">תקציב כולל (תכנון)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <button class="tb active" onclick="ST('route',this)">🗺 מסלול</button>
+  <button class="tb" onclick="ST('days',this)">📅 יומי</button>
+  <button class="tb" onclick="ST('flights_main',this)">✈️ טיסות</button>
+  <button class="tb" onclick="ST('stays',this)">🏨 לינה</button>
+  <button class="tb" onclick="ST('carrent',this)">🚗 רכב</button>
+  <button class="tb" onclick="ST('budget_daily',this)">💰 תקציב</button>
+  <button class="tb" onclick="ST('phrase',this)">💬 שיחון</button>
+  <button class="tb" onclick="ST('tips',this)">💡 טיפים</button>
+  <button class="tb" onclick="ST('chk',this)">✅ צ'קליסט</button>
+  <button class="tb" onclick="ST('gear',this)">🎒 ציוד</button>
+</nav>
+
+<!-- ===== ROUTE ===== -->
+<div id="route" class="tab active">
+  <div class="sec">מסלול מעגלי — 2 מעברי גבול 🎉</div>
+  <div class="map-btn-wrap">
+    <div class="map-btn-title">🗺️ המסלול המלא — 9 עצירות</div>
+    <div class="map-btn-sub">סופיה · פלובדיב · בנסקו · קופריבשטיצה · מלניק · אוהריד · סקופיה · ריאלה · סופיה<br>שש"ת בפלובדיב (3–4/7) ובאוהריד (10–11/7) ✨</div>
+    <a class="map-open-btn" href="https://www.google.com/maps/dir/%D7%A1%D7%95%D7%A4%D7%99%D7%94,+%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94/%D7%A7%D7%95%D7%A4%D7%A8%D7%99%D7%91%D7%A9%D7%98%D7%99%D7%A6%D7%94,+2077,+%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94/%D7%A4%D7%9C%D7%95%D7%91%D7%93%D7%99%D7%91,+%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94/%D7%91%D7%A0%D7%A1%D7%A7%D7%95,+2770,+%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94/%D7%9E%D7%9C%D7%A0%D7%99%D7%A7,+2820,+%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94/%D7%90%D7%95%D7%97%D7%A8%D7%99%D7%93,+%D7%9E%D7%A7%D7%93%D7%95%D7%A0%D7%99%D7%94+%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99%D7%AA/%D7%A1%D7%A7%D7%95%D7%A4%D7%99%D7%94,+%D7%9E%D7%A7%D7%93%D7%95%D7%A0%D7%99%D7%94+%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99%D7%AA/%D7%9E%D7%A0%D7%96%D7%A8+%D7%A8%D7%99%D7%9C%D7%94,+2643+Rilski+Manastir,+Kiustendil,+%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94/%D7%A1%D7%95%D7%A4%D7%99%D7%94,+%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94" target="_blank">🗺️ פתח ב-Google Maps</a>
+    <div class="map-stops">
+      <span class="map-stop">1 · סופיה 🇧🇬</span><span class="map-stop">2 · פלובדיב 🇧🇬</span><span class="map-stop">3 · בנסקו 🇧🇬</span><span class="map-stop">4 · מלניק 🇧🇬</span><span class="map-stop">🛂 גבול</span><span class="map-stop">5 · אוהריד 🇲🇰</span><span class="map-stop">6 · סקופיה 🇲🇰</span><span class="map-stop">7 · ריאלה 🇧🇬</span><span class="map-stop">8 · סופיה 🇧🇬</span>
+    </div>
+  </div>
+  <div class="map-note">🟡 <strong>מסלול מעגלי:</strong> סופיה ← פלובדיב ← בנסקו ← קופריבשטיצה/מלניק ← [גבול Zlatarevo] ← ביטולה ← אוהריד ← סקופיה ← ריאלה ← סופיה<br>✅ גבול אחד בלבד | 🕍 שש"ת: פלובדיב (3–4/7) ואוהריד (10–11/7)</div>
+
+  <div class="sec" style="margin-top:20px;">עצירות הטיול</div>
+  <div id="sphoto-grid"></div>
+
+  <div class="sec">סדר המסלול</div>
+  <div class="rv" id="rv"></div>
+
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-top:14px;">
+    <div style="font-size:13px;font-weight:600;margin-bottom:10px;">🚗 מרחקי נסיעה עיקריים</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:right;padding:6px 8px;color:var(--muted);font-size:10px;">מ</th><th style="text-align:right;padding:6px 8px;color:var(--muted);font-size:10px;">ל</th><th style="text-align:center;padding:6px 8px;color:var(--muted);font-size:10px;">ק"מ</th><th style="text-align:center;padding:6px 8px;color:var(--muted);font-size:10px;">זמן</th></tr></thead>
+      <tbody id="dist-table"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== DAYS ===== -->
+<div id="days" class="tab">
+  <div class="ibox">לחצו על כל יום לפרטים · 🕍 שישי–שבת: פלובדיב (3–4/7) ואוהריד (10–11/7) · יום 12 = מאטקה+סקופיה · יום 13 = ריאלה+סופיה · יום 14 = טיסה<br>🐟 כל המסעדות: ללא גלוטן לאסתי + ללא בשר + דגים מותרים</div>
+  <div id="days-list"></div>
+</div>
+
+<!-- ===== STAYS ===== -->
+<div id="stays" class="tab">
+  <div class="sec">🏨 לינה — מקומות מאושרים</div>
+  <div class="sbox">✅ כל הלינות נבחרו! סה"כ: <strong>₪4,923</strong> · 13 לילות · ממוצע ₪359/לילה</div>
+
+  <!-- helper style for lodging cards -->
+  <style>
+    .lcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px;}
+    .lcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;}
+    .lcard-info{flex:1;}
+    .lcard-city{font-size:11px;color:var(--muted);margin-bottom:3px;}
+    .lcard-name{font-size:15px;font-weight:700;margin-bottom:4px;}
+    .lcard-meta{font-size:12px;color:var(--muted);}
+    .lcard-price{font-size:22px;font-weight:700;color:var(--green);white-space:nowrap;}
+    .lcard-btns{display:flex;gap:6px;flex-wrap:wrap;}
+    .lbtn{display:inline-flex;align-items:center;gap:5px;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:600;text-decoration:none;border:none;cursor:pointer;}
+    .lbtn-book{background:#003580;color:#fff;}
+    .lbtn-airbnb{background:#ff5a5f;color:#fff;}
+    .lbtn-map{background:#e8f0fe;color:#1a73e8;border:1px solid #c5d8f8;}
+    .lbtn-search{background:var(--bg3);color:var(--text);border:1px solid var(--border);}
+    .shab-badge{display:inline-block;background:#c8a940;color:#fff;border-radius:5px;padding:2px 8px;font-size:10px;font-weight:700;margin-right:6px;}
+  </style>
+
+  <!-- סופיה 1 -->
+  <div class="lcard">
+    <div class="lcard-top">
+      <div class="lcard-info">
+        <div class="lcard-city">🇧🇬 סופיה · 1–3/7 · רביעי–חמישי · 2 לילות</div>
+        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/1429913693878976754?adults=2&check_in=2026-07-01&check_out=2026-07-03&children=3&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏠 בית חלומות A21 ↗</a></div>
+        <div class="lcard-meta">₪429/לילה · ביטול גמיש · 2 חדרי שינה + מטבח</div>
+      </div>
+      <div class="lcard-price">₪857</div>
+    </div>
+    <div class="lcard-btns">
+      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=A21+Sofia&checkin=2026-07-01&checkout=2026-07-03&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking</a>
+      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Sofia--Bulgaria/homes?checkin=2026-07-01&checkout=2026-07-03&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
+      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=A21+Dream+Home+Sofia+Bulgaria" target="_blank">📍 מפה</a>
+      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Sofia+center&checkin=2026-07-01&checkout=2026-07-03&group_adults=2&group_children=3&no_rooms=2&nflt=review_score%3D80" target="_blank">🔍 חיפוש כללי</a>
+    </div>
+  </div>
+
+  <!-- פלובדיב -->
+  <div class="lcard" style="border-color:#c8a940;border-width:2px;">
+    <div class="lcard-top">
+      <div class="lcard-info">
+        <div class="lcard-city">🇧🇬 פלובדיב · 3–6/7 · שישי–שבת 🕍 · 3 לילות</div>
+        <div class="lcard-name"><a href="https://www.booking.com/hotel/bg/all-seasons-plovdiv-fast-wi-fi-ac-balconies.he.html?aid=304142&label=gen173nr-10CAsoF0IGZGluYXRpSA5YBGhqiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAL85sPOBsACAdICJDQ3ZTc3MGJlLWFkNTQtNDNlYi1iOTU2LTk2ODhkMDAxOTcwONgCAeACAQ&sid=2029425edaf79673917d60827babc37e&age=15&age=17&age=9&all_sr_blocks=1505253601_422283726_5_0_0&checkin=2026-07-03&checkout=2026-07-05&dest_id=-837298&dest_type=city&dist=0&group_adults=2&group_children=3&no_rooms=2&room1=A%2C9&room2=A%2C15%2C17&sb_price_type=total&type=total&ucfs=1&" target="_blank" style="color:var(--text);text-decoration:none;">🏠 All Seasons Plovdiv — Fast Wi-Fi, AC, Balconies ↗</a> <span class="shab-badge">שש"ת</span></div>
+        <div class="lcard-meta">₪342/לילה · Wi-Fi מהיר · מרפסות · מטבח</div>
+      </div>
+      <div class="lcard-price">₪889</div>
+    </div>
+    <div class="lcard-btns">
+      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=All+Seasons+Plovdiv&checkin=2026-07-03&checkout=2026-07-05&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking</a>
+      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Plovdiv--Bulgaria/homes?checkin=2026-07-03&checkout=2026-07-05&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
+      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=All+Seasons+Plovdiv+Apartment" target="_blank">📍 מפה</a>
+      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Plovdiv+old+town&checkin=2026-07-03&checkout=2026-07-05&group_adults=2&group_children=3&no_rooms=2" target="_blank">🔍 חיפוש כללי</a>
+    </div>
+  </div>
+
+  <!-- בנסקו -->
+  <div class="lcard">
+    <div class="lcard-top">
+      <div class="lcard-info">
+        <div class="lcard-city">🇧🇬 בנסקו (רחלוג) · 6–8/7 · שני–שלישי · 2 לילות</div>
+        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/982595284052182757?adults=2&check_in=2026-07-05&check_out=2026-07-08&children=3&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏠 דירה מרווחת ונעימה ברזלוג ↗</a></div>
+        <div class="lcard-meta">₪248/לילה · ליד בנסקו · שקט ומרווח · מטבח</div>
+      </div>
+      <div class="lcard-price">₪496</div>
+    </div>
+    <div class="lcard-btns">
+      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=Razlog+Bansko&checkin=2026-07-06&checkout=2026-07-08&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking — רחלוג</a>
+      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Razlog--Bulgaria/homes?checkin=2026-07-06&checkout=2026-07-08&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
+      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=Razlog+Bulgaria" target="_blank">📍 מפה</a>
+      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Bansko+Razlog&checkin=2026-07-06&checkout=2026-07-08&group_adults=2&group_children=3&no_rooms=2" target="_blank">🔍 חיפוש כללי</a>
+    </div>
+  </div>
+
+  <!-- אוהריד -->
+  <div class="lcard" style="border-color:#c8a940;border-width:2px;">
+    <div class="lcard-top">
+      <div class="lcard-info">
+        <div class="lcard-city">🇲🇰 אוהריד · 8–12/7 · רביעי–ראשון 🕍 · 4 לילות</div>
+        <div class="lcard-name"><a href="https://www.booking.com/hotel/mk/pearl-apartments.he.html?aid=304142&label=gen173nr-10CBkoggI46AdIDlgEaGqIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ArSexM4GwAIB0gIkNzViYWRkY2QtN2JmOS00YzQyLTkzODItNmVhMmIzODZlNTIz2AIB4AIB&sid=2029425edaf79673917d60827babc37e&age=15&age=17&age=9&all_sr_blocks=725856202_370352173_3_0_0%2C725856201_370352173_3_0_0&checkin=2026-07-08&checkout=2026-07-12&dest_id=-90608&dest_type=city&dist=0&group_adults=2&group_children=3&no_rooms=1&room1=A%2CA%2C9%2C15%2C17&sb_price_type=total&type=total&ucfs=1&" target="_blank" style="color:var(--text);text-decoration:none;">🏠 Pearl Apartments ↗</a> <span class="shab-badge">שש"ת</span></div>
+        <div class="lcard-meta">₪469/לילה · 4 לילות · מטבח · ליד האגם</div>
+      </div>
+      <div class="lcard-price">₪1,877</div>
+    </div>
+    <div class="lcard-btns">
+      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=Pearl+Apartments+Ohrid&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking</a>
+      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Ohrid--North-Macedonia/homes?checkin=2026-07-08&checkout=2026-07-12&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
+      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=Pearl+Apartments+Ohrid+Macedonia" target="_blank">📍 מפה</a>
+      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Ohrid+lake+view&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=2&nflt=review_score%3D80" target="_blank">🔍 חיפוש כללי</a>
+    </div>
+  </div>
+
+  <!-- סקופיה -->
+  <div class="lcard">
+    <div class="lcard-top">
+      <div class="lcard-info">
+        <div class="lcard-city">🇲🇰 סקופיה · 12–13/7 · ראשון · לילה 1</div>
+        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/940284084833501120?adults=2&check_in=2026-07-12&check_out=2026-07-13&children=3&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏨 דירת יוקרה בקומה ה-19 עם בריכה, חדר כושר ונוף לעיר ↗</a></div>
+        <div class="lcard-meta">₪284/לילה · בריכה · חדר כושר · נוף פנורמי · כשר</div>
+      </div>
+      <div class="lcard-price">₪284</div>
+    </div>
+    <div class="lcard-btns">
+      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=19th+floor+luxury+Skopje+kosher&checkin=2026-07-12&checkout=2026-07-13&group_adults=2&group_children=3&no_rooms=1" target="_blank">📘 Booking</a>
+      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Skopje--North-Macedonia/homes?checkin=2026-07-12&checkout=2026-07-13&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
+      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=19th+floor+luxury+apartment+Skopje" target="_blank">📍 מפה</a>
+      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Skopje+center&checkin=2026-07-12&checkout=2026-07-13&group_adults=2&group_children=3&no_rooms=1" target="_blank">🔍 חיפוש כללי</a>
+    </div>
+  </div>
+
+  <!-- סופיה 2 -->
+  <div class="lcard">
+    <div class="lcard-top">
+      <div class="lcard-info">
+        <div class="lcard-city">🇧🇬 סופיה · 13–14/7 · שני · לילה 1 לפני טיסה</div>
+        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/1346543086153534143?adults=2&check_in=2026-07-13&check_out=2026-07-14&children=3&location=Sofia%2C%20Bulgaria&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏨 The Boulevard Luxury Apartment 2 ↗</a></div>
+        <div class="lcard-meta">₪382/לילה · בולוורד ראשי · ליד שד"ת · מאובזר</div>
+      </div>
+      <div class="lcard-price">₪382</div>
+    </div>
+    <div class="lcard-btns">
+      <a class="lbtn lbtn-book" href="https://www.booking.com/hotel/bg/the-boulevard-luxury-apartment-3.he.html?checkin=2026-07-13&checkout=2026-07-14&group_adults=2&group_children=3" target="_blank">📘 Booking</a>
+      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Sofia--Bulgaria/homes?checkin=2026-07-13&checkout=2026-07-14&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
+      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=Boulevard+Luxury+Apartment+Sofia+Bulgaria" target="_blank">📍 מפה</a>
+      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Sofia+airport+hotel&checkin=2026-07-13&checkout=2026-07-14&group_adults=2&group_children=3&no_rooms=1" target="_blank">🔍 חיפוש ליד שד"ת</a>
+    </div>
+  </div>
+
+  <!-- סיכום -->
+  <div style="background:linear-gradient(135deg,#1a3040,#2d4a28);border-radius:var(--r);padding:16px;color:#f5f0e8;">
+    <div style="font-size:13px;font-weight:700;color:#e8c96a;margin-bottom:10px;">📊 סיכום לינה</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:12px;">
+      <div>סופיה 1–2/7 (2 לילות)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪857</div>
+      <div>פלובדיב 3–5/7 (3 לילות 🕍)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪1,027</div>
+      <div>בנסקו/רחלוג 6–7/7 (2 לילות)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪496</div>
+      <div>אוהריד 8–11/7 (4 לילות 🕍)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪1,877</div>
+      <div>סקופיה 12/7 (לילה 1)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪284</div>
+      <div>סופיה 13/7 (לילה 1)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪382</div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:6px;font-weight:700;">סה"כ · 13 לילות</div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:6px;text-align:left;font-weight:700;color:#e8c96a;font-size:16px;">₪4,923</div>
+    </div>
+    <div style="margin-top:8px;font-size:10px;color:rgba(255,255,255,.5);">ממוצע ₪359/לילה · שתי שש"ת מובנות</div>
+  </div>
+</div>
+
+<div id="carrent" class="tab">
+  <div class="sec">🚗 🚗 רכב שכור — ✅ מאושר</div>
+  <div class="ibox" style="background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.3);color:#4ade80;">✅ הזמנה מאושרת · מספר הזמנה: 735956283 · VW Passat GPS · ₪2,655 שולם · ₪216 בעת האיסוף</div>
+
+  <!-- ⭐ הצעה ספציפית שנמצאה -->
+  <div style="background:linear-gradient(135deg,#003580,#1a5aaa);border-radius:var(--r);padding:18px;margin-bottom:18px;color:#fff;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <span style="font-size:2rem;">🚗</span>
+      <div>
+        <div style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#a8c8f8;margin-bottom:2px;">✅ מאושר — Booking Cars</div>
+        <div style="font-size:18px;font-weight:700;">Volkswagen Passat GPS</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.75);">מס' הזמנה: 735956283</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;font-size:13px;">
+      <div><div style="color:#a8c8f8;font-size:11px;margin-bottom:2px;">📅 איסוף</div><div style="font-weight:600;">ד' 1/7 · 12:00</div><div style="color:rgba(255,255,255,.7);font-size:11px;">נמל התעופה סופיה</div></div>
+      <div><div style="color:#a8c8f8;font-size:11px;margin-bottom:2px;">📅 החזרה</div><div style="font-weight:600;">ג' 14/7 · 12:00</div><div style="color:rgba(255,255,255,.7);font-size:11px;">נמל התעופה סופיה</div></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;font-size:12px;">
+      <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:20px;">❄️ ממוזג</span>
+      <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:20px;">⚙️ אוטומטי</span>
+      <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:20px;">👥 5 מושבים</span>
+      <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:20px;">🗺️ GPS</span>
+      <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:20px;">🧳 3+3 מזוודות</span>
+      <span style="background:rgba(255,255,255,.15);padding:3px 8px;border-radius:20px;">🚪 5 דלתות</span>
+    </div>
+    <div style="background:rgba(0,0,0,.2);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
+      <div style="font-size:11px;color:#a8c8f8;margin-bottom:6px;">פירוט עלויות</div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span>שכירות 13 ימים</span><span style="color:#4ade80;font-weight:700;">₪2,655 ✅ שולם</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span>Wi-Fi נייד</span><span>₪32</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span>נהג נוסף</span><span>₪184</span></div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);margin-top:6px;padding-top:6px;display:flex;justify-content:space-between;font-size:14px;font-weight:700;"><span>סה"כ</span><span style="color:#fbbf24;">₪2,871</span></div>
+    </div>
+    <a href="https://cars.booking.com/my-booking/wVuKGl14BavKpUHMrjOfusGh5ZWRshkbApUyih4moJRsJtqXfbEU9GbtMgW6DH0Ukqqxa6_MFK6jvshzsPIXlud-WJ8A-ZrEi5f8P2P3Gyp5j3EtQwNWLFRbw36jnZEq_fcrYCHIkNnfG9wWIR1R2w" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;">🔗 צפייה בהזמנה</a>
+  </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.7;">
+      <strong>🛂 כניסה למקדוניה</strong> — חובה לאשר עם חברת הרכב בכתב שמותר לנסוע לצפון מקדוניה. בקשו "cross-border permit for North Macedonia".
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.7;">
+      <strong>🛡️ ביטוח מומלץ</strong> — CDW (Collision Damage Waiver) + Theft Protection + ביטוח לצמיגים/שמשה. אל תוותרו.
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.7;">
+      <strong>🚙 סוג רכב</strong> — SUV או מיניוואן 7 מקומות (5 נוסעים + מזוודות). ציינו: "7-seater" או "large SUV". לחלופין — 2 מכוניות רגילות.
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.7;">
+      <strong>💳 כרטיס אשראי</strong> — נדרש כרטיס אשראי (לא דביט) על שם הנהג הראשי. ודאו שיש מסגרת מספיקה לבלוק ערובה.
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.7;">
+      <strong>⛽ דלק</strong> — קבלו את הרכב עם מיכל מלא וחזירו מלא. בולגריה: ~2.7–3 BGN לליטר (~6₪). מקדוניה: ~80–85 MKD (~5.2₪).
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== FLIGHTS MAIN TAB ===== -->
+<div id="flights_main" class="tab">
+    <div class="sec">✈️ טיסות — אל על · ZFB7C2</div>
+  <div class="sbox">✅ כל 5 הכרטיסים הוזמנו ושולמו!</div>
+
+  <!-- פרטי הטיסות -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:12px;">
+
+    <!-- הלוך -->
+    <div style="background:linear-gradient(135deg,#003580,#1a5aaa);padding:12px 16px;color:#fff;">
+      <div style="font-size:11px;color:rgba(255,255,255,.7);margin-bottom:2px;">✈️ טיסת הלוך</div>
+      <div style="font-size:16px;font-weight:700;">LY551 · ת"א (TLV) ← סופיה (SOF)</div>
+      <div style="display:flex;gap:20px;margin-top:6px;font-size:13px;">
+        <div><span style="color:rgba(255,255,255,.65)">יציאה</span><br><strong>07:15 — 1/7/2026</strong></div>
+        <div><span style="color:rgba(255,255,255,.65)">נחיתה</span><br><strong>09:50 — 1/7/2026</strong></div>
+        <div><span style="color:rgba(255,255,255,.65)">טרמינל</span><br><strong>3 → 2</strong></div>
+        <div><span style="color:rgba(255,255,255,.65)">משך</span><br><strong>2:35 שע'</strong></div>
+      </div>
+    </div>
+
+    <!-- חזרה -->
+    <div style="background:linear-gradient(135deg,#1a5aaa,#003580);padding:12px 16px;color:#fff;border-top:1px solid rgba(255,255,255,.15);">
+      <div style="font-size:11px;color:rgba(255,255,255,.7);margin-bottom:2px;">✈️ טיסת חזור</div>
+      <div style="font-size:16px;font-weight:700;">LY552 · סופיה (SOF) ← ת"א (TLV)</div>
+      <div style="display:flex;gap:20px;margin-top:6px;font-size:13px;">
+        <div><span style="color:rgba(255,255,255,.65)">יציאה</span><br><strong>11:05 — 14/7/2026</strong></div>
+        <div><span style="color:rgba(255,255,255,.65)">נחיתה</span><br><strong>13:30 — 14/7/2026</strong></div>
+        <div><span style="color:rgba(255,255,255,.65)">טרמינל</span><br><strong>2 → 3</strong></div>
+        <div><span style="color:rgba(255,255,255,.65)">משך</span><br><strong>2:25 שע'</strong></div>
+      </div>
+    </div>
+
+    <!-- טבלת נוסעים -->
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="background:var(--bg3);border-bottom:1px solid var(--border);">
+            <th style="text-align:right;padding:9px 12px;font-size:11px;color:var(--muted);">נוסע</th>
+            <th style="text-align:center;padding:9px 12px;font-size:11px;color:var(--muted);">סוג</th>
+            <th style="text-align:center;padding:9px 12px;font-size:11px;color:var(--muted);">מושב הלוך<br>LY551</th>
+            <th style="text-align:center;padding:9px 12px;font-size:11px;color:var(--muted);">מושב חזור<br>LY552</th>
+            <th style="text-align:center;padding:9px 12px;font-size:11px;color:var(--muted);">מזוודה</th>
+            <th style="text-align:right;padding:9px 12px;font-size:11px;color:var(--muted);">מס' כרטיס</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--bg3);">
+            <td style="padding:10px 12px;font-weight:700;">יובל</td>
+            <td style="text-align:center;padding:10px 12px;"><span style="font-size:11px;background:#eef4fb;color:#1a4a6a;border-radius:4px;padding:2px 7px;">מבוגר</span></td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38H</td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38K</td>
+            <td style="text-align:center;padding:10px 12px;">1PC ✅</td>
+            <td style="padding:10px 12px;font-size:11px;color:var(--muted);">...226454</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg3);background:#fafaf8;">
+            <td style="padding:10px 12px;font-weight:700;">אסתי</td>
+            <td style="text-align:center;padding:10px 12px;"><span style="font-size:11px;background:#eef4fb;color:#1a4a6a;border-radius:4px;padding:2px 7px;">מבוגר</span></td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38K</td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38H</td>
+            <td style="text-align:center;padding:10px 12px;">1PC ✅</td>
+            <td style="padding:10px 12px;font-size:11px;color:var(--muted);">...226455</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg3);">
+            <td style="padding:10px 12px;font-weight:700;">אופק</td>
+            <td style="text-align:center;padding:10px 12px;"><span style="font-size:11px;background:#eef4fb;color:#1a4a6a;border-radius:4px;padding:2px 7px;">מבוגר</span></td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38B</td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38B</td>
+            <td style="text-align:center;padding:10px 12px;">1PC ✅</td>
+            <td style="padding:10px 12px;font-size:11px;color:var(--muted);">...226456</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bg3);background:#fafaf8;">
+            <td style="padding:10px 12px;font-weight:700;">שוהם</td>
+            <td style="text-align:center;padding:10px 12px;"><span style="font-size:11px;background:#eef4fb;color:#1a4a6a;border-radius:4px;padding:2px 7px;">מבוגר</span></td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38C</td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38C</td>
+            <td style="text-align:center;padding:10px 12px;">1PC ✅</td>
+            <td style="padding:10px 12px;font-size:11px;color:var(--muted);">...226452</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px;font-weight:700;">נופר</td>
+            <td style="text-align:center;padding:10px 12px;"><span style="font-size:11px;background:#eef7e8;color:#286018;border-radius:4px;padding:2px 7px;">ילד</span></td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38J</td>
+            <td style="text-align:center;padding:10px 12px;font-weight:600;color:var(--blue);">38J</td>
+            <td style="text-align:center;padding:10px 12px;">1PC ✅</td>
+            <td style="padding:10px 12px;font-size:11px;color:var(--muted);">...226453</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- סיכום תשלום -->
+    <div style="background:#f0faf0;border-top:1px solid #90c878;padding:12px 16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div>
+          <div style="font-size:11px;color:var(--muted);">סה"כ שולם · EL AL Protect כלול</div>
+          <div style="font-size:13px;color:var(--muted);">USD 438.77 × 4 מבוגרים + USD 394.87 × ילד · 1 APR 2026</div>
+        </div>
+        <div style="font-size:22px;font-weight:700;color:var(--green);">7,500 ₪ ✅</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://www.elal.com/he/manage-booking/?bookingCode=ZFB7C2" target="_blank"
+           style="display:inline-flex;align-items:center;gap:6px;background:#003580;color:#fff;border-radius:8px;padding:8px 14px;text-decoration:none;font-size:12px;font-weight:600;">
+          ✈️ ניהול הזמנה — אל על (ZFB7C2)
+        </a>
+        <a href="https://www.elal.com/he/check-in/" target="_blank"
+           style="display:inline-flex;align-items:center;gap:6px;background:#1a7040;color:#fff;border-radius:8px;padding:8px 14px;text-decoration:none;font-size:12px;font-weight:600;">
+          🖥️ צ׳ק-אין אונליין
+        </a>
+        <a href="https://www.elal.com/he/manage-booking/?bookingCode=ZFB7C2" target="_blank"
+           style="display:inline-flex;align-items:center;gap:6px;background:#1a5090;color:#fff;border-radius:8px;padding:8px 14px;text-decoration:none;font-size:12px;font-weight:600;">
+          📄 הורדת כרטיסי הטיסה
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- מושבים — ויזואל שורה 38 -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:12px;">
+    <div style="font-size:13px;font-weight:600;margin-bottom:10px;">💺 מושבים — שורה 38 (כולם יחד!)</div>
+    <div style="display:flex;gap:4px;justify-content:center;align-items:center;font-size:12px;flex-wrap:wrap;">
+      <div style="background:#eef4fb;border:1px solid #a8c8e8;border-radius:6px;padding:8px 10px;text-align:center;min-width:52px;">
+        <div style="font-weight:700;color:var(--blue);font-size:15px;">38B</div><div style="color:var(--muted);">אופק</div>
+      </div>
+      <div style="background:#f5f5f5;border:1px dashed #ccc;border-radius:6px;padding:8px 10px;text-align:center;min-width:52px;">
+        <div style="font-size:13px;color:#ccc;">38C</div><div style="color:#ccc;font-size:10px;">שוהם</div>
+      </div>
+      <div style="background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:8px 10px;text-align:center;min-width:30px;font-size:11px;color:#aaa;">ד</div>
+      <div style="background:#eef7e8;border:1px solid #90c878;border-radius:6px;padding:8px 10px;text-align:center;min-width:52px;">
+        <div style="font-weight:700;color:var(--green);font-size:15px;">38H</div><div style="color:var(--muted);">יובל</div>
+      </div>
+      <div style="background:#eef7e8;border:1px solid #90c878;border-radius:6px;padding:8px 10px;text-align:center;min-width:52px;">
+        <div style="font-weight:700;color:var(--green);font-size:15px;">38J</div><div style="color:var(--muted);">נופר</div>
+      </div>
+      <div style="background:#eef7e8;border:1px solid #90c878;border-radius:6px;padding:8px 10px;text-align:center;min-width:52px;">
+        <div style="font-weight:700;color:var(--green);font-size:15px;">38K</div><div style="color:var(--muted);">אסתי</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;text-align:center;">B–C = חלון+אמצע שמאל · H–J–K = חלון+אמצע+מעבר ימין · שורה 38 בוואינג 737</div>
+  </div>
+
+  <!-- תזכורות -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;">
+    <div style="font-size:13px;font-weight:600;margin-bottom:10px;">📋 לפני הטיסה</div>
+    <div style="font-size:13px;line-height:2.2;color:var(--muted);">
+      ☐ צ'ק-אין אונליין · 24–48 שעות לפני (ב-30/6)<br>
+      ☐ הגעה לשדה התעופה · 04:30 לפחות (טיסה 07:15)<br>
+      ☐ הוספת ארוחה <strong>GFML</strong> (ללא גלוטן) לאסתי<br>
+      ☐ EL AL Protect מאושר לכולם ✅<br>
+      ☐ מזוודה 1PC לכל נוסע — מאושר ✅
+    </div>
+  </div>
+</div>
+
+<!-- ===== BUDGET DAILY TAB ===== -->
+<div id="budget_daily" class="tab">
+  <div class="sec">💰 תקציב יומי — מעקב בשטח</div>
+
+  <div class="budget-overview">
+    <div class="bov"><span class="bov-val" id="bov-plan">—</span><span class="bov-lbl">📋 תכנון כולל</span></div>
+    <div class="bov"><span class="bov-val" id="bov-act">—</span><span class="bov-lbl">💳 בפועל עד כה</span></div>
+    <div class="bov"><span class="bov-val" id="bov-remain">—</span><span class="bov-lbl">💼 יתרה</span></div>
+    <div class="bov"><span class="bov-val" id="bov-diff">—</span><span class="bov-lbl">📊 חיסכון/חריגה</span></div>
+  </div>
+
+  <div class="ibox">הזינו סכומים בפועל בשטח — הכל מסתכם אוטומטית ומתעדכן בסיכום למעלה.</div>
+
+  <!-- ── FIXED COSTS SUMMARY ── -->
+  <div style="background:linear-gradient(135deg,#1a3040,#2d3a20);border-radius:var(--r);padding:16px;margin-bottom:14px;color:#f5f0e8;">
+    <div style="font-size:13px;font-weight:700;color:#e8c96a;margin-bottom:12px;">🔒 הוצאות קבועות — ניתן לעדכון</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:10px;">
+        <div style="font-size:10px;color:rgba(255,255,255,.6);margin-bottom:4px;">✈️ טיסות (שולם)</div>
+        <div style="font-size:16px;font-weight:700;color:#e8c96a;">7,500 ₪</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.5);">✅ אל על · ZFB7C2</div>
+      </div>
+      <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:10px;">
+        <div style="font-size:10px;color:rgba(255,255,255,.6);margin-bottom:4px;">🏨 לינה (תכנון)</div>
+        <div style="font-size:15px;font-weight:700;color:#e8c96a;" id="fixed-hotel-disp2">4,923 ₪</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.5);">13 לילות · 6 עצירות</div>
+      </div>
+      <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:10px;">
+        <div style="font-size:10px;color:rgba(255,255,255,.6);margin-bottom:4px;">🚗 רכב שכור (VW Passat)</div>
+        <div style="font-size:15px;font-weight:700;color:#e8c96a;" id="fixed-car-disp2">2,871 ₪</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.5);">13 יום · VW Passat GPS ✅</div>
+      </div>
+    </div>
+    <div style="background:rgba(232,201,106,.15);border:1px solid rgba(232,201,106,.4);border-radius:8px;padding:10px;display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-size:11px;color:rgba(255,255,255,.65);">סה"כ קבוע (טיסות+לינה+רכב)</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.45);">+ ביטוח נסיעות 600 ₪</div>
+      </div>
+      <div style="font-size:22px;font-weight:700;color:#e8c96a;" id="fixed-grand-disp">15,371 ₪</div>
+    </div>
+  </div>
+
+
+  <!-- fixed summary moved to hotel/car sub-tabs -->
+  <div style="display:none">
+    <div style="font-size:13px;font-weight:700;color:#e8c96a;margin-bottom:10px;">🔒 סיכום הוצאות קבועות</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;margin-bottom:12px;">
+      <div>✈️ טיסות</div><div style="text-align:left;font-weight:700;color:#e8c96a;">7,500 ₪ ✅</div>
+      <div>🏨 לינה</div><div style="text-align:left;font-weight:700;color:#e8c96a;" id="fixed-hotel-disp">3,871 ₪</div>
+      <div>🚗 רכב + ביטוח</div><div style="text-align:left;font-weight:700;color:#e8c96a;" id="fixed-car-disp">3,400 ₪</div>
+      <div>🛡️ ביטוח נסיעות</div><div style="text-align:left;font-weight:700;color:#e8c96a;">600 ₪</div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:6px;font-weight:700;">סה"כ קבוע</div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:6px;text-align:left;font-weight:700;color:#e8c96a;font-size:15px;" id="fixed-tot-disp">15,371 ₪</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button onclick="ST('flights',document.querySelector('.tb[onclick*=flights]'))" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:7px;padding:6px 12px;color:#fff;font-size:12px;cursor:pointer;">✈️ טיסות ←</button>
+      <button onclick="ST('lodging',document.querySelector('.tb[onclick*=lodging]'))" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:7px;padding:6px 12px;color:#fff;font-size:12px;cursor:pointer;">🏨 לינה ←</button>
+      </div>
+  </div><!-- /hidden fixed summary -->
+
+  <!-- ── FUEL ── -->
+  <div class="bcat" id="bcat-fuel">
+    <div class="bcat-hd" onclick="toggleBcat('fuel')">
+      <div class="bcat-icon">⛽</div>
+      <div class="bcat-info"><div class="bcat-name">דלק</div><div class="bcat-sub">~1,000 ק"מ × 8ל'/100 × 6₪/ל'</div></div>
+      <div class="bcat-amounts"><div class="bcat-plan" id="fuel-plan-lbl">—</div><div class="bcat-act" id="fuel-act-lbl">—</div></div>
+      <span class="bcat-chev">▶</span>
+    </div>
+    <div class="bcat-body" id="bcat-fuel-body">
+      <table class="bcat-table"><thead><tr><th>יום</th><th>תכנון ₪</th><th>בפועל ₪</th><th>נסיעה</th></tr></thead>
+      <tbody id="fuel-tbody"></tbody>
+      <tfoot><tr class="bcat-foot"><td>סה"כ</td><td id="fuel-tot-plan"></td><td id="fuel-tot-act"></td><td></td></tr></tfoot></table>
+    </div>
+  </div>
+
+  <!-- ── FOOD ── -->
+  <div class="bcat" id="bcat-food">
+    <div class="bcat-hd" onclick="toggleBcat('food')">
+      <div class="bcat-icon">🍽️</div>
+      <div class="bcat-info"><div class="bcat-name">מזון ×5 נפשות</div><div class="bcat-sub">בוקר בדירה · צהריים מסעדה · ערב בדירה</div></div>
+      <div class="bcat-amounts"><div class="bcat-plan" id="food-plan-lbl">—</div><div class="bcat-act" id="food-act-lbl">—</div></div>
+      <span class="bcat-chev">▶</span>
+    </div>
+    <div class="bcat-body" id="bcat-food-body">
+      <div style="overflow-x:auto"><table class="bcat-table" style="min-width:720px"><thead><tr><th>יום / לינה</th><th style="background:#f0faf0">🌅 בוקר<br><small>בדירה/מלון</small></th><th style="background:#e8faf0">בפועל</th><th style="background:#fff8e0">☀️ צהריים<br><small>מסעדה</small></th><th style="background:#fffae8">בפועל</th><th style="background:#f5f0ff">🌙 ערב<br><small>בדירה/מסעדה</small></th><th style="background:#ede8ff">בפועל</th><th>סה"כ</th></tr></thead>
+      <tbody id="food-tbody"></tbody>
+      <tfoot><tr class="bcat-foot"><td>סה"כ</td><td id="food-tbkf-plan"></td><td id="food-tbkf-act"></td><td id="food-tlun-plan"></td><td id="food-tlun-act"></td><td id="food-tdin-plan"></td><td id="food-tdin-act"></td><td id="food-ttot"></td></tr></tfoot></table></div>
+    </div>
+  </div>
+
+  <!-- ── ATTRACTIONS ── -->
+  <div class="bcat" id="bcat-attr">
+    <div class="bcat-hd" onclick="toggleBcat('attr')">
+      <div class="bcat-icon">🎟️</div>
+      <div class="bcat-info"><div class="bcat-name">אטרקציות ×5 נפשות</div><div class="bcat-sub">כניסות, סירות, רכבל, ג'יפים</div></div>
+      <div class="bcat-amounts"><div class="bcat-plan" id="attr-plan-lbl">—</div><div class="bcat-act" id="attr-act-lbl">—</div></div>
+      <span class="bcat-chev">▶</span>
+    </div>
+    <div class="bcat-body" id="bcat-attr-body">
+      <table class="bcat-table"><thead><tr><th>יום</th><th>תכנון ₪</th><th>בפועל ₪</th><th>פירוט</th></tr></thead>
+      <tbody id="attr-tbody"></tbody>
+      <tfoot><tr class="bcat-foot"><td>סה"כ</td><td id="attr-tot-plan"></td><td id="attr-tot-act"></td><td></td></tr></tfoot></table>
+    </div>
+  </div>
+
+  <!-- ── TREATS ── -->
+  <div class="bcat" id="bcat-treat">
+    <div class="bcat-hd" onclick="toggleBcat('treat')">
+      <div class="bcat-icon">🎁</div>
+      <div class="bcat-info"><div class="bcat-name">פינוקים ושונות</div><div class="bcat-sub">100₪ ליום קבוע + מזכרות</div></div>
+      <div class="bcat-amounts"><div class="bcat-plan" id="treat-plan-lbl">—</div><div class="bcat-act" id="treat-act-lbl">—</div></div>
+      <span class="bcat-chev">▶</span>
+    </div>
+    <div class="bcat-body" id="bcat-treat-body">
+      <table class="bcat-table"><thead><tr><th>יום</th><th>תכנון ₪</th><th>בפועל ₪</th><th>הערה</th></tr></thead>
+      <tbody id="treat-tbody"></tbody>
+      <tfoot><tr class="bcat-foot"><td>סה"כ</td><td id="treat-tot-plan"></td><td id="treat-tot-act"></td><td></td></tr></tfoot></table>
+    </div>
+  </div>
+
+  <div style="font-size:11px;color:var(--muted);margin-top:12px;text-align:center;">1 BGN ≈ 2₪ · 1 MKD ≈ 0.065₪ · 1€ ≈ 4₪</div>
+</div>
+
+<!-- ===== PHRASEBOOK ===== -->
+<div id="phrase" class="tab">
+  <div class="sec">💬 שיחון — בולגרית ומקדונית</div>
+  <div class="ibox">שתי השפות סלאביות ודומות מאוד. לחצו 🔊 להאזנה להגייה!</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
+    <a href="https://translate.google.com/?sl=iw&tl=bg&op=translate" target="_blank"
+       style="flex:1;min-width:140px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#1a6a9a,#2d4a7a);color:#fff;border-radius:10px;padding:12px 14px;text-decoration:none;font-weight:600;font-size:13px;">
+      <span style="font-size:20px;">🇧🇬</span>
+      <div><div>גוגל תרגום</div><div style="font-size:10px;font-weight:400;opacity:.8;">עברית ← בולגרית</div></div>
+    </a>
+    <a href="https://translate.google.com/?sl=iw&tl=mk&op=translate" target="_blank"
+       style="flex:1;min-width:140px;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#c8a940,#8a6010);color:#fff;border-radius:10px;padding:12px 14px;text-decoration:none;font-weight:600;font-size:13px;">
+      <span style="font-size:20px;">🇲🇰</span>
+      <div><div>גוגל תרגום</div><div style="font-size:10px;font-weight:400;opacity:.8;">עברית ← מקדונית</div></div>
+    </a>
+  </div>
+  <div class="phrase-lang-tabs">
+    <button class="pl-tab on" onclick="setLang('bg',this)">🇧🇬 בולגרית</button>
+    <button class="pl-tab" onclick="setLang('mk',this)">🇲🇰 מקדונית</button>
+  </div>
+  <div id="phrases-bg">
+    <div class="phrase-header"><div class="ph-head">עברית</div><div class="ph-head">בולגרית</div><div class="ph-head">הגייה + האזנה</div></div>
+    <div class="phrase-cat">👋 ברכות</div>
+    <div class="phrase-row"><div class="ph-he">שלום</div><div class="ph-local" data-audio="bg">Zdraveyte</div><div class="ph-pron">זדראבייטה</div></div>
+    <div class="phrase-row"><div class="ph-he">בוקר טוב</div><div class="ph-local" data-audio="bg">Dobro utro</div><div class="ph-pron">דוברו אוטרו</div></div>
+    <div class="phrase-row"><div class="ph-he">תודה</div><div class="ph-local" data-audio="bg">Blagodarya</div><div class="ph-pron">בלגודריה</div></div>
+    <div class="phrase-row"><div class="ph-he">בבקשה</div><div class="ph-local" data-audio="bg">Molya</div><div class="ph-pron">מוליה</div></div>
+    <div class="phrase-row"><div class="ph-he">כן / לא ⚠️ הפוך!</div><div class="ph-local" data-audio="bg">Da, Ne</div><div class="ph-pron">דה / נה — ראש הפוך!</div></div>
+    <div class="phrase-cat">🍽️ מסעדה</div>
+    <div class="phrase-row"><div class="ph-he">ללא גלוטן</div><div class="ph-local" data-audio="bg">Bez gluten</div><div class="ph-pron">בז גלוטן</div></div>
+    <div class="phrase-row"><div class="ph-he">אלרגיה לחיטה</div><div class="ph-local" data-audio="bg">Alergia kam pshenitsa</div><div class="ph-pron">אלרגיה קאם פשניצה</div></div>
+    <div class="phrase-row"><div class="ph-he">ללא בשר</div><div class="ph-local" data-audio="bg">Bez meso</div><div class="ph-pron">בז מסו</div></div>
+    <div class="phrase-row"><div class="ph-he">יש דגים?</div><div class="ph-local" data-audio="bg">Imate li riba</div><div class="ph-pron">אימאטה לי ריבה</div></div>
+    <div class="phrase-row"><div class="ph-he">תפריט בבקשה</div><div class="ph-local" data-audio="bg">Menyuto molya</div><div class="ph-pron">מניוטו מוליה</div></div>
+    <div class="phrase-row"><div class="ph-he">החשבון</div><div class="ph-local" data-audio="bg">Smetkata molya</div><div class="ph-pron">סמטקטה מוליה</div></div>
+    <div class="phrase-row"><div class="ph-he">טעים מאוד!</div><div class="ph-local" data-audio="bg">Mnogo vkusno</div><div class="ph-pron">מנוגו בקוסנו</div></div>
+    <div class="phrase-cat">🏨 בדרך</div>
+    <div class="phrase-row"><div class="ph-he">כמה עולה?</div><div class="ph-local" data-audio="bg">Kolko struva</div><div class="ph-pron">קולקו סטרובה</div></div>
+    <div class="phrase-row"><div class="ph-he">איפה השירותים?</div><div class="ph-local" data-audio="bg">Kade e toaletnata</div><div class="ph-pron">קאדה אה טואלטנטה</div></div>
+    <div class="phrase-row"><div class="ph-he">עזרה! / רופא!</div><div class="ph-local" data-audio="bg">Pomosht, Lekar</div><div class="ph-pron">פומושט / לקר</div></div>
+    <div class="phrase-row"><div class="ph-he">מדבר אנגלית?</div><div class="ph-local" data-audio="bg">Govorite li angliyski</div><div class="ph-pron">גוווריטה לי אנגלייסקי</div></div>
+    <div style="margin-top:14px;background:#fef2ee;border:1px solid #f0b8a0;border-radius:8px;padding:11px 13px;font-size:12px;color:#8a2a10;">⚠️ <strong>בולגריה:</strong> נענוע ראש אנכי (כן-כן) = לא! אופקי (לא-לא) = כן! הפוך לגמרי.</div>
+  </div>
+  <div id="phrases-mk" style="display:none">
+    <div class="phrase-header"><div class="ph-head">עברית</div><div class="ph-head">מקדונית</div><div class="ph-head">הגייה + האזנה</div></div>
+    <div class="phrase-cat">👋 ברכות</div>
+    <div class="phrase-row"><div class="ph-he">שלום</div><div class="ph-local" data-audio="mk">Zdravo</div><div class="ph-pron">זדראבו</div></div>
+    <div class="phrase-row"><div class="ph-he">תודה</div><div class="ph-local" data-audio="mk">Blagodaram</div><div class="ph-pron">בלגודראם</div></div>
+    <div class="phrase-row"><div class="ph-he">בבקשה</div><div class="ph-local" data-audio="mk">Ve molam</div><div class="ph-pron">ווה מולאם</div></div>
+    <div class="phrase-cat">🍽️ מסעדה</div>
+    <div class="phrase-row"><div class="ph-he">ללא גלוטן</div><div class="ph-local" data-audio="mk">Bez gluten</div><div class="ph-pron">בז גלוטן</div></div>
+    <div class="phrase-row"><div class="ph-he">ללא בשר</div><div class="ph-local" data-audio="mk">Bez meso</div><div class="ph-pron">בז מסו</div></div>
+    <div class="phrase-row"><div class="ph-he">יש דגים?</div><div class="ph-local" data-audio="mk">Imate li riba</div><div class="ph-pron">אימאטה לי ריבה</div></div>
+    <div class="phrase-row"><div class="ph-he">פורל מהאגם</div><div class="ph-local" data-audio="mk">Pastrmka od ezeroto</div><div class="ph-pron">פסטרמקה אוד אזרוטו</div></div>
+    <div class="phrase-row"><div class="ph-he">החשבון</div><div class="ph-local" data-audio="mk">Smetkata ve molam</div><div class="ph-pron">סמטקטה ווה מולאם</div></div>
+    <div class="phrase-cat">🏨 בדרך</div>
+    <div class="phrase-row"><div class="ph-he">כמה עולה?</div><div class="ph-local" data-audio="mk">Kolku chini</div><div class="ph-pron">קולקו צ'יני</div></div>
+    <div class="phrase-row"><div class="ph-he">עזרה! / רופא!</div><div class="ph-local" data-audio="mk">Pomosh, Lekar</div><div class="ph-pron">פומוש / לקר</div></div>
+    <div style="margin-top:14px;background:#eef7e8;border:1px solid #90c878;border-radius:8px;padding:11px 13px;font-size:12px;color:#1a5010;">💡 בסקופיה ואוהריד — צעירים רבים מדברים אנגלית מצוינת!</div>
+  </div>
+</div>
+
+<!-- ===== TIPS ===== -->
+<div id="tips" class="tab">
+  <div class="sec">💡 טיפים חשובים</div>
+  <div class="tg">
+    <div class="tip"><div class="tico">🚗</div><div><div class="ttl">רכב שכור</div><div class="ttxt">ודאו שהחוזה מאפשר כניסה למקדוניה. SUV 7-מקומות אידיאלי.</div></div></div>
+    <div class="tip"><div class="tico">🛂</div><div><div class="ttl">גבול Zlatarevo</div><div class="ttxt">מלניק → גבול → סטרומיצה → ביטולה → אוהריד. שקט ורגוע, 20–40 דקות.</div></div></div>
+    <div class="tip"><div class="tico">🌾</div><div><div class="ttl">ללא גלוטן לאסתי</div><div class="ttxt">בולגריה ומקדוניה ידידותיות לללא גלוטן. דגים, ירקות, אורז — בכל מקום. אמרו "Bez gluten".</div></div></div>
+    <div class="tip"><div class="tico">🐟</div><div><div class="ttl">דגים מקומיים</div><div class="ttxt">פורל אוהריד — מנה לאומית. דגים טריים בפלובדיב ובסופיה. אנחנו אוכלים כשר — ללא דגים!</div></div></div>
+    <div class="tip"><div class="tico">🔄</div><div><div class="ttl">ראש בולגרי הפוך!</div><div class="ttxt">נענוע אנכי = לא, אופקי = כן. הפוך לגמרי! חשוב מאוד.</div></div></div>
+    <div class="tip"><div class="tico">🕍</div><div><div class="ttl">שש"ת מתוכננת</div><div class="ttxt">שישי–שבת: פלובדיב (3–4/7) ואוהריד (10–11/7). שתי שש"ת מושלמות!</div></div></div>
+    <div class="tip"><div class="tico">💵</div><div><div class="ttl">מטבע</div><div class="ttxt">בולגריה: לב (BGN). מקדוניה: דינר (MKD). קחו מזומן — לא בכל מקום כרטיס.</div></div></div>
+    <div class="tip"><div class="tico">🌡️</div><div><div class="ttl">מזג אוויר יולי</div><div class="ttxt">חם בערים (30–35°). הרים נעים. אגם אוהריד — שחייה מצוינת.</div></div></div>
+  </div>
+</div>
+
+<!-- ===== CHECKLIST ===== -->
+<div id="chk" class="tab">
+  <div class="sec">✅ צ'קליסט</div>
+  <div id="chk-lists"></div>
+</div>
+
+<!-- ===== GEAR ===== -->
+<div id="gear" class="tab">
+  <div class="sec">🎒 ציוד לטיול</div>
+  <div class="ibox">לחצו על פריט לסימון · 14 ימים · 5 נפשות · קיץ בלקני</div>
+  <div style="text-align:center;margin-bottom:5px;"><span id="gear-stat" style="font-size:12px;color:var(--muted);">0 / 0 פריטים</span></div>
+  <div class="gear-progress"><div class="gear-progress-fill" id="gear-prog" style="width:0%"></div></div>
+  <div id="gear-suitcase-sec" class="gear-section"></div>
+  <div id="gear-trolley-sec" class="gear-section"></div>
+  <div id="gear-kids-sec" class="gear-section"></div>
+  <div id="gear-docs-sec" class="gear-section"></div>
+</div>
+
+<!-- Hidden fixed-cost inputs for recalc() -->
+<div id="hidden-fixed-inputs" style="display:none">
+  <input id="fi-flights"   type="number" value="7500">
+  <input id="fi-h-sofia"   type="number" value="857">
+  <input id="fi-h-plovdiv" type="number" value="889">
+  <input id="fi-h-bansko"  type="number" value="496">
+  <input id="fi-h-ohrid"   type="number" value="1877">
+  <input id="fi-h-skopje"  type="number" value="284">
+  <input id="fi-h-last"    type="number" value="382">
+  <input id="fi-car"       type="number" value="2871">
+  <input id="fi-insurance" type="number" value="600">
+  <input id="lo-sofia"     type="number" value="857">
+  <input id="lo-plovdiv"   type="number" value="889">
+  <input id="lo-bansko"    type="number" value="496">
+  <input id="lo-ohrid"     type="number" value="1877">
+  <input id="lo-skopje"    type="number" value="284">
+  <input id="lo-last"      type="number" value="382">
+  <input id="cr-rental"    type="number" value="2800">
+  <input id="cr-insurance" type="number" value="600">
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════════
+
+// Dates: Day 1 = Wed 1 July 2026
+const START_DATE = new Date(2026, 6, 1); // July 1
+const DAYS_HE = ['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+const MONTHS_HE = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט'];
+
+function getDayInfo(dayNum) { // dayNum 1-based
+  const d = new Date(START_DATE);
+  d.setDate(START_DATE.getDate() + dayNum - 1);
+  const dow = d.getDay(); // 0=Sun, 6=Sat
+  const isShabbat = (dow === 5 || dow === 6);
+  return {
+    date: `${d.getDate()}/${d.getMonth()+1}`,
+    weekday: DAYS_HE[dow],
+    isShabbat,
+    isFriday: dow === 5,
+    isSaturday: dow === 6,
+  };
+}
+
+const WP = [
+  {n:'סופיה',flag:'🇧🇬',d:'ימים 1–2 | 1–2 יולי',emoji:'🏛️',bg:'#eef4fb',col:'#1a6a9a',
+   img:'https://upload.wikimedia.org/wikipedia/commons/0/04/Alexander_Nevsky_Cathedral%2C_Sofia_%28by_Pudelek%29.JPG',
+   hi:['קתדרלת אלכסנדר נבסקי','כנסיית בויאנה (UNESCO)','קוקולנדיה — פארק חבלים','רחוב ויטושה']},
+  {n:'פלובדיב',flag:'🇧🇬',d:'ימים 3–5 | 3–5 יולי 🕍',emoji:'🏺',bg:'#fff8e0',col:'#1a6a9a',
+   img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Plovdiv_Panorama_2.jpg/800px-Plovdiv_Panorama_2.jpg',
+   hi:['מערת יגודיניה בדרך','עיר עתיקה ורחוב נסיפורוב','תיאטרון רומי','שבת — Aquapark']},
+  {n:'בנסקו / רזלוג',flag:'🇧🇬',d:'ימים 6–7 | 6–7 יולי',emoji:'🏔️',bg:'#ede9ff',col:'#4a3ea0',
+   img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Seven_Rila_Lakes_Bulgaria_edit.jpg/800px-Seven_Rila_Lakes_Bulgaria_edit.jpg',
+   hi:['שבעת האגמים — הרי ריל','רכבל גונדולה','עיר עתיקה בנסקו','ג\'יפים רודופי']},
+  {n:'מלניק',flag:'🇧🇬',d:'יום 8 | 8 יולי',emoji:'🍷',bg:'#fdf5e0',col:'#9a6010',
+   img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Melnik_Bulgaria_Panorama.jpg/800px-Melnik_Bulgaria_Panorama.jpg',
+   hi:['פירמידות חול','יין מלניק המפורסם','מנזר רוז\'ן הסמוך','הכפר הקטן ביותר בבולגריה']},
+  {n:'אוהריד',flag:'🇲🇰',d:'ימים 9–12 | 9–12 יולי 🕍',emoji:'🌊',bg:'#eef7e8',col:'#9a6f1e',
+   img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Ohrid_lake_and_city.jpg/800px-Ohrid_lake_and_city.jpg',
+   hi:['כנסיית קאנאו על הצוק','מצודת שמואל','מנזר סנט נאום','שחייה באגם הצלול']},
+  {n:'סקופיה',flag:'🇲🇰',d:'ימים 12–13 | 12–13 יולי',emoji:'🎭',bg:'#e8faf4',col:'#1a7060',
+   img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/thirty/Skopje_2014_-_Archeological_Museum_of_Macedonia_by_night.jpg/800px-Skopje_2014_-_Archeological_Museum_of_Macedonia_by_night.jpg',
+   hi:['מפלי ואציני בדרך','גשר האבן','בזאר העתיקה','כיכר מקדוניה']},
+  {n:'מנזר ריאלה',flag:'🇧🇬',d:'יום 13 | 13 יולי',emoji:'⛪',bg:'#ede9ff',col:'#4a3ea0',
+   img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Rila_Monastery_NIK_1414.jpg/800px-Rila_Monastery_NIK_1414.jpg',
+   hi:['אתר UNESCO','ציורי קיר מהמאה ה-14','כניסה חינם','בדרך חזרה לסופיה']},
+];
+
+const RV_DATA = [
+  {col:'#1a6a9a',flag:'🇧🇬',d:'ימים 1–2 · 1–2/7',n:'סופיה',s:'נחיתה · קתדרלת נבסקי · הר ויטושה'},
+  {col:'#1a6a9a',flag:'🇧🇬',d:'ימים 3–5 🕍 · 3–5/7',n:'פלובדיב — שש"ת + עיר עתיקה + Aquapark',s:'שישי–שבת בעיר העתיקה · אמפיתיאטרון · ראשון Aquapark'},
+  {col:'#4a3ea0',flag:'🇧🇬',d:'ימים 6–7 · 6–7/7',n:'בנסקו — שבעת האגמים + ג\'יפים',s:'רכבל · רודופי · Apt Complex Dream'},
+  {col:'#9a6010',flag:'🇧🇬→🇲🇰',d:'יום 8 · 8/7',n:'מלניק → גבול Zlatarevo (1/2) → ביטולה → אוהריד',s:'יין · פירמידות · גבול ראשון (BG→MK) · ביטולה הרומית'},
+  {col:'#9a6f1e',flag:'🇲🇰',d:'ימים 9–11 🕍⭐ · 9–11/7',n:'אוהריד — שיא הטיול + שש"ת על האגם!',s:'קאנאו · סנט נאום · שחייה · שישי–שבת 10–11/7'},
+  {col:'#1a7060',flag:'🇲🇰',d:'יום 12 · 12/7',n:'קניון מאטקה + סקופיה',s:'מים טורקיז · כיכר מקדוניה · בזאר · מוזיאון שואה'},
+  {col:'#4a3ea0',flag:'🇧🇬',d:'יום 13 · 13/7',n:'מנזר ריאלה ← סופיה',s:'UNESCO · חזרה מעגלית · לינה קרוב לשד"ת'},
+  {col:'#6b6860',flag:'✈️',d:'יום 14 · 14/7',n:'ארוחת בוקר ← ✈️ הביתה!',s:'LY552 · 11:05 → 13:30 · SOF → TLV · ברוכים השבים!'},
+];
+
+// Restaurants data per city
+
+const PLACE_PHOTOS = {
+  'קתדרלת אלכסנדר נבסקי': 'https://upload.wikimedia.org/wikipedia/commons/0/04/Alexander_Nevsky_Cathedral%2C_Sofia_%28by_Pudelek%29.JPG',
+  'כנסיית בויאנה': 'https://images.unsplash.com/photo-1566127992631-137a642a90f4?w=480&h=200&fit=crop',
+  'רכבל ויטושה': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&h=200&fit=crop',
+  'קוקולנדיה': 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=480&h=200&fit=crop',
+  'מערת יגודיניה': 'https://images.unsplash.com/photo-1520637836993-5f7c6b3c1ae7?w=480&h=200&fit=crop',
+  'אמפיתיאטרון רומי': 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=480&h=200&fit=crop',
+  'עיר עתיקה': 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=480&h=200&fit=crop',
+  'Action Aquapark': 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=480&h=200&fit=crop',
+  'שבעת האגמים': 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=480&h=200&fit=crop',
+  'רכבל שבעת': 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=480&h=200&fit=crop',
+  'מלניק': 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=480&h=200&fit=crop',
+  'מנזר רוז': 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Rila_Monastery_NIK_1414.jpg',
+  'כנסיית קאנאו': 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Sveti_Jovan_-_Kaneo_Ohrid_oddaleku.JPG',
+  'מצודת שמואל': 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=480&h=200&fit=crop',
+  'מנזר סנט נאום': 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=480&h=200&fit=crop',
+  'חוף שריסטה': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=480&h=200&fit=crop',
+  'שחייה באגם': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=480&h=200&fit=crop',
+  'מוזיאון מפרץ': 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Sveti_Jovan_-_Kaneo_Ohrid_oddaleku.JPG',
+  'מפלי ואציני': 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=480&h=200&fit=crop',
+  'קניון מאטקה': 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=480&h=200&fit=crop',
+  'כיכר מקדוניה': 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Skopje_Stone_Bridge_2012.jpg',
+  'גשר האבן': 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Skopje_Stone_Bridge_2012.jpg',
+  'בזאר הטורקי': 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=480&h=200&fit=crop',
+  'מוזיאון השואה': 'https://images.unsplash.com/photo-1592492152545-9695d3f473f4?w=480&h=200&fit=crop',
+  'מנזר ריאלה': 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Rila_Monastery_NIK_1414.jpg'
+};
+
+
+const PLACE_MAPS = {
+  'קתדרלת אלכסנדר נבסקי': 'https://www.google.com/maps/search/?api=1&query=Alexander+Nevsky+Cathedral+Sofia',
+  'כנסיית בויאנה': 'https://www.google.com/maps/search/?api=1&query=Boyana+Church+Sofia',
+  'שוק Halite': 'https://www.google.com/maps/search/?api=1&query=Halite+Market+Sofia',
+  'רכבל ויטושה': 'https://www.google.com/maps/search/?api=1&query=Vitosha+Cable+Car+Sofia',
+  'Didis Central': 'https://www.google.com/maps/search/?api=1&query=Didis+Central+Designer+Apartments+Sofia',
+  'רחוב ויטושה': 'https://www.google.com/maps/search/?api=1&query=Vitosha+Boulevard+Sofia',
+  'קופריבשטיצה': 'https://www.google.com/maps/search/?api=1&query=Koprivshtitsa+Bulgaria',
+  'Dinati': 'https://www.google.com/maps/search/?api=1&query=Dinati+Hotel+Plovdiv',
+  'שוק Kapana': 'https://www.google.com/maps/search/?api=1&query=Kapana+Creative+District+Plovdiv',
+  'אמפיתיאטרון רומי': 'https://www.google.com/maps/search/?api=1&query=Roman+Amphitheatre+Plovdiv',
+  'Aquapark': 'https://www.google.com/maps/search/?api=1&query=Action+Aquapark+Plovdiv',
+  'פלובדיב': 'https://www.google.com/maps/search/?api=1&query=Plovdiv+Old+Town',
+  'Apt Complex Dream': 'https://www.google.com/maps/search/?api=1&query=Apartment+Complex+Dream+Bansko',
+  'Apt Complex Dream': 'https://www.google.com/maps/search/?api=1&query=Apartment+Complex+Dream+Bansko',
+  'רכבל שבעת האגמים': 'https://www.google.com/maps/search/?api=1&query=Seven+Rila+Lakes+Gondola+Bansko',
+  'ג\'יפים רודופי': 'https://www.google.com/maps/search/?api=1&query=Rhodope+Mountains+Jeep+Tour',
+  'מלניק': 'https://www.google.com/maps/search/?api=1&query=Melnik+Bulgaria',
+  'גבול Zlatarevo': 'https://www.google.com/maps/search/?api=1&query=Zlatarevo+Border+Crossing+Bulgaria',
+  'ביטולה': 'https://www.google.com/maps/search/?api=1&query=Bitola+North+Macedonia',
+  'Elis Stone Dream': 'https://www.google.com/maps/search/?api=1&query=Elis+Stone+Dream+Udenisht+Ohrid',
+  'כנסיית קאנאו': 'https://www.google.com/maps/search/?api=1&query=Church+of+Saint+John+Kaneo+Ohrid',
+  'מצודת שמואל': 'https://www.google.com/maps/search/?api=1&query=Samuel+Fortress+Ohrid',
+  'סנט נאום': 'https://www.google.com/maps/search/?api=1&query=Saint+Naum+Monastery+Ohrid',
+  'מפרץ העצמות': 'https://www.google.com/maps/search/?api=1&query=Bay+of+Bones+Museum+Ohrid',
+  'חוף שריסטה': 'https://www.google.com/maps/search/?api=1&query=Srishta+Beach+Ohrid',
+  'אוהריד': 'https://www.google.com/maps/search/?api=1&query=Ohrid+Old+Town+Macedonia',
+  'קניון מאטקה': 'https://www.google.com/maps/search/?api=1&query=Matka+Canyon+Skopje',
+  'מערת Vrelo': 'https://www.google.com/maps/search/?api=1&query=Vrelo+Cave+Matka',
+  '19th Floor': 'https://www.google.com/maps/search/?api=1&query=19th+Floor+Sunset+Apartment+Skopje',
+  'כיכר מקדוניה': 'https://www.google.com/maps/search/?api=1&query=Macedonia+Square+Skopje',
+  'גשר האבן': 'https://www.google.com/maps/search/?api=1&query=Stone+Bridge+Skopje',
+  'בזאר הטורקי': 'https://www.google.com/maps/search/?api=1&query=Old+Bazaar+Skopje',
+  'מוזיאון השואה': 'https://www.google.com/maps/search/?api=1&query=Holocaust+Memorial+Center+Skopje',
+  'מנזר ריאלה': 'https://www.google.com/maps/search/?api=1&query=Rila+Monastery+Bulgaria',
+  'Urban Serviced': 'https://www.google.com/maps/search/?api=1&query=Urban+Serviced+Apartments+Sofia',
+  'גבול שני': 'https://www.google.com/maps/search/?api=1&query=Deve+Bair+Border+Crossing+Macedonia',
+  'Deve Bair': 'https://www.google.com/maps/search/?api=1&query=Deve+Bair+Border+Crossing',
+};
+
+function getPlaceLink(text){
+  for(const [key,url] of Object.entries(PLACE_MAPS)){
+    if(text.includes(key)) return url;
+  }
+  return null;
+}
+
+// Google Maps day routes
+const DAY_ROUTES = {
+  1: {icon:'🚗', mode:'נסיעה ברכב', title:'שדה תעופה → Didis Central → רחוב ויטושה', url:'https://www.google.com/maps/dir/Sofia+Airport+Terminal+2+Bulgaria/Didis+Central+Designer+Apartments+Sofia/Vitosha+Boulevard+Sofia/?travelmode=driving'},
+  2: {icon:'🚗', mode:'נסיעה ברכב', title:'קתדרלת נבסקי → בויאנה → רכבל ויטושה', url:'https://www.google.com/maps/dir/Alexander+Nevsky+Cathedral+Sofia/Boyana+Church+Sofia+Bulgaria/Vitosha+Cable+Car+Sofia/?travelmode=driving'},
+  3: {icon:'🚗', mode:'נסיעה ברכב', title:'סופיה → קופריבשטיצה → פלובדיב', url:'https://www.google.com/maps/dir/Sofia+Bulgaria/Koprivshtitsa+Bulgaria/Dinati+Plovdiv+Bulgaria/?travelmode=driving'},
+  4: {icon:'🚶', mode:'הליכה רגלית', title:'עיר עתיקה פלובדיב — הליכה רגלית', url:'https://www.google.com/maps/dir/Dinati+Plovdiv+Bulgaria/Roman+Amphitheatre+Plovdiv/Old+Town+Plovdiv+Bulgaria/Kapana+District+Plovdiv/?travelmode=walking'},
+  5: {icon:'🚗', mode:'נסיעה ברכב', title:'Dinati → Action Aquapark פלובדיב', url:'https://www.google.com/maps/dir/Dinati+Plovdiv+Bulgaria/Action+Aquapark+Plovdiv+Bulgaria/?travelmode=driving'},
+  6: {icon:'🚗', mode:'נסיעה ברכב', title:'פלובדיב → בנסקו → Apt Complex Dream', url:'https://www.google.com/maps/dir/Plovdiv+Bulgaria/Bansko+Bulgaria/Apartment+Complex+Dream+Bansko+Bulgaria/?travelmode=driving'},
+  7: {icon:'🚗', mode:'נסיעה ברכב', title:'בנסקו → רכבל → הרי פירין → רודופי', url:'https://www.google.com/maps/dir/Apartment+Complex+Dream+Bansko/Seven+Rila+Lakes+Gondola+Bansko+Bulgaria/Rhodope+Mountains+Bulgaria/?travelmode=driving'},
+  8: {icon:'🚗', mode:'נסיעה ברכב', title:'בנסקו → מלניק → גבול → ביטולה → אוהריד', url:'https://www.google.com/maps/dir/Bansko+Bulgaria/Melnik+Bulgaria/Zlatarevo+Border+Crossing+Bulgaria/Bitola+North+Macedonia/Elis+Stone+Dream+Udenisht+Ohrid/?travelmode=driving'},
+  9: {icon:'🚶', mode:'הליכה רגלית', title:'אוהריד — קאנאו → מצודה → עיר עתיקה → חוף', url:'https://www.google.com/maps/dir/Church+of+Saint+John+Kaneo+Ohrid/Samuel+Fortress+Ohrid/Ohrid+Old+Town+Macedonia/Srishta+Beach+Ohrid/?travelmode=walking'},
+  10: {icon:'🚗', mode:'נסיעה ברכב', title:'Elis Stone → סנט נאום ← הליכה ← חזרה', url:'https://www.google.com/maps/dir/Elis+Stone+Dream+Udenisht+Ohrid/Saint+Naum+Monastery+Ohrid+Macedonia/?travelmode=driving'},
+  11: {icon:'🚶', mode:'הליכה רגלית', title:'אוהריד — שחייה ומוזיאון מפרץ העצמות', url:'https://www.google.com/maps/dir/Elis+Stone+Dream+Udenisht+Ohrid/Bay+of+Bones+Museum+Ohrid/Saint+Sofia+Church+Ohrid/?travelmode=walking'},
+  12: {icon:'🚗', mode:'נסיעה ברכב', title:'אוהריד → מאטקה → סקופיה', url:'https://www.google.com/maps/dir/Elis+Stone+Dream+Udenisht+Ohrid/Matka+Canyon+Skopje+Macedonia/19th+Floor+Sunset+Apartment+Skopje+Macedonia/?travelmode=driving'},
+  13: {icon:'🚗', mode:'נסיעה ברכב', title:'סקופיה → גבול → מנזר ריאלה → סופיה', url:'https://www.google.com/maps/dir/Skopje+North+Macedonia/Deve+Bair+Border+Crossing+Macedonia+Bulgaria/Rila+Monastery+Bulgaria/Urban+Serviced+Apartments+Sofia+Bulgaria/?travelmode=driving'},
+  14: {icon:'🚗', mode:'נסיעה ברכב', title:'Urban Serviced → שדה התעופה סופיה', url:'https://www.google.com/maps/dir/Urban+Serviced+Apartments+Sofia+Bulgaria/Sofia+Airport+Terminal+2+Bulgaria/?travelmode=driving'},
+};
+const RESTAURANTS = {
+  sofia: [
+    {name:'Manastirska Magernitsa', mapLink:'https://www.google.com/maps/search/?api=1&query=Manastirska+Magernitsa+Sofia', emoji:'🌿', tags:['gf','veg','fish'], note:'מטבח בולגרי מסורתי. אפשרות ל-GF. דגים טריים. מרכז.'},
+    {name:'Made in Home', mapLink:'https://www.google.com/maps/search/?api=1&query=Made+in+Home+Restaurant+Sofia', emoji:'🥗', tags:['gf','veg'], note:'בוקר וצהריים. אפשרויות GF רבות. חומרי גלם מקומיים.'},
+  ],
+  plovdiv: [
+    {name:'Hebros Restaurant', mapLink:'https://www.google.com/maps/search/?api=1&query=Hebros+Restaurant+Plovdiv', emoji:'🍽️', tags:['gf','fish'], note:'מסעדת מלון היסטורי. מבחר דגים. GF על פי בקשה. עיר עתיקה.'},
+    {name:'Pavaj', mapLink:'https://www.google.com/maps/search/?api=1&query=Pavaj+Restaurant+Plovdiv', emoji:'🌿', tags:['gf','veg','fish'], note:'מסעדה בחצר. ירקות מקומיים, דגים. נינוח לשבת.'},
+    {name:'Coffee Shop Story', mapLink:'https://www.google.com/maps/search/?api=1&query=Coffee+Shop+Story+Plovdiv', emoji:'☕', tags:['gf'], note:'בית קפה + ארוחת בוקר. GF מסומן בתפריט.'},
+  ],
+  bansko: [
+    {name:'Kasapinova Kushta', mapLink:'https://www.google.com/maps/search/?api=1&query=Kasapinova+Kushta+Bansko', emoji:'🏠', tags:['fish','gf'], note:'בית מסורתי. דגים ובשר — הזמינו דגים. בקשו ללא קמח.'},
+    {name:'Pizzeria Venezia', mapLink:'https://www.google.com/maps/search/?api=1&query=Pizzeria+Venezia+Bansko', emoji:'🍕', tags:['gf'], note:'פיצה על בסיס GF זמינה! מתאים לילדים.'},
+  ],
+  ohrid: [
+    {name:'Restaurant Letna Bavcha', mapLink:'https://www.google.com/maps/search/?api=1&query=Letna+Bavcha+Restaurant+Ohrid', emoji:'🌊', tags:['fish','gf'], note:'ישירות על האגם. פורל אוהריד טרי — המנה המובילה. GF טבעי.'},
+    {name:'Restoran Biser', mapLink:'https://www.google.com/maps/search/?api=1&query=Biser+Restaurant+Ohrid', emoji:'🐟', tags:['fish','gf'], note:'פורל + בורי מהאגם. מסורתי, נוף מדהים. GF טבעי.'},
+    {name:'Dalga Charshija', mapLink:'https://www.google.com/maps/search/?api=1&query=Dalga+Charshija+Ohrid', emoji:'🥗', tags:['gf','veg'], note:'שוק ישן. ירקות טריים ומנות צמחוניות. אידיאלי לשבת.'},
+  ],
+  skopje: [
+    {name:'Pelister Restaurant', mapLink:'https://www.google.com/maps/search/?api=1&query=Pelister+Restaurant+Skopje', emoji:'🍽️', tags:['fish','gf'], note:'מסעדת דגים מפורסמת. מבחר רחב. GF על פי בקשה.'},
+    {name:'Old Town (Charshija)', mapLink:'https://www.google.com/maps/search/?api=1&query=Old+Bazaar+Skopje', emoji:'🥙', tags:['gf','veg'], note:'מנות ירקות ושעועית — GF טבעי. הבזאר הטורקי.'},
+  ],
+};
+
+// Days data — RESCHEDULED for Shabbat
+// Day 1=Wed 1/7 Sofia, Day 2=Thu 2/7 Sofia
+// Day 3=Fri 3/7 Plovdiv(Shabbat!), Day 4=Sat 4/7 Plovdiv, Day 5=Sun 5/7 Plovdiv Aquapark
+// Day 6=Mon 6/7 Bansko, Day 7=Tue 7/7 Bansko mountains
+// Day 8=Wed 8/7 Melnik→border→Ohrid
+// Day 9=Thu 9/7 Ohrid, Day 10=Fri 10/7 Ohrid(Shabbat!), Day 11=Sat 11/7 Ohrid
+// Day 12=Sun 12/7 Ohrid→Skopje+Matka (לינה סקופיה)
+// Day 13=Mon 13/7 Skopje→ריאלה→סופיה (לינה סופיה)
+// Day 14=Tue 14/7 ארוחת בוקר + טיסה
+const DAYS_DATA = [
+  {day:1, title:'סופיה — הגעה', loc:'סופיה 🇧🇬', emoji:'🛬', col:'#1a6a9a', night:'סופיה',
+   lat:42.696, lng:23.332,
+   rest: RESTAURANTS.sofia,
+   sched:[
+    {t:'09:50',c:'נחיתה בסופיה · Terminal 2'},
+    {t:'10:30',c:'🚗 קבלת רכב שכור — Booking Cars',tip:'Counter בטרמינל 2 · הצג הזמנה + רישיון + כרטיס אשראי'},
+    {t:'11:30',c:'נסיעה לדירה בסופיה — בית חלומות A21',tip:'~15 דקות מהשדה · חנייה בתשלום בסביבה'},
+    {t:'12:00',c:'📍 צ\'ק-אין <a href="https://he.airbnb.com/rooms/1429913693878976754?adults=2&check_in=2026-07-01&check_out=2026-07-03&children=3&search_mode=regular_search" target="_blank" style="color:inherit;text-decoration:underline;font-weight:700;">בית חלומות A21</a>',tip:'מרכז סופיה · כתובת מלאה תישלח מ-Airbnb לאחר אישור'},
+    {t:'13:30',c:'קניות סופר 🛒',tip:'Billa / Kaufland — לחם, ביצים, גבינה לבוקרים הבאים'},
+    {t:'15:30',c:'רחוב ויטושה — טיול ראשון',tip:'המדרחוב הראשי, חנויות וקפות'},
+    {t:'19:30',c:'ארוחת ערב ראשונה 🐟',tip:'Made in Home / Manastirska Magernitsa — GF + דגים · ×5 ~180₪'},
+  ]},
+  {day:2, title:'סופיה — קוקולנדיה + סיור עיר', loc:'סופיה 🇧🇬', emoji:'🏛️', col:'#1a6a9a', night:'סופיה',
+   lat:42.696, lng:23.332,
+   rest: RESTAURANTS.sofia,
+   sched:[
+    {t:'09:00',c:'קוקולנדיה — פארק חבלים משפחתי 🆕',tip:'פארק בויאנה · מתאים לכל הגילאים · לפני העומס',map:'https://maps.google.com/?q=Kokolandia+Sofia'},
+    {t:'11:30',c:'כנסיית בויאנה — UNESCO',tip:'הזמינו כרטיסים online מראש!'},
+    {t:'13:00',c:'ארוחת צהריים — שוק Halite 🐟',tip:'מסעדת דגים כשרה. בקשו Bez gluten לאסתי'},
+    {t:'14:30',c:'קתדרלת אלכסנדר נבסקי',tip:'חינם · נוף מרהיב'},
+    {t:'16:30',c:'רכבל ויטושה + גשרי הזהב'},
+    {t:'19:30',c:'ארוחת ערב + ארוז מזוודות',tip:'מחר יוצאים לפלובדיב'},
+  ]},
+  {day:3, title:'קופריבשטיצה → ערב שבת פלובדיב 🕍', loc:'סופיה → קופריבשטיצה → פלובדיב 🇧🇬', emoji:'✡️', col:'#c8a940', night:'פלובדיב',
+   isShabbat:true, lat:42.150, lng:24.750,
+   rest: RESTAURANTS.plovdiv,
+   sched:[
+    {t:'08:00',c:'יציאה מסופיה לקופריבשטיצה (~1.5 שעות)'},
+    {t:'09:30',c:'קופריבשטיצה — כפר מוזיאון מהמאה ה-19',tip:'בתים צבעוניים מימי התקומה · חינמי ברחובות',map:'https://maps.google.com/?q=Koprivshtitsa+Bulgaria'},
+    {t:'11:30',c:'יציאה לפלובדיב (~1 שעה)'},
+    {t:'13:00',c:'הגעה לפלובדיב + צ\'ק-אין All Seasons',tip:'Wi-Fi מהיר · מרפסות · מטבח',map:'https://www.booking.com/hotel/bg/all-seasons-plovdiv.html'},
+    {t:'14:30',c:'עיר עתיקה פלובדיב — סיור ראשוני',tip:'רחוב נסיפורוב · בתי רנסנס בולגרי',map:'https://maps.google.com/?q=Plovdiv+Old+Town'},
+    {t:'16:30',c:'שוק Kapana — קניות לשבת',tip:'פירות, ירקות, גבינות לשבת!',map:'https://maps.google.com/?q=Kapana+Market+Plovdiv'},
+    {t:'18:00',c:'הכנות שבת + תיאום עם בית חב"ד פלובדיב',tip:'הרב מענדי · Grand Hotel Plovdiv · לתאם ארוחת שבת מראש בפייסבוק!'},
+    {t:'19:30',c:'קבלת שבת + ארוחת ערב כשרה 🕍',tip:'בית חב"ד פלובדיב (לתאם מראש) · חלופה: Hebros Restaurant (GF)'}
+  ]},
+    {day:4, title:'🕍 שבת — עיר עתיקה פלובדיב', loc:'פלובדיב 🇧🇬', emoji:'🚶', col:'#c8a940', night:'פלובדיב',
+   isShabbat:true, lat:42.147, lng:24.751,
+   rest: RESTAURANTS.plovdiv,
+   sched:[
+    {t:'09:00',c:'תפילת שחרית — בית חב"ד פלובדיב',tip:'Grand Hotel Plovdiv · לתאם שעה מראש עם הרב מענדי'},
+    {t:'10:30',c:'אמפיתיאטרון רומי פלובדיב',tip:'חינם מבחוץ · אחד היפים בבלקן',map:'https://maps.google.com/?q=Roman+Theatre+Plovdiv'},
+    {t:'12:00',c:'הליכה בעיר העתיקה — רחוב נסיפורוב',tip:'ללא נסיעות — הכל ברגל!',map:'https://maps.google.com/?q=Plovdiv+Old+Town'},
+    {t:'13:30',c:'ארוחת שבת כשרה 🕍',tip:'בית חב"ד פלובדיב — לתאם מראש! · חלופה: Pavaj (GF טבעי)'},
+    {t:'15:30',c:'מנוחת שבת · בתי הרנסנס הבולגרי',map:'https://maps.google.com/?q=Plovdiv+Old+Town+Bulgarian+Revival'},
+    {t:'17:30',c:'הר נבת — נוף פנורמי על פלובדיב',map:'https://maps.google.com/?q=Nebet+Tepe+Plovdiv'},
+    {t:'19:30',c:'הבדלה + ארוחת ערב'}
+  ]},
+  {day:5, title:'פלובדיב → מערת יגודינה → בנסקו', loc:'פלובדיב → רודופה → בנסקו 🇧🇬', emoji:'🏔️', col:'#4a3ea0', night:'בנסקו',
+   lat:41.837, lng:23.488,
+   rest: RESTAURANTS.bansko,
+   sched:[
+    {t:'08:30',c:'ארוחת בוקר · צ\'ק-אאוט All Seasons'},
+    {t:'09:30',c:'יציאה לכיוון מערת יגודינה דרך הרי הרודופה (~2 שעות)',tip:'נסיעה ציורית בהרים — כביש מפותל ויפיפה'},
+    {t:'11:30',c:'מערת יגודינה — מערת הדובים',tip:'סיור מודרך 45 דק · 6°C בפנים — לבוש חם! · ~20₪/נפש',map:'https://maps.google.com/?q=Yagodinska+Cave+Bulgaria'},
+    {t:'13:00',c:'ארוחת צהריים באזור טריגרד',tip:'מסעדות קטנות ומקומיות · נוף מדהים בגיא'},
+    {t:'14:00',c:'המשך לבנסקו/רזלוג (~1.5 שעות)'},
+    {t:'16:00',c:'צ\'ק-אין דירה מרווחת ברזלוג',tip:'10 דקות מבנסקו · מטבח מאובזר',map:'https://www.airbnb.com/rooms/1268020905342992590'},
+    {t:'17:30',c:'עיר עתיקה בנסקו — כנסיית הנחייה הקדושה',map:'https://maps.google.com/?q=Bansko+Old+Town'},
+    {t:'19:30',c:'ארוחת ערב 🐟',tip:'Kasapinova — דגים, בקשו ללא קמח'}
+  ]},
+{day:6, title:'שבעת האגמים — הרי ריל 🆕', loc:'פלובדיב → בנסקו 🇧🇬', emoji:'🚙', col:'#4a3ea0', night:'בנסקו',
+   lat:41.837, lng:23.488,
+   rest: RESTAURANTS.bansko,
+   sched:[
+    {t:'09:00',c:'יציאה לרחלוג (ליד בנסקו) ~2 שעות',tip:'הדירה ממוקמת ברזלוג — 10 דקות מבנסקו'},
+    {t:'11:00',c:'צ\'ק-אין <a href="https://he.airbnb.com/rooms/982595284052182757?adults=2&check_in=2026-07-05&check_out=2026-07-08&children=3&search_mode=regular_search" target="_blank" style="color:inherit;text-decoration:underline;font-weight:700;">דירה מרווחת ברזלוג</a>',tip:'מטבח מאובזר · שקט · ~10 דקות מבנסקו ומהרכבל'},
+    {t:'12:30',c:'ארוחת צהריים בבנסקו',tip:'Pizzeria Venezia / Kasapinova — GF זמינה'},
+    {t:'14:00',c:'סיור בנסקו העתיקה + מנוחה בדירה',tip:'עיר עתיקה יפה · בתי קפה ורחובות אבן'},
+    {t:'19:00',c:'עיר עתיקה + ארוחת ערב 🐟',tip:'Kasapinova — דגים, בקשו ללא קמח'},
+  ]},
+  {day:7, title:'בנסקו — יום חופשי ועיר', loc:'הרי פירין + רודופי 🇧🇬', emoji:'🏔️', col:'#4a3ea0', night:'בנסקו',
+   lat:41.837, lng:23.488,
+   rest: RESTAURANTS.bansko,
+   sched:[
+    {t:'08:00',c:'ארוחת בוקר בדירה ברזלוג',tip:'קניות מאתמול · יוצאים מוקדם לרכבל בנסקו'},
+    {t:'09:00',c:'רכבל שבעת האגמים',tip:'~60₪/נפש. נעלי הליכה חובה!'},
+    {t:'12:30',c:'ירידה + ארוחה קלה'},
+    {t:'14:30',c:'ג\'יפים רודופי ~2.5 שעות',tip:'הזמינו מראש ב-Viator, ~100₪/נפש'},
+    {t:'18:00',c:'חזרה + בריכה + ארוחת ערב'},
+  ]},
+  {day:8, title:'בנסקו → מלניק → גבול → אוהריד', loc:'מלניק ← גבול ← ביטולה ← אוהריד', emoji:'🛂', col:'#9a6010', night:'אוהריד',
+   lat:41.524, lng:23.391,
+   rest: RESTAURANTS.ohrid,
+   sched:[
+    {t:'07:30',c:'יציאה מרזלוג לכיוון מלניק'},
+    {t:'09:00',c:'מלניק — פירמידות חול + יין',tip:'טעימות יין. ילדים — מיץ ענבים!'},
+    {t:'11:00',c:'גבול Zlatarevo',tip:'~30–40 דקות, שקט ורגוע'},
+    {t:'12:30',c:'סטרומיצה — ארוחת צהריים 🐟'},
+    {t:'14:30',c:'ביטולה — הרקליה + מדרחוב',tip:'שרידים רומיים — חינם! ~1 שעה'},
+    {t:'16:30',c:'נסיעה לאוהריד ~1.5 שעות'},
+    {t:'18:30',c:'אוהריד! צ\'ק-אין <a href="https://www.booking.com/hotel/mk/pearl-apartments.he.html?aid=304142&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=1" target="_blank" style="color:inherit;text-decoration:underline;font-weight:700;">Pearl Apartments</a>',tip:'ליד האגם · מטבח · 4 לילות כולל שש"ת'},
+    {t:'20:00',c:'ארוחת ערב ראשונה על האגם 🐟',tip:'Biser / Letna — פורל טרי! GF טבעי'},
+  ]},
+  {day:9, title:'אוהריד — עיר עתיקה + קאנאו', loc:'אוהריד 🇲🇰', emoji:'🕌', col:'#9a6f1e', night:'אוהריד',
+   lat:41.123, lng:20.801,
+   rest: RESTAURANTS.ohrid,
+   sched:[
+    {t:'09:00',c:'כנסיית קאנאו — סירה + צוק',tip:'~40₪/נפש, אחד מהנופים הכי יפים'},
+    {t:'11:00',c:'מצודת שמואל + עיר עתיקה',tip:'הליכה בעיר ההיסטורית'},
+    {t:'13:00',c:'ארוחת צהריים על האגם 🐟',tip:'Letna Bavcha — פורל אוהריד'},
+    {t:'15:00',c:'חוף שריסטה — שחייה ראשונה!'},
+    {t:'19:30',c:'ארוחת ערב + קניות פנינים'},
+  ]},
+  {day:10, title:'🕍 ערב שבת — סנט נאום + שחייה', loc:'סנט נאום + אוהריד 🇲🇰', emoji:'🦚', col:'#c8a940', night:'אוהריד',
+   isShabbat:true, lat:40.914, lng:20.741,
+   rest: RESTAURANTS.ohrid,
+   sched:[
+    {t:'08:30',c:'מנזר סנט נאום — סירה על מעיינות',tip:'~40₪/נפש. טווסים! יפהפה'},
+    {t:'11:00',c:'שחייה ליד המנזר'},
+    {t:'13:00',c:'חזרה לאוהריד + ארוחת צהריים 🐟',tip:'GF טבעי בכל מסעדות הדגים'},
+    {t:'15:30',c:'שוק + קניות לשבת',tip:'גבינות, זיתים, פירות'},
+    {t:'18:00',c:'הכנות לשבת'},
+    {t:'19:30',c:'🕯️ ארוחת שבת 🐟',tip:'Dalga Charshija / Biser Restaurant'},
+  ]},
+  {day:11, title:'🕍 שבת — אוהריד — שחייה ורגיעה', loc:'אוהריד 🇲🇰', emoji:'🏊', col:'#c8a940', night:'אוהריד',
+   isShabbat:true, lat:41.123, lng:20.801,
+   rest: RESTAURANTS.ohrid,
+   sched:[
+    {t:'09:30',c:'ארוחת בוקר נינוחה'},
+    {t:'11:00',c:'כנסיית סנט סופיה',tip:'הליכה — ממש בעיר, חינם'},
+    {t:'12:30',c:'ארוחת צהריים על האגם 🐟',tip:'Biser Restaurant — פורל'},
+    {t:'14:00',c:'שחייה באגם — יום חוף מלא!',tip:'מים צלולים ונקיים מאוד'},
+    {t:'17:30',c:'מוזיאון מפרץ העצמות',tip:'מרתק לילדים, ליד החוף'},
+    {t:'20:00',c:'הבדלה + ארוחת ערב'},
+  ]},
+  {day:12, title:'אוהריד → קניון מאטקה + סקופיה', loc:'אוהריד → סקופיה 🇲🇰', emoji:'🎭', col:'#1a7060', night:'סקופיה',
+   lat:41.958, lng:21.296,
+   rest: RESTAURANTS.skopje,
+   sched:[
+    {t:'08:00',c:'יציאה לכפר ואצ\'אני — מפלי ואציני 🆕 (~20 דק\' מאוהריד)'},
+    {t:'08:30',c:'מפלי ואציני — קניון ומעיינות טורקיז',tip:'~1.5 שעות טיול · אחד המקומות היפים במקדוניה!',map:'https://maps.google.com/?q=Vevchani+Springs+Macedonia'},
+    {t:'10:30',c:'יציאה לקניון מאטקה (~1 שעה)'},
+    {t:'11:30',c:'קניון מאטקה — סירה!',tip:'~20₪/נפש. מים טורקיז מדהימים'},
+    {t:'12:30',c:'מערת Vrelo',tip:'~30₪/נפש'},
+    {t:'14:00',c:'נסיעה לסקופיה + צ\'ק-אין <a href="https://he.airbnb.com/rooms/940284084833501120?adults=2&check_in=2026-07-12&check_out=2026-07-13&children=3&search_mode=regular_search" target="_blank" style="color:inherit;text-decoration:underline;font-weight:700;">דירת יוקרה קומה 19</a>',tip:'בריכה + חדר כושר + נוף פנורמי · ~20 דקות ממאטקה'},
+    {t:'15:30',c:'כיכר מקדוניה + גשר האבן'},
+    {t:'17:00',c:'בזאר הטורקי 🐟',tip:'Old Town Charshija — GF טבעי'},
+    {t:'18:30',c:'מוזיאון השואה',tip:'חובה! מרגש לכל גיל'},
+    {t:'20:00',c:'ארוחת ערב 🐟',tip:'Pelister Restaurant — דגים'},
+  ]},
+  {day:13, title:'סקופיה → מנזר ריאלה → סופיה', loc:'סקופיה → ריאלה → סופיה 🇧🇬', emoji:'⛪', col:'#4a3ea0', night:'סופיה (ליד שד"ת)',
+   lat:42.133, lng:23.340,
+   rest:[],
+   sched:[
+    {t:'08:00',c:'יציאה מסקופיה לבולגריה',tip:'🛂 גבול שני (MK→BG) · Deve Bair / Gyueshevo · ~30 דקות'},{t:'09:30',c:'כניסה לבולגריה → נסיעה לריאלה ~1.5 שעות'},
+    {t:'10:30',c:'מנזר ריאלה — UNESCO!',tip:'כניסה חינם! קנו לחם טרי מהמאפייה'},
+    {t:'12:30',c:'נסיעה לסופיה ~1.5 שעות'},
+    {t:'14:30',c:'צ\'ק-אין <a href="https://he.airbnb.com/rooms/1346543086153534143?adults=2&check_in=2026-07-13&check_out=2026-07-14&children=3&location=Sofia%2C%20Bulgaria&search_mode=regular_search" target="_blank" style="color:inherit;text-decoration:underline;font-weight:700;">The Boulevard Luxury Apartment 2</a>',tip:'בולוורד הראשי · ליד שד"ת · ערב אחרון לפני טיסה'},
+    {t:'16:00',c:'מנוחה + הכנה לטיסה',tip:'ארוז מזוודות · בדוק כרטיסי הטיסה'},
+    {t:'19:00',c:'ארוחת ערב חגיגית לסיום הטיול! 🐟'},
+    {t:'22:00',c:'שינה מוקדמת — מחר טיסה!'},
+  ]},
+  {day:14, title:'☀️ ארוחת בוקר + ✈️ הביתה!', loc:'Sofia Airport ✈️ — יום 14', emoji:'✈️', col:'#6b6860', night:'',
+   lat:42.697, lng:23.411,
+   rest:[],
+   sched:[
+    {t:'05:30',c:'קימה + ארוחת בוקר קצרה במלון'},
+    {t:'07:00',c:'צ\'ק-אאוט + החזרת רכב שכור',tip:'Counter Booking Cars · טרמינל 2'},
+    {t:'07:30',c:'הגעה לטרמינל + צ\'ק-אין אל על'},
+    {t:'08:30',c:'ביטחון + Duty Free + קניות אחרונות'},
+    {t:'11:05',c:'✈️ המראה SOF → TLV',tip:'~2:25 שעות'},
+    {t:'13:30',c:'🎉 נחיתה בן גוריון! ברוכים השבים!'},
+  ]},
+];
+
+
+// Photo links per day (Google Images)
+
+const LODGING_MAP = {
+  1: {name:'✅ בית חלומות A21, סופיה', type:'🏠 דירה · מטבח', conf:'מאושר · Airbnb', map:'https://www.google.com/maps/search/?api=1&query=A21+Dream+Home+Sofia+Bulgaria', link:'https://he.airbnb.com/rooms/1429913693878976754?adults=2&check_in=2026-07-01&check_out=2026-07-03&children=3&search_mode=regular_search'},
+  2: {name:'✅ בית חלומות A21, סופיה', type:'🏠 דירה · מטבח', conf:'מאושר · Airbnb', map:'https://www.google.com/maps/search/?api=1&query=A21+Dream+Home+Sofia+Bulgaria', link:'https://he.airbnb.com/rooms/1429913693878976754?adults=2&check_in=2026-07-01&check_out=2026-07-03&children=3&search_mode=regular_search'},
+  3: {name:'✅ All Seasons Plovdiv, פלובדיב', type:'🏠 דירה · מטבח', conf:'מס\' הזמנה: 5583971997 · קוד: 9059 · €227.40', addr:'Дрява 7, floor 4, apt 7, Plovdiv', tel:'+359 87 659 8181', map:'https://www.google.com/maps/search/?api=1&query=All+Seasons+Plovdiv+Fast+WiFi+AC+Balconies', link:'https://www.booking.com/hotel/bg/all-seasons-plovdiv-fast-wi-fi-ac-balconies.he.html'},
+  4: {name:'✅ All Seasons Plovdiv, פלובדיב', type:'🏠 דירה · מטבח', conf:'צ\u0027ק-אין: ו\u0027 3/7 · צ\u0027ק-אאוט: א\u0027 5/7', addr:'Дрява 7, floor 4, apt 7, Plovdiv', tel:'+359 87 659 8181', map:'https://www.google.com/maps/search/?api=1&query=All+Seasons+Plovdiv+Fast+WiFi+AC+Balconies', link:'https://www.booking.com/hotel/bg/all-seasons-plovdiv-fast-wi-fi-ac-balconies.he.html'},
+  5: {name:'✅ דירה מרווחת, רזלוג (ליד בנסקו)', type:'🏠 דירה · מטבח', conf:'לילה 5 — כבר בבנסקו!', map:'https://www.google.com/maps/search/?api=1&query=Razlog+Bulgaria', link:'https://he.airbnb.com/rooms/982595284052182757?adults=2&check_in=2026-07-05&check_out=2026-07-08&children=3&search_mode=regular_search'},
+  6: {name:'✅ דירה מרווחת, רזלוג (ליד בנסקו)', type:'🏠 דירה · מטבח', conf:'Airbnb · 5–8/7', map:'https://www.google.com/maps/search/?api=1&query=Razlog+Bulgaria', link:'https://he.airbnb.com/rooms/982595284052182757?adults=2&check_in=2026-07-05&check_out=2026-07-08&children=3&search_mode=regular_search'},
+  7: {name:'✅ דירה מרווחת, רזלוג (ליד בנסקו)', type:'🏠 דירה · מטבח', conf:'Airbnb · 5–8/7', map:'https://www.google.com/maps/search/?api=1&query=Razlog+Bulgaria', link:'https://he.airbnb.com/rooms/982595284052182757?adults=2&check_in=2026-07-05&check_out=2026-07-08&children=3&search_mode=regular_search'},
+  8: {name:'Pearl Apartments, אוהריד', type:'🏠 דירה · מטבח', map:'https://www.google.com/maps/search/?api=1&query=Pearl+Apartments+Ohrid+Macedonia', link:'https://www.booking.com/hotel/mk/pearl-apartments.he.html?aid=304142&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=1'},
+  9: {name:'Pearl Apartments, אוהריד', type:'🏠 דירה · מטבח', map:'https://www.google.com/maps/search/?api=1&query=Pearl+Apartments+Ohrid+Macedonia', link:'https://www.booking.com/hotel/mk/pearl-apartments.he.html?aid=304142&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=1'},
+  10:{name:'Pearl Apartments, אוהריד', type:'🏠 דירה · מטבח', map:'https://www.google.com/maps/search/?api=1&query=Pearl+Apartments+Ohrid+Macedonia', link:'https://www.booking.com/hotel/mk/pearl-apartments.he.html?aid=304142&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=1'},
+  11:{name:'Pearl Apartments, אוהריד', type:'🏠 דירה · מטבח', map:'https://www.google.com/maps/search/?api=1&query=Pearl+Apartments+Ohrid+Macedonia', link:'https://www.booking.com/hotel/mk/pearl-apartments.he.html?aid=304142&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=1'},
+  12:{name:'דירת יוקרה קומה 19, סקופיה', type:'🏨 מלון · ללא מטבח', map:'https://www.google.com/maps/search/?api=1&query=19th+floor+luxury+apartment+Skopje', link:'https://he.airbnb.com/rooms/940284084833501120?adults=2&check_in=2026-07-12&check_out=2026-07-13&children=3&search_mode=regular_search'},
+  13:{name:'The Boulevard Luxury Apt 2, סופיה', type:'🏨 מלון · ללא מטבח', map:'https://www.google.com/maps/search/?api=1&query=Boulevard+Luxury+Apartment+2+Sofia+Bulgaria', link:'https://he.airbnb.com/rooms/1346543086153534143?adults=2&check_in=2026-07-13&check_out=2026-07-14&children=3&location=Sofia%2C%20Bulgaria&search_mode=regular_search'},
+  14:{name:'The Boulevard Luxury Apt 2, סופיה', type:'🏨 ← שדה התעופה', map:'https://www.google.com/maps/search/?api=1&query=Boulevard+Luxury+Apartment+2+Sofia+Bulgaria', link:'https://he.airbnb.com/rooms/1346543086153534143?adults=2&check_in=2026-07-13&check_out=2026-07-14&children=3&location=Sofia%2C%20Bulgaria&search_mode=regular_search'},
+};
+const PHOTO_LINKS = {
+  1: 'https://www.google.com/search?q=Sofia+Alexander+Nevsky+Cathedral&tbm=isch',
+  2: 'https://www.google.com/search?q=Boyana+Church+Sofia+Vitosha&tbm=isch',
+  3: 'https://www.google.com/search?q=Koprivshtitsa+Bulgaria+historic+village&tbm=isch',
+  4: 'https://www.google.com/search?q=Plovdiv+Old+Town+Roman+Theatre+Bulgaria&tbm=isch',
+  5: 'https://www.google.com/search?q=Action+Aquapark+Plovdiv+Bulgaria&tbm=isch',
+  6: 'https://www.google.com/search?q=Bansko+old+town+Bulgaria&tbm=isch',
+  7: 'https://www.google.com/search?q=Seven+Rila+Lakes+hike+Bulgaria&tbm=isch',
+  8: 'https://www.google.com/search?q=Melnik+Bulgaria+wine+pyramids&tbm=isch',
+  9: 'https://www.google.com/search?q=Ohrid+Church+Kaneo+lake+Macedonia&tbm=isch',
+  10:'https://www.google.com/search?q=Saint+Naum+Monastery+springs+peacocks&tbm=isch',
+  11:'https://www.google.com/search?q=Ohrid+Lake+beach+swimming+Macedonia&tbm=isch',
+  12:'https://www.google.com/search?q=Matka+Canyon+boat+cave+Skopje&tbm=isch',
+  13:'https://www.google.com/search?q=Rila+Monastery+Bulgaria+UNESCO&tbm=isch',
+  14:'https://www.google.com/search?q=Sofia+Airport+Bulgaria&tbm=isch',
+};
+// DIST TABLE
+const DISTS = [
+  {f:'סופיה',t:'פלובדיב (דרך קופריבשטיצה)',km:150,h:'~2.5 שע'},
+  {f:'פלובדיב',t:'בנסקו',km:120,h:'~2 שע'},
+  {f:'בנסקו',t:'מלניק',km:65,h:'~1 שע'},
+  {f:'מלניק',t:'גבול Zlatarevo → ביטולה → אוהריד',km:185,h:'~3.5 שע',hi:true},
+  {f:'אוהריד',t:'קניון מאטקה',km:195,h:'~2.5 שע'},
+  {f:'סקופיה',t:'מנזר ריאלה → סופיה',km:275,h:'~4 שע'},
+];
+
+// BUDGET DATA per day
+// food = [bkf, lun, din] × 5 people
+// bkf 25×5=125, lun 40×5=200, din 60×5=300
+const BDATA = [
+  // ─── יום 1 (רביעי 1/7) ─── סופיה הגעה · דירה Didis (מטבח)
+  // בוקר: בישראל לפני הטיסה · צהריים: בטיסה · ערב: מסעדה ראשונה
+  {d:1,  fuel:50,
+   bkf:0,   bkfNote:'בישראל לפני הטיסה',
+   lun:0,   lunNote:'בטיסה',
+   din:180, dinNote:'Made in Home / Manastirska Magernitsa — GF, ללא בשר, דגים',
+   sup:80,  supNote:'קניות סופר לבוקרים הבאים',
+   attr:0, attrNote:'', treat:100, misc:0},
+
+  // ─── יום 2 (חמישי 2/7) ─── סופיה סיור · דירה Didis (מטבח)
+  // בוקר: בדירה · צהריים: שוק Halite · ערב: פיצה/בדירה
+  {d:2,  fuel:30,
+   bkf:50,  bkfNote:'בדירה — ביצים/גבינה/לחם מהסופר',
+   lun:180, lunNote:'שוק Halite סופיה — מסעדה מקומית GF',
+   din:80,  dinNote:'פיצה/בדירה — ערב פשוט',
+   sup:0,   supNote:'',
+   attr:175, attrNote:'בויאנה 50₪ + רכבל ויטושה 125₪', treat:100, misc:0},
+
+  // ─── יום 3 (שישי 3/7) ─── סופיה→קופריבשטיצה→פלובדיב · דירה Dinati (מטבח) 🕍
+  // בוקר: בדירה סופיה · צהריים: קופריבשטיצה בדרך · ערב שבת: מסעדה מיוחדת
+  {d:3,  fuel:110,
+   bkf:50,  bkfNote:'בדירה סופיה לפני יציאה',
+   lun:150, lunNote:'קופריבשטיצה — מסעדת כפר מקומית',
+   din:250, dinNote:'🕍 ארוחת שבת — Pavaj פלובדיב, GF',
+   sup:80,  supNote:'קניות שבת — שוק Kapana פלובדיב',
+   attr:50, attrNote:'קופריבשטיצה כניסה ×5', treat:100, misc:0},
+
+  // ─── יום 4 (שבת 4/7) ─── פלובדיב עיר עתיקה · דירה Dinati 🕍
+  // בוקר: בדירה · צהריים: מסעדה הליכה · ערב: בדירה (שבת)
+  {d:4,  fuel:0,
+   bkf:50,  bkfNote:'בדירה — שבת בנחת',
+   lun:180, lunNote:'Pavaj / Hebros — מסעדה בעיר עתיקה פלובדיב',
+   din:80,  dinNote:'בדירה — ערב שבת נינוח',
+   sup:0,   supNote:'',
+   attr:50, attrNote:'אמפיתיאטרון פלובדיב ×5', treat:100, misc:0},
+
+  // ─── יום 5 (ראשון 5/7) ─── פלובדיב Aquapark · דירה Dinati
+  // בוקר: בדירה · צהריים: בפארק · ערב: בדירה
+  {d:5,  fuel:0,
+   bkf:50,  bkfNote:'בדירה לפני יציאה לפארק',
+   lun:120, lunNote:'קיוסק / מסעדה ב-Aquapark פלובדיב',
+   din:80,  dinNote:'בדירה — ערב אחרי יום מים',
+   sup:0,   supNote:'',
+   attr:400, attrNote:'Action Aquapark ~80₪×5', treat:100, misc:0},
+
+  // ─── יום 6 (שני 6/7) ─── פלובדיב→בנסקו · דירה Apt Complex Dream (מטבח)
+  // בוקר: בדירה פלובדיב · צהריים: בדרך לבנסקו · ערב: עיר עתיקה בנסקו
+  {d:6,  fuel:90,
+   bkf:50,  bkfNote:'בדירה All Seasons פלובדיב לפני יציאה',
+   lun:150, lunNote:'עצירה בדרך לבנסקו — מסעדת כביש',
+   din:150, dinNote:'עיר עתיקה בנסקו — Kasapinova GF',
+   sup:80,  supNote:'קניות סופר ברחלוג/בנסקו',
+   attr:0,  attrNote:'מנוחה · גן שעשועים בבנסקו', treat:100, misc:0},
+
+  // ─── יום 7 (שלישי 7/7) ─── שבעת האגמים + ג'יפים · דירה בנסקו
+  // בוקר: בדירה · צהריים: הרים (קל) · ערב: בדירה אחרי יום עמוס
+  {d:7,  fuel:30,
+   bkf:50,  bkfNote:'בדירה — יוצאים מוקדם לרכבל',
+   lun:80,  lunNote:'חטיפים + חנות בהרים — יום שדה',
+   din:80,  dinNote:'בדירה — ערב אחרי יום פעיל בהרים',
+   sup:0,   supNote:'',
+   attr:800, attrNote:"רכבל שבעת אגמים 300₪ + ג'יפים 500₪", treat:100, misc:0},
+
+  // ─── יום 8 (רביעי 8/7) ─── בנסקו→מלניק→גבול→ביטולה→אוהריד · דירה Elis Stone (מטבח)
+  // בוקר: בדירה בנסקו · צהריים: סטרומיצה/ביטולה · ערב: אוהריד ראשון!
+  {d:8,  fuel:185,
+   bkf:50,  bkfNote:'בדירה בנסקו לפני יציאה ארוכה',
+   lun:150, lunNote:'ביטולה / סטרומיצה — מסעדה מקומית',
+   din:200, dinNote:'פורל טרי ראשון באוהריד — Letna Bavcha/Biser',
+   sup:80,  supNote:'קניות סופר אוהריד — Pearl Apartments',
+   attr:150, attrNote:'טעימות יין מלניק ×5', treat:100, misc:0},
+
+  // ─── יום 9 (חמישי 9/7) ─── אוהריד עיר עתיקה + קאנאו · דירה Elis Stone
+  // בוקר: בדירה · צהריים: על האגם · ערב: בדירה
+  {d:9,  fuel:0,
+   bkf:50,  bkfNote:'בדירה — ארוחה עם נוף לאגם',
+   lun:180, lunNote:'Letna Bavcha / Biser — פורל על האגם, GF',
+   din:80,  dinNote:'בדירה — ערב נינוח',
+   sup:0,   supNote:'',
+   attr:300, attrNote:'סירה קאנאו ×5 200₪ + מצודה 100₪', treat:100, misc:0},
+
+  // ─── יום 10 (שישי 10/7) ─── סנט נאום + ערב שבת · דירה Elis Stone 🕍
+  // בוקר: בדירה · צהריים: ליד סנט נאום · ערב שבת: מסעדה מיוחדת
+  {d:10, fuel:50,
+   bkf:50,  bkfNote:'בדירה — יוצאים לסנט נאום',
+   lun:150, lunNote:'מסעדה ליד מנזר סנט נאום',
+   din:250, dinNote:'🕍 ארוחת שבת מיוחדת — מסעדה על האגם',
+   sup:60,  supNote:'קניות לשבת',
+   attr:200, attrNote:'סנט נאום סירה+כניסה ×5', treat:100, misc:0},
+
+  // ─── יום 11 (שבת 11/7) ─── שחייה ורגיעה · דירה Elis Stone 🕍
+  // בוקר: בדירה · צהריים: ליד החוף · ערב: בדירה
+  {d:11, fuel:0,
+   bkf:50,  bkfNote:'בדירה — שבת בנחת',
+   lun:180, lunNote:'Biser Restaurant — פורל ליד החוף',
+   din:80,  dinNote:'בדירה — ערב שבת נינוח',
+   sup:0,   supNote:'',
+   attr:150, attrNote:'מפרץ העצמות ×5', treat:100, misc:200},
+
+  // ─── יום 12 (ראשון 12/7) ─── אוהריד→מאטקה→סקופיה · מלון 19th Floor (ללא מטבח)
+  // בוקר: בדירה אוהריד · צהריים: מסעדה בדרך · ערב: מסעדה סקופיה
+  {d:12, fuel:175,
+   bkf:50,  bkfNote:'בדירה אוהריד לפני יציאה',
+   lun:150, lunNote:'מסעדה בקניון מאטקה / בדרך לסקופיה',
+   din:180, dinNote:'בזאר הטורקי סקופיה — Pelister/Charshija, GF',
+   sup:0,   supNote:'',
+   attr:250, attrNote:'מאטקה סירה 100₪ + Vrelo 150₪', treat:100, misc:0},
+
+  // ─── יום 13 (שני 13/7) ─── סקופיה→ריאלה→סופיה · מלון Urban Serviced
+  // בוקר: קפה מלון · צהריים: ליד ריאלה · ערב: ארוחת סיום חגיגית!
+  {d:13, fuel:165,
+   bkf:80,  bkfNote:'קפה + קרואסון במלון סקופיה',
+   lun:120, lunNote:'מסעדת כפר ליד מנזר ריאלה',
+   din:250, dinNote:'ארוחת ערב חגיגית לסיום — מסעדה טובה בסופיה! 🎉',
+   sup:0,   supNote:'',
+   attr:0, attrNote:'מנזר ריאלה — כניסה חינם!', treat:100, misc:0},
+
+  // ─── יום 14 (שלישי 14/7) ─── ארוחת בוקר + ✈️
+  {d:14, fuel:0,
+   bkf:120, bkfNote:'ארוחת בוקר במלון + קפה בשדה התעופה',
+   lun:0,   lunNote:'בטיסה',
+   din:0,   dinNote:'בבית!',
+   sup:0,   supNote:'',
+   attr:0, attrNote:'', treat:100, misc:150},
+];
+
+// ══════════════════════════════════════════════
+// BUILD FUNCTIONS
+// ══════════════════════════════════════════════
+
+function buildRoute() {
+  // Station rows — image left, content right
+  const g = document.getElementById('sphoto-grid');
+  g.innerHTML = '';
+  WP.forEach((w,i) => {
+    let savedImg = '';
+    try { savedImg = localStorage.getItem('wp_img_'+i) || ''; } catch(e) {}
+    savedImg = savedImg || window._wpImgs?.[i] || w.img || '';
+    const imgPart = savedImg
+      ? `<img src="${savedImg}" style="width:100%;height:100%;object-fit:cover;display:block;min-height:160px;" onerror="this.parentElement.innerHTML='<div class=station-img-placeholder style=background:${w.bg}><span style=font-size:36px>${w.emoji}</span><button class=station-img-btn onclick=changeWpImg(${i})>+ הוסף תמונה</button></div>'">`
+        + `<button class="station-img-btn" onclick="changeWpImg(${i})">🖼 שנה</button>`
+      : `<div class="station-img-placeholder" style="background:${w.bg}"><span style="font-size:36px">${w.emoji}</span><button class="station-img-btn" onclick="changeWpImg(${i})">+ הוסף תמונה</button></div>`;
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(w.n + ' ' + (w.flag.includes('🇧🇬')?'Bulgaria':'North Macedonia'))}`;
+    const borderClass = w.flag.includes('🇲🇰') ? ' station-border' : '';
+    const row = document.createElement('div');
+    row.className = 'station-row' + borderClass;
+    row.innerHTML = `
+      <div class="station-img">${imgPart}</div>
+      <div class="station-body">
+        <div>
+          <div class="station-header">
+            <span class="station-flag">${w.flag}</span>
+            <span class="station-num">${i+1}</span>
+            <span class="station-name">${w.n}</span>
+          </div>
+          <div class="station-days">${w.d}</div>
+          <div class="station-highlights">${(w.hi||[]).map(h=>`<span>· ${h}</span>`).join('')}</div>
+        </div>
+        <a class="station-maps-btn" href="${mapUrl}" target="_blank">🗺 פתח ב-Google Maps</a>
+      </div>`;
+    g.appendChild(row);
+  });
+
+  // Timeline
+  const rv=document.getElementById('rv');
+  RV_DATA.forEach((r,i)=>{
+    const isLast=i===RV_DATA.length-1;
+    const row=document.createElement('div'); row.className='rv-row';
+    row.innerHTML=`<div class="rv-l"><div class="rv-dot" style="background:${r.col}"></div>${!isLast?`<div class="rv-ln" style="background:${r.col}"></div>`:''}</div><div class="rv-b"><div class="rv-d" style="color:${r.col}">${r.flag} ${r.d}</div><div class="rv-n">${r.n}</div><div class="rv-s">${r.s}</div></div>`;
+    rv.appendChild(row);
+  });
+
+  // Dist table
+  const tbody=document.getElementById('dist-table');
+  DISTS.forEach(d=>{
+    const tr=document.createElement('tr');
+    if(d.hi) tr.style.background='#fdf5e0';
+    tr.innerHTML=`<td style="padding:6px 8px;">${d.f}</td><td style="padding:6px 8px;">${d.t}</td><td style="text-align:center;padding:6px 8px;">${d.km}</td><td style="text-align:center;padding:6px 8px;color:var(--gold);font-weight:600;">${d.h}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function buildDays() {
+  const list=document.getElementById('days-list');
+  const seps=[{at:0,icon:'🇧🇬',name:'בולגריה',d:'ימים 1–8 · 1–8/7'},{at:8,icon:'🇲🇰',name:'מקדוניה הצפונית',d:'ימים 9–12 · 9–12/7'},{at:12,icon:'🛫',name:'חזרה הביתה',d:'ימים 13–14 · 13–14/7'}];
+
+  DAYS_DATA.forEach((d,i)=>{
+    const sep=seps.find(s=>s.at===i);
+    if(sep){
+      const s=document.createElement('div'); s.className='country-sep';
+      s.innerHTML=`<span style="font-size:22px">${sep.icon}</span><span class="csep-name">${sep.name}</span><span class="csep-d">${sep.d}</span>`;
+      list.appendChild(s);
+    }
+
+    const di=getDayInfo(d.day);
+    const mUrl=`https://www.google.com/maps/search/?api=1&query=${d.lat},${d.lng}`;
+    d.photoLink = PHOTO_LINKS[d.day] || '#';
+
+    // Schedule rows
+    const rows=d.sched.map((s,si)=>{
+      const placeLink = s.map || getPlaceLink(s.c) || getPlaceLink(s.tip||'');
+      const mapBtn = placeLink ? `<a href="${placeLink}" target="_blank" style="font-size:10px;background:#e8f0fe;color:#1a73e8;border-radius:4px;padding:2px 5px;text-decoration:none;font-weight:600;margin-right:4px;">📍</a>` : '';
+      const actKey = `act_${d.day}_${si}`;
+      let actImg = '';
+      try { actImg = localStorage.getItem(actKey) || ''; } catch(e) {}
+      actImg = actImg || window._actImgs?.[actKey] || '';
+
+      // Wikipedia link for known attractions
+      const wikiLinks = {
+        'קתדרלת אלכסנדר נבסקי': 'https://he.wikipedia.org/wiki/%D7%A7%D7%AA%D7%93%D7%A8%D7%9C%D7%AA_%D7%90%D7%9C%D7%9B%D7%A1%D7%A0%D7%93%D7%A8_%D7%A0%D7%91%D7%A1%D7%A7%D7%99',
+        'כנסיית בויאנה': 'https://he.wikipedia.org/wiki/%D7%9B%D7%A0%D7%A1%D7%99%D7%99%D7%AA_%D7%91%D7%95%D7%99%D7%90%D7%A0%D7%94',
+        'שבעת האגמים': 'https://he.wikipedia.org/wiki/%D7%A9%D7%91%D7%A2%D7%AA_%D7%90%D7%92%D7%9E%D7%99_%D7%A8%D7%99%D7%9C%D7%94',
+        'מנזר ריאלה': 'https://he.wikipedia.org/wiki/%D7%9E%D7%A0%D7%96%D7%A8_%D7%A8%D7%99%D7%9C%D7%94',
+        'מלניק': 'https://he.wikipedia.org/wiki/%D7%9E%D7%9C%D7%A0%D7%99%D7%A7',
+        'מצודת שמואל': 'https://en.wikipedia.org/wiki/Samuel%27s_Fortress',
+        'כנסיית קאנאו': 'https://en.wikipedia.org/wiki/Church_of_Saint_John_the_Theologian,_Kaneo',
+        'מנזר סנט נאום': 'https://en.wikipedia.org/wiki/Saint_Naum_monastery',
+        'קניון מאטקה': 'https://en.wikipedia.org/wiki/Matka_Canyon',
+        'מפלי ואציני': 'https://en.wikipedia.org/wiki/Vevchani',
+        'גשר האבן': 'https://en.wikipedia.org/wiki/Stone_Bridge,_Skopje',
+        'מערת יגודיניה': 'https://en.wikipedia.org/wiki/Yagodinska_Cave',
+        'אמפיתיאטרון רומי': 'https://en.wikipedia.org/wiki/Ancient_theatre_of_Philippopolis',
+      };
+      const wikiKey = Object.keys(wikiLinks).find(k => s.c.includes(k));
+      const wikiBtn = wikiKey ? `<a href="${wikiLinks[wikiKey]}" target="_blank" style="font-size:10px;background:#f0f0f0;color:#555;border-radius:4px;padding:2px 6px;text-decoration:none;font-weight:600;margin-right:4px;">📖 ויקי</a>` : '';
+
+      const imgSection = actImg
+        ? `<div style="display:flex;align-items:flex-start;gap:5px;margin-right:10px;flex-shrink:0;">
+             <div style="width:120px;min-width:120px;height:85px;border-radius:8px;overflow:hidden;">
+               <img src="${actImg}" style="width:100%;height:100%;object-fit:cover;display:block;">
+             </div>
+             <div style="display:flex;flex-direction:column;gap:4px;padding-top:2px;">
+               <button onclick="changeActImg('${actKey}')" style="background:#2d3748;color:#e2e8f0;border:none;border-radius:5px;padding:4px 8px;font-size:10px;cursor:pointer;font-family:Heebo,sans-serif;">🖼 שנה</button>
+               <button onclick="removeActImg('${actKey}')" style="background:#742a2a;color:white;border:none;border-radius:5px;padding:4px 8px;font-size:10px;cursor:pointer;font-family:Heebo,sans-serif;">🗑 הסר</button>
+             </div>
+           </div>`
+        : `<div style="display:flex;align-items:center;justify-content:center;width:90px;min-width:90px;height:85px;border-radius:8px;border:1.5px dashed #4a5568;flex-direction:column;gap:3px;margin-right:10px;flex-shrink:0;cursor:pointer;background:#1a2030;" onclick="changeActImg('${actKey}')">
+             <span style="font-size:18px;">📷</span>
+             <span style="font-size:9px;color:#8b949e;text-align:center;">הוסף<br>תמונה</span>
+           </div>`
+
+      return `<div class="srow" style="display:flex;flex-direction:row-reverse;align-items:flex-start;gap:0;padding:10px 0;border-bottom:1px solid var(--border);">
+        ${imgSection}
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:4px;">
+            <span style="color:var(--gold);font-weight:700;font-size:13px;min-width:38px;">${s.t}</span>
+            ${mapBtn}${wikiBtn}
+            <span style="font-size:13px;font-weight:600;">${s.c}</span>
+          </div>
+          ${s.tip ? `<div class="stip" style="font-size:11px;color:var(--muted);padding-right:42px;">💡 ${s.tip}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+
+    // Restaurant block
+    let restHtml='';
+    if(d.rest && d.rest.length){
+      const tagMap={gf:'rtag-gf',fish:'rtag-fish',veg:'rtag-veg',ko:'rtag-ko'};
+      const tagLabel={gf:'ללא גלוטן',fish:'דגים',veg:'צמחוני',ko:'כשר'};
+      const items=d.rest.map(r=>`<div class="rest-item">
+        <div class="rest-emoji">${r.emoji}</div>
+        <div style="flex:1;">
+          <div class="rest-name">${r.name}${r.mapLink?`<a href="${r.mapLink}" target="_blank" style="margin-right:6px;font-size:10px;background:#e8f0fe;color:#1a73e8;border-radius:4px;padding:2px 6px;text-decoration:none;font-weight:600;">📍 מפה</a>`:''}</div>
+          <div class="rest-tags">${r.tags.map(t=>`<span class="rtag ${tagMap[t]}">${tagLabel[t]}</span>`).join('')}</div>
+          <div class="rest-note">${r.note}</div>
+        </div>
+      </div>`).join('');
+      restHtml=`<div class="rest-block"><div class="rest-title">🍽️ מסעדות מומלצות · ללא גלוטן + דגים</div>${items}</div>`;
+    }
+
+    const shabbatBanner=di.isShabbat?`<div class="shabbat-banner">🕍 ${di.isFriday?'ערב שבת':'שבת שלום'} — יום הליכה ורגיעה, ללא נסיעות</div>`:'';
+
+    const card=document.createElement('div');
+    card.className=`day-card${di.isShabbat?' shabbat':''}`;
+    card.innerHTML=`
+      <div class="day-hd" onclick="toggleDay(this)">
+        <div class="day-icon-wrap" style="background:${d.col}18;">${d.emoji}</div>
+        <div class="day-meta">
+          <span class="day-badge">
+            יום ${d.day}
+            <span class="day-weekday${di.isShabbat?' shabbat-label':''}">${di.weekday} ${di.date}</span>
+            · ${d.loc}
+          </span>
+          <div class="day-title">${d.title}</div>
+          ${LODGING_MAP[d.day]?`<div style="font-size:10px;color:var(--muted);margin-top:3px;">
+  ${LODGING_MAP[d.day].type} · לינה: <strong>${LODGING_MAP[d.day].link?`<a href="${LODGING_MAP[d.day].link}" target="_blank" style="color:var(--blue);text-decoration:underline;">${LODGING_MAP[d.day].name}</a>`:`${LODGING_MAP[d.day].name}`}</strong>
+  ${LODGING_MAP[d.day].map?`<a href="${LODGING_MAP[d.day].map}" target="_blank" style="font-size:9px;background:#e8f0fe;color:#1a73e8;border-radius:3px;padding:1px 5px;text-decoration:none;font-weight:600;">📍</a>`:''}
+  ${LODGING_MAP[d.day].conf?`<span style="font-size:9px;color:#4ade80;margin-right:4px;">· ${LODGING_MAP[d.day].conf}</span>`:''}
+  ${LODGING_MAP[d.day].tel?`<span style="font-size:9px;color:var(--muted);">📞 ${LODGING_MAP[d.day].tel}</span>`:''}
+</div>`:''}
+        </div>
+        <span class="day-chev">▶</span>
+      </div>
+      <div class="day-body">
+        ${DAY_ROUTES[d.day] ? `<a href="${DAY_ROUTES[d.day].url}" target="_blank"
+          style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1a73e8,#0d5bce);color:#fff;border-radius:10px;padding:11px 16px;text-decoration:none;margin-bottom:12px;font-size:13px;font-weight:600;box-shadow:0 2px 8px rgba(26,115,232,.3);">
+          <span style="font-size:20px;">🗺️</span>
+          <div>
+            <div>${DAY_ROUTES[d.day].icon} ${DAY_ROUTES[d.day].title}</div>
+            <div style="font-size:10px;opacity:.8;font-weight:400;margin-top:1px;">פתח מסלול ב-Google Maps · ${DAY_ROUTES[d.day].mode}</div>
+          </div>
+          <span style="margin-right:auto;font-size:18px;">↗</span>
+        </a>` : ''}
+        <div style="position:relative;">
+          <div class="day-emoji-wrap" style="background:${d.col}0d;">${d.emoji}</div>
+          <div class="day-photo-overlay">
+            <span class="day-photo-cap">${d.loc}</span>
+            <div style="display:flex;gap:6px;">
+              <a class="day-mapbtn" href="${mUrl}" target="_blank">📍 מפה</a>
+              <a class="day-mapbtn" href="${d.photoLink||'#'}" target="_blank">🖼️ תמונות</a>
+            </div>
+          </div>
+        </div>
+        <div class="sched-rows">
+          ${shabbatBanner}
+          ${rows}
+          ${d.night?`<div class="snite">🛏 לינה: ${d.night}</div>`:''}
+        </div>
+        ${restHtml}
+      </div>`;
+    list.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════════════
+// UNIFIED BUDGET
+// ══════════════════════════════════════════════
+
+function buildBudget() {
+  // FUEL
+  const fuelTbody=document.getElementById('fuel-tbody');
+  const fuelNotes=['Bolt שד"ת סופיה','Bolt עירוני סופיה','סופיה→קופריבשטיצה→פלובדיב','—','—','פלובדיב→בנסקו','לתחנת רכבל','בנסקו→מלניק→גבול→ביטולה→אוהריד','—','סנט נאום ×2','—','אוהריד→מאטקה→סקופיה','סקופיה→ריאלה→סופיה','הרכב מוחזר'];
+  BDATA.forEach((row,i)=>{
+    const di=getDayInfo(row.d);
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><span class="td-day">יום ${row.d}<span class="td-dow${di.isShabbat?' shab':''}">${di.weekday} ${di.date}</span></span></td>
+      <td class="td-plan">${row.fuel?row.fuel+'₪':'—'}</td>
+      <td class="td-inp"><input type="number" min="0" placeholder="—" data-cat="fuel" data-i="${i}" oninput="recalc()"></td>
+      <td class="td-note">${fuelNotes[i]}</td>`;
+    fuelTbody.appendChild(tr);
+  });
+
+  // FOOD
+  const foodTbody=document.getElementById('food-tbody');
+  BDATA.forEach((row,i)=>{
+    const di=getDayInfo(row.d);
+    const sup=row.sup||0;
+    const dayTotal=(row.bkf||0)+(row.lun||0)+(row.din||0)+sup;
+    const lodgType = LODGING_MAP[row.d] ? LODGING_MAP[row.d].type : '';
+    const isApt = lodgType.includes('דירה');
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>
+        <span class="td-day">יום ${row.d}<span class="td-dow${di.isShabbat?' shab':''}">${di.weekday} ${di.date}</span></span>
+        ${isApt?'<span style="font-size:9px;background:#eef7e8;color:#286018;border-radius:4px;padding:1px 5px;display:inline-block;margin-top:2px;">🏠 דירה</span>':'<span style="font-size:9px;background:#eef4fb;color:#1a4a6a;border-radius:4px;padding:1px 5px;display:inline-block;margin-top:2px;">🏨 מלון</span>'}
+      </td>
+      <td class="td-plan" title="${row.bkfNote||''}">${row.bkf?row.bkf+'₪':'—'}
+        ${row.bkfNote?`<div style="font-size:9px;color:var(--muted);line-height:1.4;">${row.bkfNote}</div>`:''}
+        ${sup?`<div style="font-size:9px;color:var(--green);margin-top:1px;">🛒 +${sup}₪ ${row.supNote||'קניות'}</div>`:''}
+      </td>
+      <td class="td-inp"><input type="number" min="0" placeholder="—" data-cat="bkf" data-i="${i}" oninput="recalc()" style="width:60px;border:1px solid var(--border);border-radius:5px;padding:3px;font-size:12px;text-align:center;background:#fff;"></td>
+      <td class="td-plan" title="${row.lunNote||''}">${row.lun?row.lun+'₪':'—'}
+        ${row.lunNote?`<div style="font-size:9px;color:var(--muted);line-height:1.4;">🍴 ${row.lunNote}</div>`:''}
+      </td>
+      <td class="td-inp"><input type="number" min="0" placeholder="—" data-cat="lun" data-i="${i}" oninput="recalc()" style="width:60px;border:1px solid var(--border);border-radius:5px;padding:3px;font-size:12px;text-align:center;background:#fff;"></td>
+      <td class="td-plan" title="${row.dinNote||''}">${row.din?row.din+'₪':'—'}
+        ${row.dinNote?`<div style="font-size:9px;color:var(--muted);line-height:1.4;">${isApt?'🏠':'🍴'} ${row.dinNote}</div>`:''}
+      </td>
+      <td class="td-inp"><input type="number" min="0" placeholder="—" data-cat="din" data-i="${i}" oninput="recalc()" style="width:60px;border:1px solid var(--border);border-radius:5px;padding:3px;font-size:12px;text-align:center;background:#fff;"></td>
+      <td style="font-weight:700;color:var(--amber);font-size:13px;">${dayTotal}₪</td>`;
+    foodTbody.appendChild(tr);
+  });
+
+  // ATTRACTIONS
+  const attrTbody=document.getElementById('attr-tbody');
+  BDATA.forEach((row,i)=>{
+    const di=getDayInfo(row.d);
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><span class="td-day">יום ${row.d}<span class="td-dow${di.isShabbat?' shab':''}">${di.weekday} ${di.date}</span></span></td>
+      <td class="td-plan">${row.attr?row.attr+'₪':'—'}</td>
+      <td class="td-inp"><input type="number" min="0" placeholder="—" data-cat="attr" data-i="${i}" oninput="recalc()"></td>
+      <td class="td-note">${row.attrNote}</td>`;
+    attrTbody.appendChild(tr);
+  });
+
+  // TREATS
+  const treatTbody=document.getElementById('treat-tbody');
+  BDATA.forEach((row,i)=>{
+    const di=getDayInfo(row.d);
+    const plan=100+(row.misc||0);
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><span class="td-day">יום ${row.d}<span class="td-dow${di.isShabbat?' shab':''}">${di.weekday} ${di.date}</span></span></td>
+      <td class="td-plan">${plan}₪</td>
+      <td class="td-inp"><input type="number" min="0" placeholder="—" data-cat="treat" data-i="${i}" oninput="recalc()"></td>
+      <td class="td-note">${row.misc>=200?'🛍️ כולל קניות/Duty Free':''}</td>`;
+    treatTbody.appendChild(tr);
+  });
+
+  recalc();
+}
+
+function recalc() {
+  const hotelSofia   = parseFloat(document.getElementById('fi-h-sofia')?.value)||0;
+  const hotelPlovdiv = parseFloat(document.getElementById('fi-h-plovdiv')?.value)||0;
+  const hotelBansko  = parseFloat(document.getElementById('fi-h-bansko')?.value)||0;
+  const hotelOhrid   = parseFloat(document.getElementById('fi-h-ohrid')?.value)||0;
+  const hotelSkopje  = parseFloat(document.getElementById('fi-h-skopje')?.value)||0;
+  const hotelLast    = parseFloat(document.getElementById('fi-h-last')?.value)||0;
+  const hotelTotal   = hotelSofia+hotelPlovdiv+hotelBansko+hotelOhrid+hotelSkopje+hotelLast;
+  // Update live hotel total
+  const htd=document.getElementById('hotel-total-display');
+  if(htd) htd.textContent='₪'+hotelTotal.toLocaleString();
+
+  const fixed={
+    flights: parseFloat(document.getElementById('fi-flights').value)||0,
+    hotel:   hotelTotal,
+    car:     parseFloat(document.getElementById('fi-car').value)||0,
+    ins:     parseFloat(document.getElementById('fi-insurance').value)||0,
+  };
+  const fixedAct=fixed.flights+fixed.hotel+fixed.car+fixed.ins;
+
+  // Collect variable inputs
+  const inp=document.querySelectorAll('#budget input[data-cat]');
+  const actuals={fuel:{},bkf:{},lun:{},din:{},attr:{},treat:{}};
+  inp.forEach(el=>{
+    if(el.value!=='') actuals[el.dataset.cat][el.dataset.i]=parseFloat(el.value)||0;
+  });
+
+  let fuelPlan=0,fuelAct=0,hasFuelAct=false;
+  let bkfPlan=0,lunPlan=0,dinPlan=0,bkfAct=0,lunAct=0,dinAct=0,hasFoodAct=false;
+  let attrPlan=0,attrAct=0,hasAttrAct=false;
+  let treatPlan=0,treatAct=0,hasTreatAct=false;
+
+  BDATA.forEach((row,i)=>{
+    fuelPlan+=row.fuel;
+    bkfPlan+=row.bkf; lunPlan+=row.lun; dinPlan+=row.din;
+    attrPlan+=row.attr;
+    treatPlan+=100+(row.misc||0);
+
+    if(actuals.fuel[i]!==undefined){fuelAct+=actuals.fuel[i];hasFuelAct=true;}
+    if(actuals.bkf[i]!==undefined){bkfAct+=actuals.bkf[i]+(BDATA[i].sup||0);hasFoodAct=true;}
+    if(actuals.lun[i]!==undefined){lunAct+=actuals.lun[i];hasFoodAct=true;}
+    if(actuals.din[i]!==undefined){dinAct+=actuals.din[i];hasFoodAct=true;}
+    if(actuals.attr[i]!==undefined){attrAct+=actuals.attr[i];hasAttrAct=true;}
+    if(actuals.treat[i]!==undefined){treatAct+=actuals.treat[i];hasTreatAct=true;}
+  });
+
+  const foodPlan=bkfPlan+lunPlan+dinPlan;
+  const foodAct=bkfAct+lunAct+dinAct;
+
+  const varPlan=fuelPlan+foodPlan+attrPlan+treatPlan;
+  const grandPlan=fixedAct+varPlan;
+
+  const hasAnyAct=hasFuelAct||hasFoodAct||hasAttrAct||hasTreatAct;
+  const varAct=(hasFuelAct?fuelAct:fuelPlan)+(hasFoodAct?foodAct:foodPlan)+(hasAttrAct?attrAct:attrPlan)+(hasTreatAct?treatAct:treatPlan);
+  const grandAct=hasAnyAct?(fixedAct+varAct):null;
+
+  // Update category headers
+  safeT('fixed-plan-lbl',fixedAct+'₪');
+  safeT('fixed-act-lbl','—');
+
+  const cats=[
+    ['fuel',fuelPlan,hasFuelAct?fuelAct:null],
+    ['food',foodPlan,hasFoodAct?foodAct:null],
+    ['attr',attrPlan,hasAttrAct?attrAct:null],
+    ['treat',treatPlan,hasTreatAct?treatAct:null],
+  ];
+  cats.forEach(([n,p,a])=>{
+    safeT(`${n}-plan-lbl`,p+'₪');
+    safeT(`${n}-act-lbl`,a!==null?a+'₪':'—');
+  });
+
+  // Fuel footer
+  safeT('fuel-tot-plan',fuelPlan+'₪');
+  safeT('fuel-tot-act',hasFuelAct?fuelAct+'₪':'—');
+  // Food footer
+  safeT('food-tbkf-plan',bkfPlan+'₪'); safeT('food-tbkf-act',hasFoodAct?bkfAct+'₪':'—');
+  safeT('food-tlun-plan',lunPlan+'₪'); safeT('food-tlun-act',hasFoodAct?lunAct+'₪':'—');
+  safeT('food-tdin-plan',dinPlan+'₪'); safeT('food-tdin-act',hasFoodAct?dinAct+'₪':'—');
+  safeT('food-ttot',(hasFoodAct?foodAct:foodPlan)+'₪');
+  // Attr footer
+  safeT('attr-tot-plan',attrPlan+'₪');
+  safeT('attr-tot-act',hasAttrAct?attrAct+'₪':'—');
+  // Treat footer
+  safeT('treat-tot-plan',treatPlan+'₪');
+  safeT('treat-tot-act',hasTreatAct?treatAct+'₪':'—');
+
+  // Overview cards
+  safeT('bov-plan',grandPlan.toLocaleString()+'₪');
+  // Update hero budget display
+  const heroDisp = document.getElementById('hero-budget-disp');
+  const heroLbl  = document.getElementById('hero-budget-lbl');
+  if(heroDisp){
+    if(grandAct !== null) {
+      heroDisp.textContent = '💰 ' + grandAct.toLocaleString() + '₪';
+      if(heroLbl) heroLbl.textContent = 'הוצאה בפועל';
+      heroDisp.style.color = grandAct > grandPlan ? '#ff6b6b' : '#a8e6a8';
+    } else {
+      heroDisp.textContent = '💰 ' + grandPlan.toLocaleString() + '₪';
+      if(heroLbl) heroLbl.textContent = 'תקציב כולל (תכנון)';
+      heroDisp.style.color = '';
+    }
+  }
+  // Update fixed summary displays
+  const hotelTot2 = (parseFloat(document.getElementById('fi-h-sofia')?.value)||0)+(parseFloat(document.getElementById('fi-h-plovdiv')?.value)||0)+(parseFloat(document.getElementById('fi-h-bansko')?.value)||0)+(parseFloat(document.getElementById('fi-h-ohrid')?.value)||0)+(parseFloat(document.getElementById('fi-h-skopje')?.value)||0)+(parseFloat(document.getElementById('fi-h-last')?.value)||0);
+  const carTot2   = (parseFloat(document.getElementById('fi-car')?.value)||0)+(parseFloat(document.getElementById('fi-insurance')?.value)||0);
+  safeT('fixed-hotel-disp2', hotelTot2.toLocaleString()+' ₪');
+  safeT('fixed-car-disp2',   carTot2.toLocaleString()+' ₪');
+  safeT('fixed-grand-disp',  (7500+hotelTot2+carTot2+600).toLocaleString()+' ₪');
+  safeT('bov-act',grandAct!==null?grandAct.toLocaleString()+'₪':'—');
+  safeT('bov-remain',grandAct!==null?(grandPlan-grandAct)+'₪':'—');
+  const diffEl=document.getElementById('bov-diff');
+  if(diffEl){
+    if(grandAct!==null){
+      const diff=grandAct-grandPlan;
+      diffEl.textContent=(diff>=0?'+':'')+diff+'₪';
+      diffEl.className='bov-val '+(diff>0?'diff-neg':'diff-pos');
+    } else {
+      const over=grandPlan-20000;
+      diffEl.textContent=over>0?'⚠️ +'+over+'₪':'✅ בתקציב!';
+      diffEl.className='bov-val '+(over>0?'diff-neg':'diff-pos');
+    }
+  }
+}
+
+function safeT(id,val){const e=document.getElementById(id);if(e)e.textContent=val;}
+
+// ══════════════════════════════════════════════
+// CHECKLIST
+// ══════════════════════════════════════════════
+function buildChecklist(){
+  const LISTS=[
+    {title:'📋 הזמנות חובה',items:[
+      {t:'טיסות אל על ×5 — 7,500 ₪ ✅',done:true},
+      {t:'לינה אוהריד (לילות 9–12) — Elis Stone Dream'},
+      {t:'Apt Complex Dream (לילות 6–7)'},
+      {t:'מלון ליד שדה תעופה סופיה (לילה 14)'},
+      {t:'אפארטמנטים: סופיה, פלובדיב, סקופיה'},
+      {t:'השכרת רכב — מאשר כניסה למקדוניה'},
+    ]},
+    {title:'📄 מסמכים',items:[
+      {t:'דרכונים בתוקף לכל 5 (לפחות 6 חודשים)'},
+      {t:'ביטוח נסיעות ×5 (כולל ספורט + רכב)'},
+      {t:'אישורי לינה מודפסים'},
+      {t:'חוזה השכרת רכב'},
+    ]},
+    {title:'🍽️ מזון ואלרגיות',items:[
+      {t:'כרטיס "ללא גלוטן" לאסתי — הדפיסו!'},
+      {t:'ציוד חירום GF לאסתי (קרקרים, פסטה)'},
+      {t:'אפליקציית FindMeGlutenFree — הורד'},
+      {t:'מזון לנסיעות ארוכות (חטיפים בריאים)'},
+    ]},
+    {title:'📦 ציוד',items:[
+      {t:'נעלי הליכה לכל הגילאים'},
+      {t:'בגדי ים + מגבות לאגם אוהריד'},
+      {t:'קרם הגנה SPF 50+ + כובעים'},
+      {t:'תרופות: אופטלגין, אנטי-ביוטיקה, בטן'},
+    ]},
+    {title:'📱 לפני היציאה',items:[
+      {t:'Google Maps Offline: בולגריה + מקדוניה'},
+      {t:'Roaming / סים אירופאי'},
+      {t:'מזומן: לבים (BGN) + דינרים (MKD)'},
+      {t:'הזמנת ג\'יפים רודופי (Viator)'},
+      {t:'FindMeGlutenFree — הורד לאסתי'},
+    ]},
+  ];
+  const cont=document.getElementById('chk-lists');
+  LISTS.forEach(sec=>{
+    const div=document.createElement('div');
+    div.style.marginBottom='16px';
+    div.innerHTML=`<div class="clt" style="font-size:13px;font-weight:600;margin-bottom:8px;">${sec.title}</div>`;
+    sec.items.forEach(item=>{
+      const row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;cursor:pointer;';
+      row.innerHTML=`<div style="width:18px;height:18px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:${item.done?'var(--green)':'var(--bg3)'};border-color:${item.done?'var(--green)':'var(--border)'};" class="cb">${item.done?'<span style="color:#fff;font-size:11px;">✓</span>':''}</div><span style="${item.done?'opacity:.4;text-decoration:line-through;':''}" class="ctxt">${item.t}</span>`;
+      row.onclick=()=>{
+        const cb=row.querySelector('.cb'), ct=row.querySelector('.ctxt');
+        const done=cb.style.background.includes('green');
+        cb.style.background=done?'var(--bg3)':'var(--green)';
+        cb.style.borderColor=done?'var(--border)':'var(--green)';
+        cb.innerHTML=done?'':'<span style="color:#fff;font-size:11px;">✓</span>';
+        ct.style.opacity=done?'':'0.4';
+        ct.style.textDecoration=done?'':'line-through';
+      };
+      div.appendChild(row);
+    });
+    cont.appendChild(div);
+  });
+}
+
+// ══════════════════════════════════════════════
+// GEAR
+// ══════════════════════════════════════════════
+function buildGear(){
+  const SECTIONS=[
+    {id:'gear-suitcase-sec',title:'🧳 מזוודה גדולה',bg:'linear-gradient(135deg,#1a3040,#2d4a28)',items:[
+      {n:'חולצות קצרות',note:'5–6 לכל אחד'},
+      {n:'מכנסיים קצרים',note:'3–4 זוגות'},
+      {n:'מכנסיים ארוכים',note:'לכנסיות ומנזרים'},
+      {n:'בגדי ים × 2 לכל אחד'},
+      {n:'חולצות ארוכות / קרדיגן',note:'לערבים בהרים'},
+      {n:'נעלי הליכה',note:'חובה לשבעת האגמים'},
+      {n:'כפכפים / סנדלים',note:'לחוף ולעיר'},
+      {n:'כובעי שמש',note:'לכל 5'},
+      {n:'מגבות קטנות לחוף'},
+      {n:'תרמיל קטן ליום'},
+    ]},
+    {id:'gear-trolley-sec',title:'🎒 טרולי / תיק יד',bg:'linear-gradient(135deg,#2d3a1a,#1a3028)',items:[
+      {n:'טלפונים + כבלי טעינה',note:'לכל 5'},
+      {n:'מטען נייד (פאוורבנק)'},
+      {n:'קרם הגנה SPF 50+'},
+      {n:'תרסיס נגד יתושים'},
+      {n:'תרופות בסיסיות',note:'אופטלגין, אנטי-ביוטיקה, בטן'},
+      {n:'מזון GF לאסתי לנסיעות',note:'קרקרים, חטיפים'},
+      {n:'מגבונים / ג\'ל ידיים'},
+      {n:'מצלמה + כרטיסי זיכרון'},
+      {n:'אוזניות לילדים'},
+      {n:'ספר / קינדל'},
+    ]},
+    {id:'gear-kids-sec',title:'👧 לילדים',bg:'linear-gradient(135deg,#4a2060,#1a2070)',items:[
+      {n:'משחקים לנסיעה',note:'קלפים, משחקי מסע'},
+      {n:'כרית נסיעה'},
+      {n:'נעלי מים לאגם'},
+      {n:'ציוד חוף — דלי + שולה',note:'לנופר'},
+      {n:'ספר צביעה / עפרונות'},
+      {n:'טיפות אוזניים לאחר שחייה'},
+    ]},
+    {id:'gear-docs-sec',title:'📄 מסמכים',bg:'linear-gradient(135deg,#6a1a1a,#3a1a40)',items:[
+      {n:'דרכונים × 5',note:'תוקף לפחות 6 חודשים!'},
+      {n:'אישורי לינה מודפסים'},
+      {n:'ביטוח נסיעות',note:'כולל ספורט + רכב'},
+      {n:'חוזה השכרת רכב',note:'מאשר כניסה למקדוניה'},
+      {n:'כרטיסי טיסה',note:'אל על TLV–SOF'},
+      {n:'מזומן BGN + MKD'},
+      {n:'SIM אירופאי'},
+      {n:'כרטיס "ללא גלוטן" לאסתי'},
+    ]},
+  ];
+  SECTIONS.forEach(sec=>{
+    const wrap=document.getElementById(sec.id);
+    wrap.innerHTML=`<div class="gear-title" style="background:${sec.bg};color:#f5f0e8;">${sec.title}</div><div class="gear-grid" id="${sec.id}-grid"></div>`;
+    const grid=wrap.querySelector('.gear-grid');
+    sec.items.forEach((item,i)=>{
+      const div=document.createElement('div'); div.className='gear-item';
+      div.innerHTML=`<div class="gear-cb" id="gcb-${sec.id}-${i}"></div><div><div class="gear-name">${item.n}</div>${item.note?`<div class="gear-note">${item.note}</div>`:''}</div>`;
+      div.onclick=()=>{
+        const cb=document.getElementById(`gcb-${sec.id}-${i}`);
+        cb.classList.toggle('chk');
+        div.querySelector('.gear-name').style.textDecoration=cb.classList.contains('chk')?'line-through':'';
+        div.querySelector('.gear-name').style.opacity=cb.classList.contains('chk')?'0.45':'';
+        updateGearProgress();
+      };
+      grid.appendChild(div);
+    });
+  });
+  updateGearProgress();
+}
+
+function updateGearProgress(){
+  const total=document.querySelectorAll('.gear-cb').length;
+  const done=document.querySelectorAll('.gear-cb.chk').length;
+  const pct=total?Math.round(done/total*100):0;
+  const p=document.getElementById('gear-prog'); if(p)p.style.width=pct+'%';
+  const s=document.getElementById('gear-stat'); if(s)s.textContent=`${done} / ${total} פריטים מוכנים (${pct}%)`;
+}
+
+// ══════════════════════════════════════════════
+// UI HELPERS
+// ══════════════════════════════════════════════
+function ST(id,btn){
+  document.querySelectorAll('.tab').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleDay(h){
+  const b=h.nextElementSibling, cv=h.querySelector('.day-chev');
+  b.classList.toggle('open',!b.classList.contains('open'));
+  cv.classList.toggle('open',!cv.classList.contains('open'));
+}
+
+function toggleBcat(id){
+  const body=document.getElementById(`bcat-${id}-body`);
+  const chev=document.querySelector(`#bcat-${id} .bcat-chev`);
+  if(!body||!chev) return;
+  body.classList.toggle('open');
+  chev.classList.toggle('open');
+}
+
+function setLang(lang,btn){
+  document.querySelectorAll('.pl-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('phrases-bg').style.display=lang==='bg'?'':'none';
+  document.getElementById('phrases-mk').style.display=lang==='mk'?'':'none';
+}
+
+
+function speakPhrase(btn) {
+  const row = btn.closest('.phrase-row');
+  const localEl = row.querySelector('.ph-local');
+  const lang = localEl.dataset.audio === 'bg' ? 'bg-BG' : 'mk-MK';
+  const text = localEl.textContent.trim();
+  if ('speechSynthesis' in window) {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    u.rate = 0.85;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+    btn.textContent = '⏸';
+    u.onend = () => { btn.textContent = '🔊'; };
+  }
+}
+
+function addAudioButtons(){
+  document.querySelectorAll('.phrase-row').forEach(row=>{
+    const local = row.querySelector('.ph-local');
+    const pron  = row.querySelector('.ph-pron');
+    if(!local || !pron) return;
+    const btn = document.createElement('button');
+    btn.className = 'audio-btn';
+    btn.textContent = '🔊';
+    btn.title = 'האזן להגייה';
+    btn.onclick = function(){ speakPhrase(this); };
+    pron.insertBefore(btn, pron.firstChild);
+  });
+}
+
+// ══════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════
+buildRoute();
+buildDays();
+buildBudget();
+buildChecklist();
+buildGear();
+addAudioButtons();
+
+
+
+function showStab(id, btn) {
+  document.querySelectorAll('.stab-pane').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.stab-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById('stab-' + id).classList.add('on');
+  btn.classList.add('on');
+  // recalc on daily pane open
+  if(id === 'daily') recalc();
+  if(id === 'car') recalcCar();
+  if(id === 'hotel') recalcLodging();
+}
+
+function recalcLodging() {
+  const ids = ['lo-sofia','lo-plovdiv','lo-bansko','lo-ohrid','lo-skopje','lo-last'];
+  let total = 0;
+  ids.forEach(id => { const el=document.getElementById(id); if(el) total+=parseFloat(el.value)||0; });
+  const disp = document.getElementById('lo-total-act');
+  if(disp) disp.textContent = '₪'+total.toLocaleString();
+  // sync to fixed summary
+  const fd = document.getElementById('fixed-hotel-disp');
+  if(fd) fd.textContent = total.toLocaleString()+' ₪';
+  updateFixedSummary();
+}
+
+function recalcCar() {
+  const rental = parseFloat(document.getElementById('cr-rental')?.value)||0;
+  const ins    = parseFloat(document.getElementById('cr-insurance')?.value)||0;
+  const tot = rental + ins;
+  const el = document.getElementById('cr-total'); if(el) el.textContent='₪'+tot.toLocaleString();
+  const fd = document.getElementById('fixed-car-disp'); if(fd) fd.textContent=tot.toLocaleString()+' ₪';
+  updateFixedSummary();
+  // update cr-grand
+  let fuelPlan=0; BDATA.forEach(r=>fuelPlan+=r.fuel||0);
+  const fp=document.getElementById('cr-fuel-plan'); if(fp) fp.textContent=fuelPlan+'₪';
+  const cg=document.getElementById('cr-grand'); if(cg) cg.textContent=(tot+fuelPlan).toLocaleString()+'₪';
+}
+
+function updateFixedSummary() {
+  const hotelIds=['lo-sofia','lo-plovdiv','lo-bansko','lo-ohrid','lo-skopje','lo-last'];
+  let hotel=0; hotelIds.forEach(id=>{const el=document.getElementById(id);if(el)hotel+=parseFloat(el.value)||0;});
+  const rental=(parseFloat(document.getElementById('cr-rental')?.value)||0)+(parseFloat(document.getElementById('cr-insurance')?.value)||0);
+  const tot = 7500+hotel+rental+600;
+  const el=document.getElementById('fixed-tot-disp'); if(el) el.textContent=tot.toLocaleString()+' ₪';
+}
+
+// ── HERO SLIDESHOW ──
+(function(){
+  const slides = document.querySelectorAll('.hero-slide');
+  const dotsWrap = document.getElementById('hero-dots');
+  const capEl = document.getElementById('photo-cap');
+  if(!slides.length || !dotsWrap) return;
+  let cur = 0;
+  slides.forEach((_,i)=>{
+    const b = document.createElement('button');
+    b.className = 'hero-dot' + (i===0?' active':'');
+    b.onclick = ()=>{ goTo(i); clearInterval(timer); timer=setInterval(next,4500); };
+    dotsWrap.appendChild(b);
+  });
+  function goTo(n){
+    slides[cur].classList.remove('active');
+    dotsWrap.children[cur].classList.remove('active');
+    cur=n;
+    slides[cur].classList.add('active');
+    dotsWrap.children[cur].classList.add('active');
+    if(capEl) capEl.textContent = slides[cur].dataset.cap || '';
+  }
+  function next(){ goTo((cur+1)%slides.length); }
+  let timer = setInterval(next, 4500);
+})();
+
+// ── Image Picker Modal ──────────────────────────────────────────
+function createImgModal() {
+  if (document.getElementById('img-modal')) return;
+  const overlay = document.createElement('div');
+  overlay.id = 'img-modal';
+  overlay.style.cssText = `
+    position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;
+    display:flex;align-items:center;justify-content:center;
+  `;
+  overlay.innerHTML = `
+    <div style="background:#1e2530;border-radius:16px;padding:28px;width:340px;max-width:90vw;direction:rtl;font-family:Heebo,sans-serif;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div style="font-size:1rem;font-weight:700;color:#e8c96a;" id="modal-title">הוסף תמונה</div>
+        <button onclick="closeImgModal()" style="background:none;border:none;color:#8b949e;font-size:1.3rem;cursor:pointer;">✕</button>
+      </div>
+      <div id="drop-zone" style="
+        border:2px dashed #4a5568;border-radius:12px;
+        padding:32px 16px;text-align:center;cursor:pointer;
+        transition:border-color 0.2s;background:#161b22;
+        color:#8b949e;font-size:0.9rem;
+      "
+        ondragover="event.preventDefault();this.style.borderColor='#e8c96a'"
+        ondragleave="this.style.borderColor='#4a5568'"
+        ondrop="handleImgDrop(event)"
+        onclick="document.getElementById('file-input').click()"
+      >
+        <div style="font-size:2.5rem;margin-bottom:8px;">🖼️</div>
+        <div style="color:#e2e8f0;font-weight:600;margin-bottom:6px;">גרור תמונה לכאן</div>
+        <div style="font-size:0.8rem;">או לחץ לבחירת קובץ</div>
+        <div style="font-size:0.75rem;margin-top:4px;color:#6b7280;">JPG · PNG · WEBP</div>
+      </div>
+      <div style="text-align:center;margin:12px 0;color:#4a5568;font-size:0.8rem;">— או —</div>
+      <div style="
+        border:2px dashed #4a5568;border-radius:12px;
+        padding:20px;text-align:center;background:#161b22;
+        color:#8b949e;font-size:0.85rem;cursor:text;
+        min-height:80px;display:flex;align-items:center;justify-content:center;
+      "
+        id="paste-zone"
+        tabindex="0"
+        onpaste="handleImgPaste(event)"
+        onclick="this.focus()"
+      >
+        <span>לחץ כאן ואז Ctrl+V להדבקת תמונה מהלוח</span>
+      </div>
+      <input type="file" id="file-input" accept="image/*" style="display:none" onchange="handleFileInput(event)">
+      <div id="modal-preview" style="margin-top:14px;display:none;">
+        <img id="preview-img" style="width:100%;border-radius:8px;max-height:160px;object-fit:cover;">
+        <button onclick="saveModalImg()" style="
+          width:100%;margin-top:10px;background:#e8c96a;color:#0d1117;
+          border:none;border-radius:8px;padding:10px;font-size:0.9rem;
+          font-weight:700;cursor:pointer;font-family:Heebo,sans-serif;
+        ">✅ שמור תמונה</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e => { if(e.target===overlay) closeImgModal(); });
+}
+
+let _modalIdx = -1;
+let _pendingDataUrl = null;
+
+window.changeWpImg = function(idx) {
+  _modalIdx = idx;
+  _pendingDataUrl = null;
+  createImgModal();
+  const modal = document.getElementById('img-modal');
+  modal.style.display = 'flex';
+  document.getElementById('modal-title').textContent = 'הוסף תמונה — ' + WP[idx].n;
+  document.getElementById('modal-preview').style.display = 'none';
+  document.getElementById('paste-zone').querySelector('span').textContent = 'לחץ כאן ואז Ctrl+V להדבקת תמונה מהלוח';
+};
+
+window.closeImgModal = function() {
+  const m = document.getElementById('img-modal');
+  if(m) m.style.display = 'none';
+};
+
+function readImageFile(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      // Compress to max 800px wide, JPEG quality 0.75 — keeps file under ~80KB
+      const MAX = 800;
+      const ratio = Math.min(1, MAX / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width  = Math.round(img.width  * ratio);
+      canvas.height = Math.round(img.height * ratio);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      _pendingDataUrl = canvas.toDataURL('image/jpeg', 0.75);
+      document.getElementById('preview-img').src = _pendingDataUrl;
+      document.getElementById('modal-preview').style.display = 'block';
+      // Show size hint
+      const kb = Math.round(_pendingDataUrl.length * 0.75 / 1024);
+      document.getElementById('preview-img').title = `~${kb}KB`;
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+window.handleImgDrop = function(e) {
+  e.preventDefault();
+  document.getElementById('drop-zone').style.borderColor = '#4a5568';
+  const file = e.dataTransfer.files[0];
+  readImageFile(file);
+};
+
+window.handleFileInput = function(e) {
+  readImageFile(e.target.files[0]);
+};
+
+window.handleImgPaste = function(e) {
+  const items = e.clipboardData.items;
+  for (const item of items) {
+    if (item.type.startsWith('image/')) {
+      readImageFile(item.getAsFile());
+      document.getElementById('paste-zone').querySelector('span').textContent = 'תמונה זוהתה! ראה תצוגה מקדימה למטה';
+      return;
+    }
+  }
+};
+
+window.removeActImg = function(key) {
+  if (!window._actImgs) window._actImgs = {};
+  delete window._actImgs[key];
+  try { localStorage.removeItem(key); } catch(e) {}
+  buildDays();
+};
+
+window.changeActImg = function(key) {
+  _modalIdx = -1;
+  _pendingDataUrl = null;
+  _pendingActKey = key;
+  createImgModal();
+  const modal = document.getElementById('img-modal');
+  modal.style.display = 'flex';
+  document.getElementById('modal-title').textContent = 'הוסף תמונה לפעילות';
+  document.getElementById('modal-preview').style.display = 'none';
+};
+let _pendingActKey = null;
+
+window.saveModalImg = function() {
+  if (!_pendingDataUrl) return;
+  if (_pendingActKey) {
+    // Activity image
+    if (!window._actImgs) window._actImgs = {};
+    window._actImgs[_pendingActKey] = _pendingDataUrl;
+    try {
+      localStorage.setItem(_pendingActKey, _pendingDataUrl);
+    } catch(e) {
+      // localStorage full — clear oldest items and retry
+      const keys = Object.keys(localStorage).filter(k => k.startsWith('act_') || k.startsWith('wp_img'));
+      if (keys.length > 0) {
+        localStorage.removeItem(keys[0]);
+        try { localStorage.setItem(_pendingActKey, _pendingDataUrl); } catch(e2) {}
+      }
+    }
+    _pendingActKey = null;
+    closeImgModal();
+    buildDays();
+  } else if (_modalIdx >= 0) {
+    // Station image
+    if (!window._wpImgs) window._wpImgs = {};
+    window._wpImgs[_modalIdx] = _pendingDataUrl;
+    try {
+      localStorage.setItem('wp_img_'+_modalIdx, _pendingDataUrl);
+    } catch(e) {
+      const keys = Object.keys(localStorage).filter(k => k.startsWith('act_') || k.startsWith('wp_img'));
+      if (keys.length > 0) {
+        localStorage.removeItem(keys[0]);
+        try { localStorage.setItem('wp_img_'+_modalIdx, _pendingDataUrl); } catch(e2) {}
+      }
+    }
+    closeImgModal();
+    const g = document.getElementById('sphoto-grid');
+    g.innerHTML = '';
+    buildRoute();
+  }
+};
+</script>
+</body>
+</html>
