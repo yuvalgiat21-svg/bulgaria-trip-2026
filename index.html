@@ -412,150 +412,195 @@ body{background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;font-
 
 <!-- ===== STAYS ===== -->
 <div id="stays" class="tab">
-  <div class="sec">🏨 לינה — מקומות מאושרים</div>
-  <div class="sbox">✅ כל הלינות נבחרו! סה"כ: <strong>₪4,923</strong> · 13 לילות · ממוצע ₪359/לילה</div>
+  <div class="sec">🏨 לינה — 6 דירות · 13 לילות</div>
 
-  <!-- helper style for lodging cards -->
   <style>
-    .lcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px;}
-    .lcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;}
-    .lcard-info{flex:1;}
-    .lcard-city{font-size:11px;color:var(--muted);margin-bottom:3px;}
-    .lcard-name{font-size:15px;font-weight:700;margin-bottom:4px;}
-    .lcard-meta{font-size:12px;color:var(--muted);}
-    .lcard-price{font-size:22px;font-weight:700;color:var(--green);white-space:nowrap;}
-    .lcard-btns{display:flex;gap:6px;flex-wrap:wrap;}
-    .lbtn{display:inline-flex;align-items:center;gap:5px;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:600;text-decoration:none;border:none;cursor:pointer;}
-    .lbtn-book{background:#003580;color:#fff;}
-    .lbtn-airbnb{background:#ff5a5f;color:#fff;}
-    .lbtn-map{background:#e8f0fe;color:#1a73e8;border:1px solid #c5d8f8;}
-    .lbtn-search{background:var(--bg3);color:var(--text);border:1px solid var(--border);}
-    .shab-badge{display:inline-block;background:#c8a940;color:#fff;border-radius:5px;padding:2px 8px;font-size:10px;font-weight:700;margin-right:6px;}
+    .sl-hero{background:linear-gradient(135deg,#1a3040,#2d4a28);border-radius:var(--r);padding:16px;color:#f5f0e8;margin-bottom:18px;}
+    .sl-hero-title{font-size:14px;font-weight:700;color:#e8c96a;margin-bottom:8px;}
+    .sl-hero-row{display:flex;justify-content:space-between;gap:12px;font-size:12px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.12);flex-wrap:wrap;}
+    .sl-hero-row span{opacity:.92;}
+    .sl-hero-row b{font-weight:700;text-align:left;}
+    .sl-paid b{color:#7fdc6a;} .sl-auto b{color:#7fc4e8;} .sl-cash b{color:#f2b24a;}
+    .sl-hero-total{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-top:10px;align-items:baseline;}
+    .sl-hero-total b{color:#e8c96a;font-size:19px;}
+    .sl-hero-note{margin-top:10px;font-size:11px;color:#ffd9a0;background:rgba(176,58,30,.30);padding:8px 11px;border-radius:8px;line-height:1.5;}
+
+    .scard{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:12px;border-inline-start:4px solid var(--border);}
+    .acc-green{border-inline-start-color:var(--green);}
+    .acc-gold{border-inline-start-color:#c8a940;}
+    .acc-coral{border-inline-start-color:var(--coral);}
+    .acc-blue{border-inline-start-color:var(--blue);}
+    .scard-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:11px;}
+    .scard-when{font-size:11px;color:var(--muted);margin-bottom:4px;}
+    .scard-title{font-size:16px;font-weight:700;line-height:1.3;margin-bottom:3px;}
+    .scard-sub{font-size:11px;color:var(--muted);}
+    .scard-priceWrap{text-align:left;white-space:nowrap;}
+    .scard-price{font-size:20px;font-weight:800;color:var(--text);}
+    .tag{display:inline-block;border-radius:6px;padding:3px 9px;font-size:10px;font-weight:700;margin-top:6px;}
+    .tag-paid{background:rgba(46,122,32,.12);color:var(--green);}
+    .tag-auto{background:rgba(26,106,154,.13);color:var(--blue);}
+    .tag-cash{background:rgba(176,58,30,.12);color:var(--coral);}
+    .badge-shab{display:inline-block;background:#c8a940;color:#fff;border-radius:5px;padding:2px 8px;font-size:10px;font-weight:700;margin-inline-start:6px;vertical-align:middle;}
+    .scard-times{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);background:var(--bg3);border-radius:8px;padding:7px 11px;margin-bottom:11px;}
+    .scard-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;}
+    .srow{display:flex;gap:8px;font-size:12.5px;align-items:baseline;line-height:1.45;}
+    .srow-full{grid-column:1 / -1;}
+    .slabel{color:var(--muted);white-space:nowrap;min-width:62px;}
+    .sval{font-weight:600;}
+    .slink{color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue);}
+    .code{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--bg3);border-radius:5px;padding:1px 7px;font-weight:700;letter-spacing:.5px;}
+    .keycode{font-family:ui-monospace,Menlo,Consolas,monospace;background:#fff6d6;border:1px solid #e3c869;color:#7a5c00;border-radius:5px;padding:1px 8px;font-weight:800;letter-spacing:1px;}
+    @media(max-width:560px){.scard-grid{grid-template-columns:1fr;}}
   </style>
 
-  <!-- סופיה 1 -->
-  <div class="lcard">
-    <div class="lcard-top">
-      <div class="lcard-info">
-        <div class="lcard-city">🇧🇬 סופיה · 1–3/7 · רביעי–חמישי · 2 לילות</div>
-        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/1429913693878976754?adults=2&check_in=2026-07-01&check_out=2026-07-03&children=3&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏠 בית חלומות A21 ↗</a></div>
-        <div class="lcard-meta">₪429/לילה · ביטול גמיש · 2 חדרי שינה + מטבח</div>
+  <!-- תמונת מצב תשלומים -->
+  <div class="sl-hero">
+    <div class="sl-hero-title">💳 איך ומתי משלמים — תמונת מצב</div>
+    <div class="sl-hero-row sl-paid"><span>✅ שולם / מחויב בכרטיס (Airbnb)</span><b>בנסקו ₪667 · סופיה-פתיחה ₪801</b></div>
+    <div class="sl-hero-row sl-auto"><span>🔵 יחויב אוטומטית בכרטיס</span><b>פלובדיב €227 (Booking) · סופיה-סיום ₪365 (30/6)</b></div>
+    <div class="sl-hero-row sl-cash"><span>🟠 מזומן ביד בהגעה</span><b>אוהריד €252 + סקופיה €104 = €356</b></div>
+    <div class="sl-hero-total"><span>סה״כ מוערך · 13 לילות</span><b>~₪3,800</b></div>
+    <div class="sl-hero-note">⚠️ שתי הלינות במקדוניה (אוהריד + סקופיה) <b>לא מקבלות אשראי</b> — צריך להגיע עם <b>€356 מזומן ביורו</b> (לא בדינר). זה בנוסף להוצאות היומיום. שער מוערך €1≈₪3.4.</div>
+  </div>
+
+  <!-- 1 · סופיה (פתיחה) -->
+  <div class="scard acc-green">
+    <div class="scard-head">
+      <div>
+        <div class="scard-when">🇧🇬 סופיה · 1–3 ביולי · רביעי→שישי · 2 לילות</div>
+        <div class="scard-title">🏠 בית חלומות A21</div>
+        <div class="scard-sub">Airbnb · 2 חדרי שינה + מטבח</div>
       </div>
-      <div class="lcard-price">₪857</div>
+      <div class="scard-priceWrap">
+        <div class="scard-price">₪801</div>
+        <span class="tag tag-paid">שולם</span>
+      </div>
     </div>
-    <div class="lcard-btns">
-      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=A21+Sofia&checkin=2026-07-01&checkout=2026-07-03&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking</a>
-      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Sofia--Bulgaria/homes?checkin=2026-07-01&checkout=2026-07-03&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
-      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=A21+Dream+Home+Sofia+Bulgaria" target="_blank">📍 מפה</a>
-      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Sofia+center&checkin=2026-07-01&checkout=2026-07-03&group_adults=2&group_children=3&no_rooms=2&nflt=review_score%3D80" target="_blank">🔍 חיפוש כללי</a>
+    <div class="scard-times"><span>🕒 צ׳ק-אין: אחרי 15:00</span><span>🕚 צ׳ק-אאוט: עד 11:00</span></div>
+    <div class="scard-grid">
+      <div class="srow srow-full"><span class="slabel">📍 כתובת</span><a class="sval slink" dir="ltr" href="https://www.google.com/maps/search/?api=1&query=ul.+Bregalnitsa+53+Sofia+Center+Bulgaria" target="_blank">ul. Bregalnitsa 53, Sofia Center, 1303</a></div>
+      <div class="srow"><span class="slabel">🔑 כניסה</span><span class="sval">תיאום מפתחות מול Diana</span></div>
+      <div class="srow"><span class="slabel">👤 מארחת</span><span class="sval">Diana · <a class="slink" dir="ltr" href="tel:+359899211433">+359 89 921 1433</a></span></div>
+      <div class="srow srow-full"><span class="slabel">💳 תשלום</span><span class="sval" style="color:var(--green)">✅ דרך Airbnb (כרטיס)</span></div>
+      <div class="srow"><span class="slabel">🧾 הזמנה</span><span class="sval code" dir="ltr">HMPJEERJ2B</span></div>
     </div>
   </div>
 
-  <!-- פלובדיב -->
-  <div class="lcard" style="border-color:#c8a940;border-width:2px;">
-    <div class="lcard-top">
-      <div class="lcard-info">
-        <div class="lcard-city">🇧🇬 פלובדיב · 3–6/7 · שישי–שבת 🕍 · 3 לילות</div>
-        <div class="lcard-name"><a href="https://www.booking.com/hotel/bg/all-seasons-plovdiv-fast-wi-fi-ac-balconies.he.html?aid=304142&label=gen173nr-10CAsoF0IGZGluYXRpSA5YBGhqiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAL85sPOBsACAdICJDQ3ZTc3MGJlLWFkNTQtNDNlYi1iOTU2LTk2ODhkMDAxOTcwONgCAeACAQ&sid=2029425edaf79673917d60827babc37e&age=15&age=17&age=9&all_sr_blocks=1505253601_422283726_5_0_0&checkin=2026-07-03&checkout=2026-07-05&dest_id=-837298&dest_type=city&dist=0&group_adults=2&group_children=3&no_rooms=2&room1=A%2C9&room2=A%2C15%2C17&sb_price_type=total&type=total&ucfs=1&" target="_blank" style="color:var(--text);text-decoration:none;">🏠 All Seasons Plovdiv — Fast Wi-Fi, AC, Balconies ↗</a> <span class="shab-badge">שש"ת</span></div>
-        <div class="lcard-meta">₪342/לילה · Wi-Fi מהיר · מרפסות · מטבח</div>
+  <!-- 2 · פלובדיב (שבת) -->
+  <div class="scard acc-gold">
+    <div class="scard-head">
+      <div>
+        <div class="scard-when">🇧🇬 פלובדיב · 3–5 ביולי · שישי→ראשון · 2 לילות <span class="badge-shab">שש״ת 🕍</span></div>
+        <div class="scard-title">🏠 All Seasons Plovdiv</div>
+        <div class="scard-sub">Booking · Wi-Fi מהיר · מרפסות · מטבח</div>
       </div>
-      <div class="lcard-price">₪889</div>
+      <div class="scard-priceWrap">
+        <div class="scard-price">€227</div>
+        <span class="tag tag-auto">חיוב אוטומטי</span>
+      </div>
     </div>
-    <div class="lcard-btns">
-      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=All+Seasons+Plovdiv&checkin=2026-07-03&checkout=2026-07-05&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking</a>
-      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Plovdiv--Bulgaria/homes?checkin=2026-07-03&checkout=2026-07-05&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
-      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=All+Seasons+Plovdiv+Apartment" target="_blank">📍 מפה</a>
-      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Plovdiv+old+town&checkin=2026-07-03&checkout=2026-07-05&group_adults=2&group_children=3&no_rooms=2" target="_blank">🔍 חיפוש כללי</a>
+    <div class="scard-times"><span>🕒 צ׳ק-אין: מ-15:00</span><span>🕛 צ׳ק-אאוט: עד 12:00</span></div>
+    <div class="scard-grid">
+      <div class="srow srow-full"><span class="slabel">📍 כתובת</span><a class="sval slink" dir="ltr" href="https://www.google.com/maps/search/?api=1&query=ul.+Drava+7+Plovdiv+Bulgaria" target="_blank">ul. Drava 7, קומה 4, דירה 7, 4003</a></div>
+      <div class="srow srow-full"><span class="slabel">🔑 כניסה</span><span class="sval">כספת מפתחות · קוד <span class="keycode" dir="ltr">7575</span> · מעלית קומה 4 · דירה 7</span></div>
+      <div class="srow"><span class="slabel">📞 מארח</span><span class="sval"><a class="slink" dir="ltr" href="tel:+359876598181">+359 87 659 8181</a></span></div>
+      <div class="srow"><span class="slabel">🧾 הזמנה</span><span class="sval code" dir="ltr">5583971997</span></div>
+      <div class="srow srow-full"><span class="slabel">💳 תשלום</span><span class="sval" style="color:var(--blue)">🔵 €227.40 · חיוב אוטומטי דרך Booking · קוד סודי <span class="code" dir="ltr">9059</span></span></div>
     </div>
   </div>
 
-  <!-- בנסקו -->
-  <div class="lcard">
-    <div class="lcard-top">
-      <div class="lcard-info">
-        <div class="lcard-city">🇧🇬 בנסקו (רחלוג) · 6–8/7 · שני–שלישי · 2 לילות</div>
-        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/982595284052182757?adults=2&check_in=2026-07-05&check_out=2026-07-08&children=3&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏠 דירה מרווחת ונעימה ברזלוג ↗</a></div>
-        <div class="lcard-meta">₪248/לילה · ליד בנסקו · שקט ומרווח · מטבח</div>
+  <!-- 3 · בנסקו / רזלוג -->
+  <div class="scard acc-green">
+    <div class="scard-head">
+      <div>
+        <div class="scard-when">🇧🇬 בנסקו (רזלוג) · 5–8 ביולי · ראשון→רביעי · 3 לילות</div>
+        <div class="scard-title">🏠 דירה מרווחת ונעימה ברזלוג</div>
+        <div class="scard-sub">Airbnb · שקט ומרווח · מטבח · גלאי עשן ✓</div>
       </div>
-      <div class="lcard-price">₪496</div>
+      <div class="scard-priceWrap">
+        <div class="scard-price">₪667</div>
+        <span class="tag tag-paid">שולם 22/5</span>
+      </div>
     </div>
-    <div class="lcard-btns">
-      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=Razlog+Bansko&checkin=2026-07-06&checkout=2026-07-08&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking — רחלוג</a>
-      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Razlog--Bulgaria/homes?checkin=2026-07-06&checkout=2026-07-08&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
-      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=Razlog+Bulgaria" target="_blank">📍 מפה</a>
-      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Bansko+Razlog&checkin=2026-07-06&checkout=2026-07-08&group_adults=2&group_children=3&no_rooms=2" target="_blank">🔍 חיפוש כללי</a>
+    <div class="scard-times"><span>🕓 צ׳ק-אין: אחרי 16:00</span><span>🕚 צ׳ק-אאוט: עד 11:00</span></div>
+    <div class="scard-grid">
+      <div class="srow srow-full"><span class="slabel">📍 כתובת</span><a class="sval slink" dir="ltr" href="https://www.google.com/maps/search/?api=1&query=Razlog+Bansko+Bulgaria" target="_blank">2770 Bansko / Razlog (מדויק מ-Iliyana)</a></div>
+      <div class="srow"><span class="slabel">🔑 כניסה</span><span class="sval">תיאום מול Iliyana</span></div>
+      <div class="srow"><span class="slabel">👤 מארחת</span><span class="sval">Iliyana · <a class="slink" dir="ltr" href="tel:+359878573201">+359 87 857 3201</a></span></div>
+      <div class="srow srow-full"><span class="slabel">💳 תשלום</span><span class="sval" style="color:var(--green)">✅ ₪667.39 · שולם 22/5 (Visa)</span></div>
+      <div class="srow"><span class="slabel">🧾 הזמנה</span><span class="sval code" dir="ltr">HM9P8ESWD5</span></div>
     </div>
   </div>
 
-  <!-- אוהריד -->
-  <div class="lcard" style="border-color:#c8a940;border-width:2px;">
-    <div class="lcard-top">
-      <div class="lcard-info">
-        <div class="lcard-city">🇲🇰 אוהריד · 8–12/7 · רביעי–ראשון 🕍 · 4 לילות</div>
-        <div class="lcard-name"><a href="https://www.booking.com/hotel/mk/pearl-apartments.he.html?aid=304142&label=gen173nr-10CBkoggI46AdIDlgEaGqIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ArSexM4GwAIB0gIkNzViYWRkY2QtN2JmOS00YzQyLTkzODItNmVhMmIzODZlNTIz2AIB4AIB&sid=2029425edaf79673917d60827babc37e&age=15&age=17&age=9&all_sr_blocks=725856202_370352173_3_0_0%2C725856201_370352173_3_0_0&checkin=2026-07-08&checkout=2026-07-12&dest_id=-90608&dest_type=city&dist=0&group_adults=2&group_children=3&no_rooms=1&room1=A%2CA%2C9%2C15%2C17&sb_price_type=total&type=total&ucfs=1&" target="_blank" style="color:var(--text);text-decoration:none;">🏠 Blue Lake Apartments ↗</a> <span class="shab-badge">שש"ת</span></div>
-        <div class="lcard-meta">₪469/לילה · 4 לילות · מטבח · ליד האגם</div>
+  <!-- 4 · אוהריד (שבת + מזומן) -->
+  <div class="scard acc-coral">
+    <div class="scard-head">
+      <div>
+        <div class="scard-when">🇲🇰 אוהריד · 8–12 ביולי · רביעי→ראשון · 4 לילות <span class="badge-shab">שש״ת 🕍</span></div>
+        <div class="scard-title">🏠 Blue Lake Apartments</div>
+        <div class="scard-sub">Booking · ליד האגם · מרפסת · מטבח</div>
       </div>
-      <div class="lcard-price">₪985</div>
+      <div class="scard-priceWrap">
+        <div class="scard-price">€252</div>
+        <span class="tag tag-cash">מזומן 💵</span>
+      </div>
     </div>
-    <div class="lcard-btns">
-      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=Pearl+Apartments+Ohrid&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=2" target="_blank">📘 Booking</a>
-      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Ohrid--North-Macedonia/homes?checkin=2026-07-08&checkout=2026-07-12&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
-      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=Pearl+Apartments+Ohrid+Macedonia" target="_blank">📍 מפה</a>
-      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Ohrid+lake+view&checkin=2026-07-08&checkout=2026-07-12&group_adults=2&group_children=3&no_rooms=2&nflt=review_score%3D80" target="_blank">🔍 חיפוש כללי</a>
+    <div class="scard-times"><span>🕑 צ׳ק-אין: 14:00–23:30</span><span>🕗 צ׳ק-אאוט: 08:00–11:00</span></div>
+    <div class="scard-grid">
+      <div class="srow srow-full"><span class="slabel">📍 כתובת</span><a class="sval slink" dir="ltr" href="https://www.google.com/maps/search/?api=1&query=Kej+Makedonija+66b+Ohrid+North+Macedonia" target="_blank">Kej Makedonija 66b, 6000 Ohrid</a></div>
+      <div class="srow"><span class="slabel">🔑 כניסה</span><span class="sval">קוד דלת — יישלח מהמארח</span></div>
+      <div class="srow"><span class="slabel">📞 מארח</span><span class="sval"><a class="slink" dir="ltr" href="tel:+38977499994">+389 77 499 994</a></span></div>
+      <div class="srow srow-full"><span class="slabel">💳 תשלום</span><span class="sval" style="color:var(--coral)">🟠 €252 · מזומן בלבד בהגעה — אשראי לא מתקבל! · קוד סודי <span class="code" dir="ltr">0177</span></span></div>
+      <div class="srow"><span class="slabel">🧾 הזמנה</span><span class="sval code" dir="ltr">5722222847</span></div>
     </div>
   </div>
 
-  <!-- סקופיה -->
-  <div class="lcard">
-    <div class="lcard-top">
-      <div class="lcard-info">
-        <div class="lcard-city">🇲🇰 סקופיה · 12–13/7 · ראשון · לילה 1</div>
-        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/940284084833501120?adults=2&check_in=2026-07-12&check_out=2026-07-13&children=3&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏨 דירת יוקרה בקומה ה-19 עם בריכה, חדר כושר ונוף לעיר ↗</a></div>
-        <div class="lcard-meta">₪405/לילה · בריכה · חדר כושר · נוף פנורמי · כשר</div>
+  <!-- 5 · סקופיה (מזומן) -->
+  <div class="scard acc-coral">
+    <div class="scard-head">
+      <div>
+        <div class="scard-when">🇲🇰 סקופיה · 12–13 ביולי · ראשון→שני · 1 לילה</div>
+        <div class="scard-title">🏨 דירת יוקרה — מגדל D</div>
+        <div class="scard-sub">Booking · בריכה · חדר כושר · נוף פנורמי</div>
       </div>
-      <div class="lcard-price">₪405</div>
+      <div class="scard-priceWrap">
+        <div class="scard-price">€104</div>
+        <span class="tag tag-cash">מזומן 💵</span>
+      </div>
     </div>
-    <div class="lcard-btns">
-      <a class="lbtn lbtn-book" href="https://www.booking.com/searchresults.he.html?ss=19th+floor+luxury+Skopje+kosher&checkin=2026-07-12&checkout=2026-07-13&group_adults=2&group_children=3&no_rooms=1" target="_blank">📘 Booking</a>
-      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Skopje--North-Macedonia/homes?checkin=2026-07-12&checkout=2026-07-13&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
-      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=19th+floor+luxury+apartment+Skopje" target="_blank">📍 מפה</a>
-      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Skopje+center&checkin=2026-07-12&checkout=2026-07-13&group_adults=2&group_children=3&no_rooms=1" target="_blank">🔍 חיפוש כללי</a>
+    <div class="scard-times"><span>🕑 צ׳ק-אין: 14:00–23:00</span><span>🕙 צ׳ק-אאוט: עד 10:00</span></div>
+    <div class="scard-grid">
+      <div class="srow srow-full"><span class="slabel">📍 כתובת</span><a class="sval slink" dir="ltr" href="https://www.google.com/maps/search/?api=1&query=31+Boulevard+Serbia+D+tower+Skopje" target="_blank">31 Boulevard Serbia, D tower, 1000 Skopje</a></div>
+      <div class="srow"><span class="slabel">🔑 כניסה</span><span class="sval">נציג יפגוש אתכם בכניסה</span></div>
+      <div class="srow"><span class="slabel">📞 מארח</span><span class="sval"><a class="slink" dir="ltr" href="tel:+38975760142">+389 75 760 142</a></span></div>
+      <div class="srow srow-full"><span class="slabel">💳 תשלום</span><span class="sval" style="color:var(--coral)">🟠 €103.60 · מזומן בלבד בהגעה — אשראי לא מתקבל! · קוד סודי <span class="code" dir="ltr">3186</span></span></div>
+      <div class="srow"><span class="slabel">🧾 הזמנה</span><span class="sval code" dir="ltr">5897739500</span></div>
     </div>
   </div>
 
-  <!-- סופיה 2 -->
-  <div class="lcard">
-    <div class="lcard-top">
-      <div class="lcard-info">
-        <div class="lcard-city">🇧🇬 סופיה · 13–14/7 · שני · לילה 1 לפני טיסה</div>
-        <div class="lcard-name"><a href="https://he.airbnb.com/rooms/1346543086153534143?adults=2&check_in=2026-07-13&check_out=2026-07-14&children=3&location=Sofia%2C%20Bulgaria&search_mode=regular_search" target="_blank" style="color:var(--text);text-decoration:none;">🏨 The Boulevard Luxury Apartment 2 ↗</a></div>
-        <div class="lcard-meta">₪382/לילה · בולוורד ראשי · ליד שד"ת · מאובזר</div>
+  <!-- 6 · סופיה (סיום) -->
+  <div class="scard acc-blue">
+    <div class="scard-head">
+      <div>
+        <div class="scard-when">🇧🇬 סופיה · 13–14 ביולי · שני→שלישי · 1 לילה · לפני הטיסה</div>
+        <div class="scard-title">🏨 The Boulevard Luxury Apartment 2</div>
+        <div class="scard-sub">Airbnb · בולוורד ראשי · ליד שד״ת · מאובזר</div>
       </div>
-      <div class="lcard-price">₪382</div>
+      <div class="scard-priceWrap">
+        <div class="scard-price">₪365</div>
+        <span class="tag tag-auto">חיוב 30/6</span>
+      </div>
     </div>
-    <div class="lcard-btns">
-      <a class="lbtn lbtn-book" href="https://www.booking.com/hotel/bg/the-boulevard-luxury-apartment-3.he.html?checkin=2026-07-13&checkout=2026-07-14&group_adults=2&group_children=3" target="_blank">📘 Booking</a>
-      <a class="lbtn lbtn-airbnb" href="https://www.airbnb.com/s/Sofia--Bulgaria/homes?checkin=2026-07-13&checkout=2026-07-14&adults=2&children=3&min_bedrooms=2" target="_blank">🏠 Airbnb</a>
-      <a class="lbtn lbtn-map" href="https://www.google.com/maps/search/?api=1&query=Boulevard+Luxury+Apartment+Sofia+Bulgaria" target="_blank">📍 מפה</a>
-      <a class="lbtn lbtn-search" href="https://www.booking.com/searchresults.he.html?ss=Sofia+airport+hotel&checkin=2026-07-13&checkout=2026-07-14&group_adults=2&group_children=3&no_rooms=1" target="_blank">🔍 חיפוש ליד שד"ת</a>
+    <div class="scard-times"><span>🕑 צ׳ק-אין: אחרי 14:00</span><span>🕛 צ׳ק-אאוט: עד 12:00</span></div>
+    <div class="scard-grid">
+      <div class="srow srow-full"><span class="slabel">📍 כתובת</span><a class="sval slink" dir="ltr" href="https://www.google.com/maps/search/?api=1&query=Kapitan+Raycho+Nikolov+12+Sofia+Bulgaria" target="_blank">ul. Kapitan Raycho Nikolov 12, 1517 Sofia</a></div>
+      <div class="srow"><span class="slabel">🔑 כניסה</span><span class="sval">צ׳ק-אין עצמי · תיבת מנעול</span></div>
+      <div class="srow"><span class="slabel">👤 מארחת</span><span class="sval">Maria · <a class="slink" dir="ltr" href="tel:+359897805683">+359 89 780 5683</a></span></div>
+      <div class="srow srow-full"><span class="slabel">💳 תשלום</span><span class="sval" style="color:var(--blue)">🔵 ₪364.63 · Visa · חיוב מתוכנן 30/6 · ביטול חינם עד 8/7</span></div>
+      <div class="srow"><span class="slabel">🧾 הזמנה</span><span class="sval code" dir="ltr">HMFDNZBJDC</span></div>
     </div>
   </div>
 
-  <!-- סיכום -->
-  <div style="background:linear-gradient(135deg,#1a3040,#2d4a28);border-radius:var(--r);padding:16px;color:#f5f0e8;">
-    <div style="font-size:13px;font-weight:700;color:#e8c96a;margin-bottom:10px;">📊 סיכום לינה</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:12px;">
-      <div>סופיה 1–2/7 (2 לילות)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪857</div>
-      <div>פלובדיב 3–5/7 (3 לילות 🕍)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪1,027</div>
-      <div>בנסקו/רחלוג 6–7/7 (2 לילות)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪496</div>
-      <div>אוהריד 8–12/7 (4 לילות 🕍)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪985</div>
-      <div>סקופיה 12/7 (לילה 1)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪405</div>
-      <div>סופיה 13/7 (לילה 1)</div><div style="text-align:left;color:#e8c96a;font-weight:700;">₪382</div>
-      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:6px;font-weight:700;">סה"כ · 13 לילות</div>
-      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:6px;text-align:left;font-weight:700;color:#e8c96a;font-size:16px;">₪4,923</div>
-    </div>
-    <div style="margin-top:8px;font-size:10px;color:rgba(255,255,255,.5);">ממוצע ₪359/לילה · שתי שש"ת מובנות</div>
-  </div>
 </div>
 
 <div id="carrent" class="tab">
@@ -983,10 +1028,11 @@ yuvalgiat21@gmail.com
     <div id="cv-out" style="background:rgba(0,0,0,.2);border-radius:8px;padding:12px 14px;"></div>
     <div style="font-size:11px;color:#bfe3f5;margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
       שערים (ניתן לעדכון לשער היום):
-      €1 = <input id="cv-eurils" type="number" step="0.01" value="3.60" oninput="convCurrency()" style="border:none;border-radius:6px;padding:6px 8px;font-family:Heebo,sans-serif;font-size:14px;text-align:center;width:64px;padding:3px 6px;font-size:12px;"> ₪ ·
+      €1 = <input id="cv-eurils" type="number" step="0.01" value="3.39" oninput="convCurrency()" style="border:none;border-radius:6px;padding:6px 8px;font-family:Heebo,sans-serif;font-size:14px;text-align:center;width:64px;padding:3px 6px;font-size:12px;"> ₪ ·
       €1 = <input id="cv-eurmkd" type="number" step="0.1" value="61.5" oninput="convCurrency()" style="border:none;border-radius:6px;padding:6px 8px;font-family:Heebo,sans-serif;font-size:14px;text-align:center;width:64px;padding:3px 6px;font-size:12px;"> דינר
     </div>
-    <div style="font-size:10px;color:rgba(255,255,255,.55);margin-top:6px;">בולגריה משתמשת ביורו (מ-2026). הדינר המקדוני צמוד ליורו (~61.5).</div>
+    <div id="fx-status" style="font-size:10px;color:#bfe3f5;margin-top:7px;font-weight:600;">🔄 טוען שער עדכני…</div>
+    <div style="font-size:10px;color:rgba(255,255,255,.55);margin-top:6px;">השער מתעדכן אוטומטית מדי יום (מקור: ECB/שוק). בולגריה ביורו מ-2026. הדינר המקדוני צמוד ליורו (~61.5).</div>
   </div>
 
   <!-- ── FIXED COSTS SUMMARY ── -->
@@ -1000,7 +1046,7 @@ yuvalgiat21@gmail.com
       </div>
       <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:10px;">
         <div style="font-size:10px;color:rgba(255,255,255,.6);margin-bottom:4px;">🏨 לינה (תכנון)</div>
-        <div style="font-size:15px;font-weight:700;color:#e8c96a;" id="fixed-hotel-disp2">4,923 ₪</div>
+        <div style="font-size:15px;font-weight:700;color:#e8c96a;" id="fixed-hotel-disp2">3,815 ₪</div>
         <div style="font-size:9px;color:rgba(255,255,255,.5);">13 לילות · 6 עצירות</div>
       </div>
       <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:10px;">
@@ -1012,9 +1058,9 @@ yuvalgiat21@gmail.com
     <div style="background:rgba(232,201,106,.15);border:1px solid rgba(232,201,106,.4);border-radius:8px;padding:10px;display:flex;align-items:center;justify-content:space-between;">
       <div>
         <div style="font-size:11px;color:rgba(255,255,255,.65);">סה"כ קבוע (טיסות+לינה+רכב)</div>
-        <div id="fixed-ins-note" style="font-size:11px;color:rgba(255,255,255,.45);">+ ביטוח נסיעות 1,055 ₪</div>
+        <div id="fixed-ins-note" style="font-size:11px;color:rgba(255,255,255,.45);">+ ביטוח נסיעות 1,055 ₪ · eSIM 540 ₪</div>
       </div>
-      <div style="font-size:22px;font-weight:700;color:#e8c96a;" id="fixed-grand-disp">15,371 ₪</div>
+      <div style="font-size:22px;font-weight:700;color:#e8c96a;" id="fixed-grand-disp">18,320 ₪</div>
     </div>
   </div>
 
@@ -1279,20 +1325,21 @@ yuvalgiat21@gmail.com
 <!-- Hidden fixed-cost inputs for recalc() -->
 <div id="hidden-fixed-inputs" style="display:none">
   <input id="fi-flights"   type="number" value="7500">
-  <input id="fi-h-sofia"   type="number" value="857">
-  <input id="fi-h-plovdiv" type="number" value="889">
-  <input id="fi-h-bansko"  type="number" value="496">
-  <input id="fi-h-ohrid"   type="number" value="1877">
-  <input id="fi-h-skopje"  type="number" value="405">
-  <input id="fi-h-last"    type="number" value="382">
+  <input id="fi-h-sofia"   type="number" value="801">
+  <input id="fi-h-plovdiv" type="number" value="773">
+  <input id="fi-h-bansko"  type="number" value="667">
+  <input id="fi-h-ohrid"   type="number" value="857">
+  <input id="fi-h-skopje"  type="number" value="352">
+  <input id="fi-h-last"    type="number" value="365">
   <input id="fi-car"       type="number" value="5410">
   <input id="fi-insurance" type="number" value="1055">
-  <input id="lo-sofia"     type="number" value="857">
-  <input id="lo-plovdiv"   type="number" value="889">
-  <input id="lo-bansko"    type="number" value="496">
-  <input id="lo-ohrid"     type="number" value="985">
-  <input id="lo-skopje"    type="number" value="405">
-  <input id="lo-last"      type="number" value="382">
+  <input id="fi-esim"      type="number" value="540">
+  <input id="lo-sofia"     type="number" value="801">
+  <input id="lo-plovdiv"   type="number" value="773">
+  <input id="lo-bansko"    type="number" value="667">
+  <input id="lo-ohrid"     type="number" value="857">
+  <input id="lo-skopje"    type="number" value="352">
+  <input id="lo-last"      type="number" value="365">
   <input id="cr-rental"    type="number" value="5410">
   <input id="cr-insurance" type="number" value="0">
 </div>
@@ -2121,8 +2168,9 @@ function recalc() {
     hotel:   hotelTotal,
     car:     parseFloat(document.getElementById('fi-car').value)||0,
     ins:     parseFloat(document.getElementById('fi-insurance').value)||0,
+    esim:    parseFloat(document.getElementById('fi-esim')?.value)||0,
   };
-  const fixedAct=fixed.flights+fixed.hotel+fixed.car+fixed.ins;
+  const fixedAct=fixed.flights+fixed.hotel+fixed.car+fixed.ins+fixed.esim;
 
   // Collect variable inputs
   const inp=document.querySelectorAll('#budget input[data-cat]');
@@ -2210,10 +2258,11 @@ function recalc() {
   const hotelTot2 = (parseFloat(document.getElementById('fi-h-sofia')?.value)||0)+(parseFloat(document.getElementById('fi-h-plovdiv')?.value)||0)+(parseFloat(document.getElementById('fi-h-bansko')?.value)||0)+(parseFloat(document.getElementById('fi-h-ohrid')?.value)||0)+(parseFloat(document.getElementById('fi-h-skopje')?.value)||0)+(parseFloat(document.getElementById('fi-h-last')?.value)||0);
   const carOnly2  = (parseFloat(document.getElementById('fi-car')?.value)||0);
   const insOnly2  = (parseFloat(document.getElementById('fi-insurance')?.value)||0);
+  const esimOnly2 = (parseFloat(document.getElementById('fi-esim')?.value)||0);
   safeT('fixed-hotel-disp2', hotelTot2.toLocaleString()+' ₪');
   safeT('fixed-car-disp2',   carOnly2.toLocaleString()+' ₪');
-  safeT('fixed-ins-note',    '+ ביטוח נסיעות '+insOnly2.toLocaleString()+' ₪');
-  safeT('fixed-grand-disp',  (7500+hotelTot2+carOnly2+insOnly2).toLocaleString()+' ₪');
+  safeT('fixed-ins-note',    '+ ביטוח נסיעות '+insOnly2.toLocaleString()+' ₪ · eSIM '+esimOnly2.toLocaleString()+' ₪');
+  safeT('fixed-grand-disp',  (7500+hotelTot2+carOnly2+insOnly2+esimOnly2).toLocaleString()+' ₪');
   safeT('bov-act',grandAct!==null?grandAct.toLocaleString()+'₪':'—');
   safeT('bov-remain',grandAct!==null?(grandPlan-grandAct)+'₪':'—');
   const diffEl=document.getElementById('bov-diff');
@@ -2412,6 +2461,38 @@ function convCurrency(){
   if(box) box.innerHTML='<div style="display:flex;justify-content:space-between;font-size:15px;font-weight:700;gap:8px;"><span>\u20ac '+f(eur)+'</span><span>\u20aa '+f(ils)+'</span><span>'+f(mkd)+' MKD</span></div>';
 }
 
+function fetchFxRate(){
+  var statusEl=document.getElementById("fx-status");
+  var ilsEl=document.getElementById("cv-eurils");
+  var mkdEl=document.getElementById("cv-eurmkd");
+  if(!ilsEl) return;
+  // 1) apply last saved rate immediately (works offline)
+  try{
+    var c=JSON.parse(localStorage.getItem("fxRate")||"null");
+    if(c && c.ils){
+      ilsEl.value=c.ils; if(c.mkd) mkdEl.value=c.mkd;
+      if(statusEl) statusEl.textContent="🔄 שער אחרון שנשמר · "+c.date;
+      convCurrency();
+    }
+  }catch(e){}
+  // 2) refresh from the network (updates daily)
+  fetch("https://open.er-api.com/v6/latest/EUR")
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(!d || d.result!=="success" || !d.rates || !d.rates.ILS){ throw new Error("bad"); }
+      var ils=Math.round(d.rates.ILS*100)/100;
+      var mkd=d.rates.MKD ? Math.round(d.rates.MKD*10)/10 : (parseFloat(mkdEl.value)||61.5);
+      ilsEl.value=ils; mkdEl.value=mkd;
+      var dt=(d.time_last_update_utc||"").slice(5,16);
+      if(statusEl) statusEl.textContent="✅ שער עדכני · €1 = ₪"+ils+" · "+dt;
+      try{ localStorage.setItem("fxRate", JSON.stringify({ils:ils,mkd:mkd,date:dt})); }catch(e){}
+      convCurrency();
+    })
+    .catch(function(){
+      if(statusEl && !localStorage.getItem("fxRate")){ statusEl.textContent="⚠️ אין כרגע אינטרנט — שער ידני (ניתן לעדכן למעלה)"; }
+    });
+}
+
 function copyCancelEmail(btn){
   var t=document.getElementById('cancel-email-full');
   if(!t) return;
@@ -2487,6 +2568,7 @@ buildChecklist();
 buildGear();
 addAudioButtons();
 convCurrency();
+fetchFxRate();
 
 
 
