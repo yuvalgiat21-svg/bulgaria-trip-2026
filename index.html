@@ -189,6 +189,16 @@ body{background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;font-
 .gear-note{font-size:10px;color:var(--muted);margin-top:1px;}
 .gear-progress{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:14px;}
 .gear-progress-fill{height:100%;background:var(--green);border-radius:3px;transition:width .3s;}
+.gear-item{align-items:center;cursor:default;}
+#gear-root .gear-grid{grid-template-columns:1fr;}
+.gear-input{flex:1;min-width:0;border:none;background:transparent;font-family:inherit;font-size:12px;font-weight:500;color:var(--text);padding:3px 5px;border-radius:5px;}
+.gear-input:focus{outline:none;background:#fff6d6;}
+.gear-del{flex-shrink:0;background:none;border:none;cursor:pointer;font-size:13px;opacity:.45;padding:2px 5px;}
+.gear-del:hover{opacity:1;}
+.gear-add{margin-top:8px;width:100%;background:var(--bg3);border:1px dashed var(--border);border-radius:8px;padding:9px;font-family:inherit;font-size:12px;color:var(--muted);cursor:pointer;font-weight:600;}
+.gear-add:hover{background:#eceae4;color:var(--text);}
+.gear-reset{background:none;border:1px solid var(--border);border-radius:8px;padding:7px 16px;font-family:inherit;font-size:12px;color:var(--muted);cursor:pointer;}
+.gear-reset:hover{border-color:var(--coral);color:var(--coral);}
 
 /* ===== UNIFIED BUDGET ===== */
 .budget-overview{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:16px;}
@@ -1316,13 +1326,11 @@ yuvalgiat21@gmail.com
 <!-- ===== GEAR ===== -->
 <div id="gear" class="tab">
   <div class="sec">🎒 ציוד לטיול</div>
-  <div class="ibox">לחצו על פריט לסימון · 14 ימים · 5 נפשות · קיץ בלקני</div>
+  <div class="ibox">סמן ✓ · לחץ על טקסט כדי לערוך · ➕ הוסף · 🗑 מחק — הכול נשמר אוטומטית במכשיר שלך</div>
   <div style="text-align:center;margin-bottom:5px;"><span id="gear-stat" style="font-size:12px;color:var(--muted);">0 / 0 פריטים</span></div>
   <div class="gear-progress"><div class="gear-progress-fill" id="gear-prog" style="width:0%"></div></div>
-  <div id="gear-suitcase-sec" class="gear-section"></div>
-  <div id="gear-trolley-sec" class="gear-section"></div>
-  <div id="gear-kids-sec" class="gear-section"></div>
-  <div id="gear-docs-sec" class="gear-section"></div>
+  <div id="gear-root"></div>
+  <div style="text-align:center;margin-top:16px;"><button onclick="gearReset()" class="gear-reset">↺ אפס לרשימת ברירת המחדל</button></div>
 </div>
 
 <!-- Hidden fixed-cost inputs for recalc() -->
@@ -2335,6 +2343,7 @@ function buildChecklist(){
       {t:"שובר רכב Top Rent — מודפס/בטלפון"},
       {t:"אישורי לינה"},
       {t:"פוליסת ביטוח (זמינה בדשבורד)"},
+      {t:"לקבל מהראל/קורמן אישור בכתב לכיסוי טרקטורון בשבילים"},
     ]},
     {title:"📱 לפני היציאה",items:[
       {t:"Google Maps Offline: בולגריה + מקדוניה"},
@@ -2370,81 +2379,106 @@ function buildChecklist(){
 // GEAR
 // ══════════════════════════════════════════════
 function buildGear(){
-  const SECTIONS=[
-    {id:'gear-suitcase-sec',title:'🧳 מזוודה גדולה',bg:'linear-gradient(135deg,#1a3040,#2d4a28)',items:[
-      {n:'חולצות קצרות',note:'5–6 לכל אחד'},
-      {n:'מכנסיים קצרים',note:'3–4 זוגות'},
-      {n:'מכנסיים ארוכים',note:'לכנסיות ומנזרים'},
-      {n:'בגדי ים × 2 לכל אחד'},
-      {n:'חולצות ארוכות / קרדיגן',note:'לערבים בהרים'},
-      {n:'נעלי הליכה',note:'חובה לשבעת האגמים'},
-      {n:'כפכפים / סנדלים',note:'לחוף ולעיר'},
-      {n:'כובעי שמש',note:'לכל 5'},
-      {n:'מגבות קטנות לחוף'},
-      {n:'תרמיל קטן ליום'},
-    ]},
-    {id:'gear-trolley-sec',title:'🎒 טרולי / תיק יד',bg:'linear-gradient(135deg,#2d3a1a,#1a3028)',items:[
-      {n:'טלפונים + כבלי טעינה',note:'לכל 5'},
-      {n:'מטען נייד (פאוורבנק)'},
-      {n:'קרם הגנה SPF 50+'},
-      {n:'תרסיס נגד יתושים'},
-      {n:'תרופות בסיסיות',note:'אופטלגין, אנטי-ביוטיקה, בטן'},
-      {n:'מזון GF לאסתי לנסיעות',note:'קרקרים, חטיפים'},
-      {n:'מגבונים / ג\'ל ידיים'},
-      {n:'מצלמה + כרטיסי זיכרון'},
-      {n:'אוזניות לילדים'},
-      {n:'ספר / קינדל'},
-    ]},
-    {id:'gear-kids-sec',title:'👧 לילדים',bg:'linear-gradient(135deg,#4a2060,#1a2070)',items:[
-      {n:'משחקים לנסיעה',note:'קלפים, משחקי מסע'},
-      {n:'כרית נסיעה'},
-      {n:'נעלי מים לאגם'},
-      {n:'ציוד חוף — דלי + שולה',note:'לנופר'},
-      {n:'ספר צביעה / עפרונות'},
-      {n:'טיפות אוזניים לאחר שחייה'},
-    ]},
-    {id:'gear-docs-sec',title:'📄 מסמכים',bg:'linear-gradient(135deg,#6a1a1a,#3a1a40)',items:[
-      {n:'דרכונים × 5',note:'תוקף לפחות 6 חודשים!'},
-      {n:'אישורי לינה מודפסים'},
-      {n:'ביטוח נסיעות',note:'כולל ספורט + רכב'},
-      {n:'חוזה השכרת רכב',note:'מאשר כניסה למקדוניה'},
-      {n:'כרטיסי טיסה',note:'אל על TLV–SOF'},
-      {n:'מזומן BGN + MKD'},
-      {n:'SIM אירופאי'},
-      {n:'כרטיס "ללא גלוטן" לאסתי'},
-    ]},
-  ];
-  SECTIONS.forEach(sec=>{
-    const wrap=document.getElementById(sec.id);
-    wrap.innerHTML=`<div class="gear-title" style="background:${sec.bg};color:#f5f0e8;">${sec.title}</div><div class="gear-grid" id="${sec.id}-grid"></div>`;
-    const grid=wrap.querySelector('.gear-grid');
-    sec.items.forEach((item,i)=>{
-      const div=document.createElement('div'); div.className='gear-item';
-      div.innerHTML=`<div class="gear-cb" id="gcb-${sec.id}-${i}"></div><div><div class="gear-name">${item.n}</div>${item.note?`<div class="gear-note">${item.note}</div>`:''}</div>`;
-      div.onclick=()=>{
-        const cb=document.getElementById(`gcb-${sec.id}-${i}`);
-        cb.classList.toggle('chk');
-        div.querySelector('.gear-name').style.textDecoration=cb.classList.contains('chk')?'line-through':'';
-        div.querySelector('.gear-name').style.opacity=cb.classList.contains('chk')?'0.45':'';
-        updateGearProgress();
-      };
-      grid.appendChild(div);
-    });
+  if(!window.gearState) window.gearState = gearLoad();
+  const root=document.getElementById("gear-root");
+  if(!root) return;
+  root.innerHTML="";
+  const bgs=["linear-gradient(135deg,#1a3040,#2d4a28)","linear-gradient(135deg,#2d3a1a,#1a3028)","linear-gradient(135deg,#4a2060,#1a2070)"];
+  window.gearState.sections.forEach((sec,si)=>{
+    const card=document.createElement("div");
+    card.className="gear-section"; card.id="gs"+si;
+    const head=document.createElement("div");
+    head.className="gear-title";
+    head.style.background=bgs[si%bgs.length]; head.style.color="#f5f0e8";
+    head.textContent=sec.title;
+    card.appendChild(head);
+    const grid=document.createElement("div");
+    grid.className="gear-grid";
+    sec.items.forEach((item,ii)=>{ grid.appendChild(makeGearRow(si,ii)); });
+    card.appendChild(grid);
+    const addBtn=document.createElement("button");
+    addBtn.className="gear-add"; addBtn.textContent="➕ הוסף פריט";
+    addBtn.onclick=()=>{
+      window.gearState.sections[si].items.push({t:"",c:false});
+      gearSave(); buildGear();
+      const ins=document.querySelectorAll("#gs"+si+" .gear-input");
+      if(ins.length) ins[ins.length-1].focus();
+    };
+    card.appendChild(addBtn);
+    root.appendChild(card);
   });
   updateGearProgress();
 }
 
-function updateGearProgress(){
-  const total=document.querySelectorAll('.gear-cb').length;
-  const done=document.querySelectorAll('.gear-cb.chk').length;
-  const pct=total?Math.round(done/total*100):0;
-  const p=document.getElementById('gear-prog'); if(p)p.style.width=pct+'%';
-  const s=document.getElementById('gear-stat'); if(s)s.textContent=`${done} / ${total} פריטים מוכנים (${pct}%)`;
+function makeGearRow(si,ii){
+  const item=window.gearState.sections[si].items[ii];
+  const row=document.createElement("div"); row.className="gear-item";
+  const cb=document.createElement("div"); cb.className="gear-cb"+(item.c?" chk":"");
+  const inp=document.createElement("input"); inp.type="text"; inp.className="gear-input";
+  inp.value=item.t||""; applyGearChk(inp,item.c);
+  inp.oninput=()=>{ item.t=inp.value; gearSave(); };
+  cb.onclick=()=>{ item.c=!item.c; cb.classList.toggle("chk"); applyGearChk(inp,item.c); gearSave(); updateGearProgress(); };
+  const del=document.createElement("button"); del.className="gear-del"; del.textContent="🗑"; del.title="מחק";
+  del.onclick=()=>{ if(confirm("למחוק את הפריט?")){ window.gearState.sections[si].items.splice(ii,1); gearSave(); buildGear(); } };
+  row.appendChild(cb); row.appendChild(inp); row.appendChild(del);
+  return row;
 }
 
-// ══════════════════════════════════════════════
-// UI HELPERS
-// ══════════════════════════════════════════════
+function applyGearChk(inp,c){ inp.style.textDecoration=c?"line-through":""; inp.style.opacity=c?"0.45":""; }
+
+function gearLoad(){
+  try{ const s=localStorage.getItem("gearList"); if(s){ const d=JSON.parse(s); if(d&&d.sections) return d; } }catch(e){}
+  return JSON.parse(JSON.stringify(GEAR_SEED));
+}
+function gearSave(){ try{ localStorage.setItem("gearList", JSON.stringify(window.gearState)); }catch(e){} }
+function gearReset(){
+  if(confirm("לאפס את רשימת הציוד לברירת המחדל? כל השינויים שלך יימחקו.")){
+    window.gearState=JSON.parse(JSON.stringify(GEAR_SEED)); gearSave(); buildGear();
+  }
+}
+
+function updateGearProgress(){
+  let total=0,done=0;
+  if(window.gearState) window.gearState.sections.forEach(s=>s.items.forEach(it=>{ total++; if(it.c)done++; }));
+  const pct=total?Math.round(done/total*100):0;
+  const p=document.getElementById("gear-prog"); if(p)p.style.width=pct+"%";
+  const s=document.getElementById("gear-stat"); if(s)s.textContent=done+" / "+total+" פריטים מוכנים ("+pct+"%)";
+}
+
+const GEAR_SEED={v:1,sections:[
+  {id:"suitcase",title:"🧳 מזוודה",items:[
+    {t:"חולצות קצרות ×6"},{t:"חולצות ארוכות ×3"},{t:"ג'ינסים/מכנסיים ארוכים ×6"},
+    {t:"3 חולצות ריצה"},{t:"3 מכנסי ריצה + טייצים"},{t:"בגד ים ×2"},
+    {t:"פיג'מה קצרה וארוכה"},{t:"תחתונים ×6"},{t:"גרביים רגילות ×3"},
+    {t:"גרביים יציאה ×2"},{t:"גרבי ריצה ×3"},
+    {t:"שכבה חמה (פליז/קפוצ'ון)"},{t:"כובע מצחייה"},{t:"חולצה מכופתרת לשבת"},
+    {t:"נעלי ספורט"},{t:"נעליים אלגנטיות"},{t:"בירקנשטוק"},
+    {t:"תיק רחצה: משחה+מברשת, בושם, קרם רחצה, דאודורנט"},
+    {t:"מכונת תספורת"},{t:"גוזז ציפורניים"},{t:"מגבת"},
+    {t:"קרם הגנה SPF"},{t:"דוחה יתושים"},
+    {t:"כדורי אלרגיה ונרבן + פילטרים למכשירי שמיעה"},{t:"מגבונים"},
+    {t:"ערכת עזרה ראשונה (משכך, בטן, פלסטרים)"},
+    {t:"קפסולות/אבקת כביסה"},{t:"שקית לבגדים מלוכלכים"}
+  ]},
+  {id:"backpack",title:"🎒 תיק גב",items:[
+    {t:"לפטופ + מטען"},{t:"אייפד"},{t:"מטען נייד"},{t:"מפצל שקעים"},
+    {t:"מכשירי שמיעה + קייס + מטען"},
+    {t:"כרטיסי טיסה מודפסים"},{t:"אישורי לינה והשכרת רכב מודפסים"},{t:"ביטוח נסיעות מודפס"},
+    {t:"ספר קריאה ×2"},{t:"משקפי שמש"},{t:"מחברת ועט"},{t:"כרית נסיעה"},
+    {t:"מתאם שקע אירופאי (Type C/F)"},
+    {t:"רישיון נהיגה + רישיון בינלאומי (IDP)"},{t:"דרכונים ×5"},
+    {t:"תפילין"},{t:"כיפה רזרבית · ציצית · סידור/תהילים"},
+    {t:"€356 מזומן למקדוניה + כרטיס Laya"},
+    {t:"חטיפים כשרים"},{t:"בקבוק מים רב-פעמי"}
+  ]},
+  {id:"onme",title:"👤 עליי",items:[
+    {t:"ארנק"},{t:"דרכון"},{t:"טלפון"},{t:"אוזניות"},
+    {t:"ג'ינס"},{t:"חולצה"},{t:"ג'קט"},
+    {t:"כיפה"},{t:"שעון"},{t:"סוללה ניידת קטנה"}
+  ]}
+]};
+
+// ===== UI HELPERS =====
 function ST(id,btn){
   document.querySelectorAll('.tab').forEach(c=>c.classList.remove('active'));
   document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
